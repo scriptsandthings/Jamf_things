@@ -2,20 +2,21 @@
 # Greg Knackstedt
 # https://github.com/ShitttyScripts/Shittty_macOS
 # ShitttyScripts(AT)gmail.com
-# 2.9.2020
-# v1.0
+# 2.13.2020
+# v1.1
 #
 # macOS management scripts
 # Targeted for macOS 10.12-10.15
 #
-# Check that prestage files exist
 # Install system config profile for jump network
+# Verify profile is installed
 # Verify system is connected to jump network SSID
-# Remove current jamf binary/profiles
-# Force close self service if open.
+# Remove current jamf binary
+# Verify jamf binary was removed/system has been unenrolled
 # Run QuickAdd.pkg to enroll in new Jamf instance
+# Verify jamf binary present and connection to new JSS sucessfull
 #
-ScriptName="JamfNACMigration.sh"
+ScriptName="JamfMigration.sh"
 #
 ################### Jamf Script Parameters ###################
 #
@@ -35,17 +36,13 @@ PKGName="$6"
 # Set with Jamf Script Parameter #7
 JumpNetworkName="$7"
 #
-# Name of jump network between enrollment
-# Set with Jamf Script Parameter #8
-JumpNetworkName="$8"
-#
 # Number of seconds to wait between checking if system is connected to $JumpNetworkName SSID
-# Set with Jamf Script Parameter #9
-SSIDWaitSeconds="$9"
+# Set with Jamf Script Parameter #8
+SSIDWaitSeconds="$8"
 #
 # Number of times to loop checking for the $JumpNetworkName SSID before exiting script
-# Set with Jamf Script Parameter #10
-SSIDTryCount="$10"
+# Set with Jamf Script Parameter #9
+SSIDTryCount="$9"
 #
 ################### Script Path Paramaters ###################
 #
@@ -60,6 +57,7 @@ PKGFullPath="$PKGPath"/"$PKGName"
 # Path to jamf Binary
 JamfBinary="/usr/local/jamf/bin/jamf"
 #
+################### LOGGING ###################
 ################### Log Parameters ###################
 #
 # Current date and time to seconds
@@ -116,7 +114,7 @@ function LogJamfParams
 	}
 function JSSScriptLoggingEnabled
 	{ # Re-direct logging to the JSS
-		JssLoggingEnabled "${1}"
+		LogJamfParams "${1}"
 		exec 1>&3 2>&4
 		echo >&1 ${1}
 	}
@@ -240,6 +238,9 @@ function SetARDFields
 		SetARD2JamfBinaryVersion
 		SetARD3SSID
 		SetARD4TopConsoleUser
+		echo "###############################"
+		echo "ARD fields updated."
+		echo "###############################"
 	}
 #
 ################### WiFi Network Service - 1st Priority - Functions ###################
@@ -279,16 +280,14 @@ function SetWiFiPriorityNetworkService
 		sleep 2
 	}
 #
-################### Jamf10Migration Functions ###################
+################### Jamf Migration Functions ###################
 #
 # Update ARD computer info fields 1-4.
 # Verify that staging files exist, if not throw an error and exit.
 function VerifyPreStage
 	{
 		echo "###############################"
-		echo "Updating ARD computer info fields 1-4."
-		SetARDFields
-		echo "ARD fields updated."
+		echo "Verifying $PKGFullPath and $ProfileFullPath are on the system."
 		echo "###############################"
 		if [ -f "$ProfileFullPath" && -f "$PKGFullPath" ];
 			then
@@ -296,6 +295,8 @@ function VerifyPreStage
 				echo "$PKGFullPath and $ProfileFullPath are NOT present on the system."
 				echo "No changes have been made to the system."
 				echo "Exiting safely..."
+				echo "###############################"
+				echo "Log saved to: $LogFile"
 				echo "###############################"
    				exit 127
    			else
@@ -327,7 +328,8 @@ function VerifiySSIDConnected
 				echo "###############################"
 				echo "Currently connected to the $SSID network."
 				echo "Verifying system has connected to the $JumpNetworkName network before proceeding."
-				echo "Giving the system 10 seconds to establish a connection."
+				echo "###############################"
+				echo "Giving the system $SSIDWaitSeconds seconds to establish a connection."
 				echo "###############################"
 				while [ "$SSID" != "$JumpNetworkName" ] && [ "$SSIDCount" -ne "0" ];
 					do
@@ -340,7 +342,6 @@ function VerifiySSIDConnected
 						echo "###############################"
 						echo "Checking again in $SSIDWaitSeconds seconds."
 						echo "###############################"
-						echo "###############################"
 						IdentifyCurrentlyConnectedSSID
 						SSIDCount=$((SSIDCount=SSIDCount-1))
 						if [ "$SSID" = "$JumpNetworkName" ];
@@ -349,7 +350,6 @@ function VerifiySSIDConnected
 								echo "System is currently connected to the $SSID network."
 								echo "Proceeding."
 								echo "###############################"
-								SetARDFields
 								sleep 5
 								break
 						elif  [ "$SSID" != "$JumpNetworkName" ] && [ "$SSIDCount" -ne "0" ];
@@ -358,6 +358,8 @@ function VerifiySSIDConnected
 								echo "Unable to connect to the $JumpNetworkName network."
 								echo "No changes have been made to the system."
 								echo "Exiting safely..."
+								echo "###############################"
+								echo "Log saved to: $LogFile"
 								echo "###############################"
 								exit 127
 						fi
@@ -368,7 +370,6 @@ function VerifiySSIDConnected
 				echo "System is currently connected to the $SSID network."
 				echo "Proceeding."
 				echo "###############################"
-				SetARDFields
 				sleep 5
 		elif [ "$SSID" != "$JumpNetworkName" ];
 			then
@@ -377,12 +378,16 @@ function VerifiySSIDConnected
 				echo "No changes have been made to the system."
 				echo "Exiting safely..."
 				echo "###############################"
+				echo "Log saved to: $LogFile"
+				echo "###############################"
 				exit 127
 		else
 			echo "###############################"
 			echo "Unable to connect to the $JumpNetworkName network."
 			echo "No changes have been made to the system."
 			echo "Exiting safely..."
+			echo "###############################"
+			echo "Log saved to: $LogFile"
 			echo "###############################"
 			exit 127
 		fi
@@ -394,27 +399,66 @@ function JamfUnenroll
 		echo "###############################"
 		echo "Removing existing Jamf binary/configuration profiles."
 		echo "###############################"
-		$JamfBinary removeMDMProfile
-		sleep 3
 		$JamfBinary removeFramework
-		sleep 3
+		sleep 20
+		echo "###############################"
+		echo "Closing Self Service."
+		echo "###############################"
 		killall "Self Service"
 		sleep 3
 	}
 #
+# This is temporary to test if the permissions in the current deployment are wrong vs changing the pkg.
+function FixPrestagePermissions
+	{
+		echo "###############################"
+		echo "Changing permissions to 755 on $PKGFullPath and $ProfileFullPath."
+		echo "###############################"
+		chmod -Rf 755 "$PKGPath"/"$PKGName"
+		chmod -Rf 755  "$ProfilePath"/"$ProfileName"
+	}
 # Run QuickAdd.pkg
 function InstallQuickAddPKG
 	{
 		echo "###############################"
 		echo "Installing package: $PKGPath/$PKGName"
 		echo "###############################"
-		installer -allowUntrusted -verbose -pkg "$PKGPath"/"$PKGName" -target /
+		/usr/sbin/installer -allowUntrusted -verboseR -pkg "$PKGPath"/"$PKGName" -target /
+		echo "###############################"
+		echo "QuickAdd package installed."
+		echo "Jamf binary will take over and complete enrollment from this point."
+		echo "Running $JamfBinary recon, $JamfBinary policy, $JamfBinary mdm."
+		echo "This may take a bit of time...."
+		echo "###############################"
+		$JamfBinary recon -verbose
+		$JamfBinary policy -verbose
+		echo "###############################"
+		echo "jamf recon and jamf policy complete."
+		echo "###############################"
+	}
+#
+# Clean up after yourself....
+# Remove the .pkg and .mobileconfig file.
+# Notify display where local log saved and notify migration complete.
+function CleanUp
+	{
+		echo "###############################"
+		echo "Removing $PKGFullPath and $ProfileFullPath."
+		echo "###############################"
+		rm -f "$PKGPath"/"$PKGName"
+		rm -f "$ProfilePath"/"$ProfileName"
+		echo "###############################"
+		echo "Removed $PKGFullPath and $ProfileFullPath."
+		echo "###############################"
+		echo "Log saved to: $LogFile"
+		echo "###############################"
+		echo "System migration complete."
+		echo "###############################"
+		exit 0
 	}
 #
 ################### Script ###################
 LocalScriptLoggingEnabled
-JSSScriptLoggingEnabled
-LogJamfParams
 SetARDFields
 VerifyPreStage
 EnableWiFi
@@ -424,5 +468,9 @@ ListNetworkServicePriority
 SetARDFields
 ImportProfile
 VerifiySSIDConnected
+SetARDFields
 JamfUnenroll
+PKGPermissions
 InstallQuickAddPKG
+SetARDFields
+CleanUp
