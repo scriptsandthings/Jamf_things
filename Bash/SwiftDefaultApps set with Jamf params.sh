@@ -4,7 +4,7 @@
 # Script to use swda to set default applications for UTIs
 # as defined by Jamf parameters
 #
-# SwiftDefaultApps set with Jamf params.sh
+# swda_jamf_params.sh
 # 1.0
 # 2.13.2022
 # Greg Knackstedt
@@ -58,7 +58,7 @@ if [ "$handlerSwitch" = "UTI" ]
 		echo "Setting $AppPath1 as default for $AppUTI1"
 		echo ""
 		echo "##########################"
-		$swdaBinary setHandler --app $AppPath1 --$handlerSwitch $AppUTI1
+		$swdaBinary setHandler --app $AppPath1 --UTI $AppUTI1
 		if [ $AppUTI2 != "" ]
 			then
 				echo "##########################"
@@ -66,7 +66,7 @@ if [ "$handlerSwitch" = "UTI" ]
 				echo "Setting $AppPath1 as default for $AppUTI2"
 				echo ""
 				echo "##########################"
-				$swdaBinary setHandler --app $AppPath1 --$handlerSwitch $AppUTI2
+				$swdaBinary setHandler --app $AppPath1 --UTI $AppUTI2
 				if [ $AppUTI3 != "" ]
 					then
 						echo "##########################"
@@ -74,7 +74,7 @@ if [ "$handlerSwitch" = "UTI" ]
 						echo "Setting $AppPath1 as default for $AppUTI3"
 						echo ""
 						echo "##########################"
-						$swdaBinary setHandler --app $AppPath1 --$handlerSwitch $AppUTI3
+						$swdaBinary setHandler --app $AppPath1 --UTI $AppUTI3
 						if [ $AppUTI4 != "" ]
 							then
 								echo "##########################"
@@ -82,7 +82,7 @@ if [ "$handlerSwitch" = "UTI" ]
 								echo "Setting $AppPath1 as default for $AppUTI4"
 								echo ""
 								echo "##########################"
-								$swdaBinary setHandler --app $AppPath1 --$handlerSwitch $AppUTI4
+								$swdaBinary setHandler --app $AppPath1 --UTI $AppUTI4
 								if [ $AppUTI5 != "" ]
 									then
 										echo "##########################"
@@ -90,7 +90,7 @@ if [ "$handlerSwitch" = "UTI" ]
 										echo "Setting $AppPath1 as default for $AppUTI5"
 										echo ""
 										echo "##########################"
-										$swdaBinary setHandler --app $AppPath1 --$handlerSwitch $AppUTI5
+										$swdaBinary setHandler --app $AppPath1 --UTI $AppUTI5
 										if [ $AppUTI6 != "" ]
 											then
 												echo "##########################"
@@ -98,7 +98,7 @@ if [ "$handlerSwitch" = "UTI" ]
 												echo "Setting $AppPath1 as default for $AppUTI6"
 												echo ""
 												echo "##########################"
-												$swdaBinary setHandler --app $AppPath1 --$handlerSwitch $AppUTI6
+												$swdaBinary setHandler --app $AppPath1 --UTI $AppUTI6
 												NotifyScriptComplete
 											else
 												NotifyScriptComplete
