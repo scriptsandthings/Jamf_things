@@ -8,3 +8,7 @@ Scripts for add/remove a computer to/from a static group by group ID using Jamf 
 Default apps thing I don't think works. Needs to be run under the current user context. Could just take it and set the variables as hard coded values and then call it with jamf to accomplish the task most likely. More testing needed.
 
 Script to check if a process is running by name, and keep sending killall to it until it isn't.
+
+Scripts to allow support associates add or remove a Mac from a static group via a Self Service policy which will prompt for the target Mac's serial, without the need for Jamf admin access.
+
+Script to uninstall Crowdstrike Falcon using Self Service to display a prompt for the system's maintnance token.
