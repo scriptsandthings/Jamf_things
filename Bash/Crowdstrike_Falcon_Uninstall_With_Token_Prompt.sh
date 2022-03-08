@@ -1,12 +1,17 @@
 #!/bin/bash
-#
+#####################################
+#####################################
 # Script to be used with Jamf Self Service to uninstall Crowdstrike Falcon, displaying a GUI prompt for the user to enter the Mac's unique maintnance token
+#
+# v1.0
+# 3.7.2022
 #
 # Greg Knackstedt
 # shitttyscripts@gmail.com
 # https://github.com/gknackstedt/
-# 2.28.2022
-# v1.0
+#
+#####################################
+#####################################
 #
 # Display a prompt to ask the user for the maintenance token
 token=$( /usr/bin/osascript <<EOT
