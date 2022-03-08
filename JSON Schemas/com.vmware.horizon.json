@@ -18,7 +18,7 @@
 			},
             "property_order": 10
 			},
-			"defaultBroker": {
+		"defaultBroker": {
 			"type": "string",
             "title": "Default VMware Horizon Server",
             "description": "The default VMware Horizon Server address for the client: https://server.org.com/broker/xml",
@@ -38,14 +38,14 @@
 			"type": "integer",
             "title": "Certificate checking mode",
             "description": "Determine how the client proceeds when it cannot verify the security certificate on the VMware Horizon server.",
-	"options": {
-	"enum_titles": [
+			"options": {
+				"enum_titles": [
 						"Never connect to untrusted servers", 
 						"Warn before connecting to untrusted servers", 
 						"Do not check for valid certificates when connecting to servers"
 					]		  
 				},
-		"enum": [
+			"enum": [
 	                1,
 	                2,
 	                3
