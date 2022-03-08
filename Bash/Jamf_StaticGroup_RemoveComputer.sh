@@ -40,7 +40,7 @@ authToken=$( /usr/bin/curl "$jssHost/uapi/auth/tokens" \
 token=$( /usr/bin/awk -F \" '{ print $4 }' <<< "$authToken" | /usr/bin/xargs )
 
 ## the location in the API URL to add the computer by serial number
-apiData="<computer_group><computer_additions><computer><serial_number>${serialNumber}</serial_number></computer></computer_additions></computer_group>"
+apiData="<computer_group><computer_deletions><computer><serial_number>${serialNumber}</serial_number></computer></computer_deletions></computer_group>"
 
 ## curl call to the API to add the computer to the provided group ID
 curl \
