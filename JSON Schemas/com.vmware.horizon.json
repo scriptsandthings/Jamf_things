@@ -1,0 +1,61 @@
+{ 
+	"title": "VMware Horizon Client (com.vmware.horizon)",
+    "description": "VMware Horizon Client Settings",
+	"properties": {
+			"defaultBroker": {
+            "title": "Default VMware Horizon Server",
+            "description": "The default VMware Horizon Server address for the client",
+		"type": "array",
+			"items": {
+			"type": "string",
+			"title": "Default VMware Horizon Client Server Address"
+			},
+
+            "property_order": 1
+			},
+		"broker-history": {
+            "title": "VMware Horizon Server connection history",
+            "description": "Define VMware Horizon Server connection history to add additonal server addresses beyond the default",
+			"type": "array",
+			"items": {
+			"type": "string",
+			"title": "VMware Horizon Server Connection History"
+			},
+            "property_order": 2
+			},
+		"trustedServers": {
+            "title": "Trusted Servers",
+            "description": "Define VMware Horizon Servers to mark as trusted",
+			"type": "array",
+			"items": {
+			"type": "string",
+			"title": "Trusted Server Address"
+			},
+            "property_order": 3
+			},
+		"promptedUSBPrintingServicesInstall": {
+			"type": "boolean",
+            "title": "Prompted USB Printing Services Install",
+            "description": "Display or hide the USB Printing Services installation prompt from the user",
+            "property_order": 4
+			},
+		"kAutoCheckForUpdates": {
+			"type": "boolean",
+            "title": "Automatically Check For Updates",
+            "description": "Automatically check for avaliable updates",
+            "property_order": 5
+			},
+	"kAutoDownloadForUpdates": {
+			"type": "boolean",
+            "title": "Automatically Download Updates",
+            "description": "Automatically download upates if they are avaliable",
+            "property_order": 6
+			},
+		"kAllowDataSharing": {
+			"type": "boolean",
+            "title": "Allow Data Sharing",
+            "description": "Shares application usage statistics and telemetry data with VMware",
+            "property_order": 7
+			}
+	}
+}
