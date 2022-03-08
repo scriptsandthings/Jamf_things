@@ -1,104 +1,134 @@
 { 
 	"title": "VMware Horizon Client (com.vmware.horizon)",
-    "description": "VMware Horizon Client Settings",
+	"description": "Configures VMware Horizon Client Settings",
 	"properties": {
 		"autoHideAfterLaunched": {
 			"type": "boolean",
-            "title": "Hide client window after desktop/application launched",
-            "description": "Set to true if the VMware Horizon client window should be hidden once a connection is established with a remote session",
-            "property_order": 5
+			"title": "Hide client window after desktop/application launched",
+			"description": "Set to true if the VMware Horizon client window should be hidden once a connection is established with a remote session (true checks box in GUI)",
+			"property_order": 5
 			},
 		"broker-history": {
-            "title": "VMware Horizon Server connection history",
-            "description": "Pre-populate VMware Horizon Server connection history to add additional server addresses beyond the default",
+			"title": "VMware Horizon Server connection history",
+			"description": "Pre-populate VMware Horizon Server connection history to add additional server addresses beyond the default",
 			"type": "array",
 			"items": {
-			"type": "string",
-			"title": "VMware Horizon Server Connection History"
-			},
-            "property_order": 10
+				"type": "string",
+				"title": "VMware Horizon Server Connection History"
+				},
+			"property_order": 10
 			},
 		"defaultBroker": {
 			"type": "string",
-            "title": "Default VMware Horizon Server",
-            "description": "The default VMware Horizon Server address for the client: https://server.org.com/broker/xml",
-            "property_order": 15
+			"title": "Default VMware Horizon Server",
+			"description": "The default VMware Horizon Server address for the client: https://server.org.com/broker/xml",
+			"property_order": 15
 			},
 		"trustedServers": {
-            "title": "Trusted Servers",
-            "description": "Define VMware Horizon Servers to mark as trusted",
+			"title": "Trusted Servers",
+			"description": "Define VMware Horizon Servers to mark as trusted",
 			"type": "array",
 			"items": {
-			"type": "string",
-			"title": "Trusted Server Address"
-			},
-            "property_order": 20
+				"type": "string",
+				"title": "Trusted Server Address"
+				},
+			"property_order": 20
 			},
 		"certificateVerificationMode": {
 			"type": "integer",
-            "title": "Certificate checking mode",
-            "description": "Determine how the client proceeds when it cannot verify the security certificate on the VMware Horizon server.",
+			"title": "Certificate checking mode",
+			"description": "Determine how the client proceeds when it cannot verify the security certificate on the VMware Horizon server.",
 			"options": {
 				"enum_titles": [
 						"Never connect to untrusted servers", 
 						"Warn before connecting to untrusted servers", 
 						"Do not check for valid certificates when connecting to servers"
-					]		  
+						]		  
 				},
 			"enum": [
-	                1,
-	                2,
-	                3
-	            ],
-            "property_order": 25
+					1,
+					2,
+					3
+				],
+			"property_order": 25
 			},
 		"isSSLProxyAllowed": {
 			"type": "boolean",
-            "title": "SSL Proxy mode",
-            "description": "Set to true to allow certification verification using secondary connections via an SSL Proxy. This setting works with Blast and tunnel connections, however it does not work with PCoIP.",
-            "property_order": 30
+			"title": "SSL Proxy mode",
+			"description": "Set to true to allow certification verification using secondary connections via an SSL Proxy. This setting works with Blast and tunnel connections, however it does not work with PCoIP. (true checks box in GUI)",
+			"property_order": 30
 			},
 		"autoConnectForSingleCert": {
 			"type": "boolean",
-            "title": "Automatically select certificate",
-            "description": "If set to true Horizon Client will automatically use a local certificate or certificate on a connected smart card to connect. Does not work if multiple certificates are present",
-            "property_order": 35
+			"title": "Automatically select certificate",
+			"description": "If set to true Horizon Client will automatically use a local certificate or certificate on a connected smart card to connect. Does not work if multiple certificates are present (true checks box in GUI)",
+			"property_order": 35
 			},
 		"promptedUSBPrintingServicesInstall": {
 			"type": "boolean",
-            "title": "Prompted USB Printing Services Install",
-            "description": "Set to true to hide the USB Printing Services installation prompt from the user",
-            "property_order": 40
+			"title": "Prompted USB Printing Services Install",
+			"description": "Set to true to hide the USB Printing Services installation prompt from the user (This option is not represented in VMware Horizon Client's preferences GUI)",
+			"property_order": 40
 			},
 		"kAutoCheckForUpdates": {
 			"type": "boolean",
-            "title": "Automatically Check For Updates",
-            "description": "Set to true to automatically check for available updates",
-            "property_order": 45
+			"title": "Automatically Check For Updates",
+			"description": "Set to true to automatically check for available updates (true checks box in GUI)",
+			"property_order": 45
 			},
-	"kAutoDownloadForUpdates": {
+		"kAutoDownloadForUpdates": {
 			"type": "boolean",
-            "title": "Automatically Download Updates",
-            "description": "Set to true to automatically download updates if they are available",
-            "property_order": 50
+			"title": "Automatically Download Updates",
+			"description": "Set to true to automatically download updates if they are available. Once downloaded, the user will recieve a prompt to install the update, updates are not automatically applied (true checks box in GUI)",
+			"property_order": 50
 			},
 		"kAllowDataSharing": {
 			"type": "boolean",
-            "title": "Allow Data Sharing",
-            "description": "Set to true to share application usage, statistics, and telemetry data with VMware",
-            "property_order": 55
+			"title": "Allow Data Sharing",
+			"description": "Set to true to share application usage, statistics, and telemetry data with VMware (true checks box in GUI)",
+			"property_order": 55
 			},
 		"kNeverRememberUserADInfo": {
 			"type": "boolean",
-            "title": "Remember username and domain",
-            "description": "Set to true to PREVENT VMware Horizon Client from saving the username and domain for connections. Set to false for VMware Horizon Client to remember the username and domain used with each connection",
-            "property_order": 60
+			"title": "Remember username and domain",
+			"description": "Set to true to PREVENT VMware Horizon Client from saving the username and domain for connections. Set to false for VMware Horizon Client to remember the username and domain used with each connection (false checks box in GUI)",
+			"property_order": 60
 			},
 		"promptSharingChecked": {
 			"type": "boolean",
-            "title": "Drive Sharing dialog",
-            "description": "Set to true to hide the Drive Sharing from the user when a remote session begins ",
-            "property_order": 65
-			}
+			"title": "Drive Sharing dialog",
+			"description": "Set to true to hide the Drive Sharing from the user when a remote session begins (true checks box in GUI)",
+			"property_order": 65
+			},
+		"kAllowH264": {
+			"type": "boolean",
+			"title": "Allow H.264 decoding",
+			"description": "Set VMware Horizon Client to allow H.264 decoding (true checks box in GUI)",
+			"property_order": 70
+			},
+		"kAllowYUV444": {
+			"type": "boolean",
+			"title": "H.264 - Allow High color accuracy (reduces battery life)",
+			"description": "Set to true to enable this feature (true checks box in GUI)",
+			"property_order": 75
+			},
+		"kAllowHEVC": {
+			"type": "boolean",
+			"title": "Allow High Effiency Video Decoding (HEVC)",
+			"description": "Set to true to enable high efficiency video decoding, also called HEVC (true checks box in GUI)",
+			"property_order": 80
+			},
+		"kAllowConnectionsViaProxy": {
+			"type": "boolean",
+			"title": "Allow Blast connections to use operating system proxy settings",
+			"description": "Set to true to to enable VMware Horizon Client to use proxies for all connections (true checks box in GUI)",
+			"property_order": 85
+			},
+		"kAllowRemovableStorage": {
+			"type": "boolean",
+			"title": "Allow access to removable storage",
+			"description": "Set to true to enable VMware Horizon Client to access removable storage devices connected to the Mac locally (true checks box in GUI)",
+			"property_order": 90
+			}	
 	}
 }
