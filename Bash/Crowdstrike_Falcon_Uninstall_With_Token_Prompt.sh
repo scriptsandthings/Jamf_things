@@ -10,10 +10,19 @@
 # shitttyscripts@gmail.com
 # https://github.com/gknackstedt/
 #
+###### Things to add/fix with this script in the future #####
+# 1. Add logic that allows the script to run the uninstall command without the -t --maintenance-token flags for systems that the system/kernel extensions 
+# are no longer loaded or damaged, which causes the Crowdstrike uninstall protection to no longer be enforced, resulting in an error if those flags
+# are passed at the time the uninstall command is run.
+#
+# 2. Valid exit codes/messages passed to the log via echo for display in the Jamf policy log based on the result of the uninstall attempt, 
+# instead of just copping out by saying "Uninstall complete", throwing an exit 0, and relying on the person 
+# running the policy to figure out if it was successful or not by completing an addtional task/check manually outside of Self Service.
+#
 #####################################
 #####################################
 #
-# Display a prompt to ask the user for the maintenance token
+# Display a prompt in the GUI to ask the user for the maintenance token using osascript
 token=$( /usr/bin/osascript <<EOT
 tell application "System Events"
 activate
@@ -29,16 +38,12 @@ end tell
 EOT)
 #
 echo "########################"
-echo "########################"
-echo "Token entered as $token"
-echo "########################"
+echo "The Crowdstrike Maintenance Token entered was: $token"
 echo "########################"
 # Run the uninstall command using expect to watch for the prompt to enter the maintnance token.
-# Then return the token previously entered by the user to validate and complete the uninstall
-echo "########################"
+# Then return the $token previously entered by the user in the osascript prompt to complete the uninstall
 echo "########################"
 echo "Uninstalling Crowdstrike Falcon using the previously entered token"
-echo "########################"
 echo "########################"
 /usr/bin/expect -c "
 	spawn sudo /Applications/Falcon.app/Contents/Resources/falconctl uninstall -t --maintenance-token
@@ -48,9 +53,7 @@ echo "########################"
 	expect eof
 	"
 echo "########################"
-echo "########################"
 echo "Crowdstrike Falcon Uninstall Script Complete."
 echo "Be sure to re-install Crowdstrike to bring system into compliance."
-echo "########################"
 echo "########################"
 exit 0
