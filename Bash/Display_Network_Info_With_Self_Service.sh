@@ -7,7 +7,7 @@ ScriptName="Display_Network_Info_With_Self_Service"
 # Previous versions of macOS do not include the "networkQuality" binary, which will cause the script to spit back an error.
 #
 #
-# This script displays an AppleScript dialog showing the current date/time,
+# This script displays an AppleScript dialog showing the current date/time, the Mac's serial number,
 # the version and build number of macOS installed on the system, the shortname of the currently logged in user,
 # the Mac's current IP addresses of the default Ethernet and Airport interfaces (by just showing the first couple enX addresses), 
 # as well as IP addresses for Cisco AnyConnect and Palo Alto GlobalProtect VPN.
