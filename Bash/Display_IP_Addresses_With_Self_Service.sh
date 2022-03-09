@@ -1,8 +1,9 @@
 ScriptName="Display_IP_Addresses_With_Self_Service"
 #
 #
-# Uses Apple Script to display a dialog containing the systems current local WiFi and Ethernet IP addresses (by tossing out a couple enX results),
-# if connected the current VPN IP addresses (a few utunX results), and IP address for GlobalProtect VPN (some gpdX results).
+# Uses Apple Script to display a dialog with the current date/time, the version and build number of macOS installed on the system,
+# the Mac's current local WiFi and Ethernet IP addresses (by tossing out a couple enX results),
+# if connected the Mac's current VPN IP addresses (a few utunX results), and PaloAlto GlobalProtect VPN (some gpdX results).
 #
 # The output isn't beautiful or anything, but it's nice information to have.
 #
