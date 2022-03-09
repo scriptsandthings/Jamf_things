@@ -1,7 +1,7 @@
 #!/bin/bash
 #####################################
 #####################################
-# Script to be used with Jamf Self Service to uninstall Crowdstrike Falcon, displaying a GUI prompt for the user to enter the Mac's unique maintnance token
+# Script to be used with Jamf Self Service to uninstall Crowdstrike Falcon, displaying a GUI prompt for the user to enter the Mac's unique maintenance token
 #
 # v1.0
 # 3.7.2022
