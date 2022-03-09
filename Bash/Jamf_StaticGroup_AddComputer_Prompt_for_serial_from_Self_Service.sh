@@ -43,8 +43,8 @@ authToken=$( /usr/bin/curl "$jssHost/uapi/auth/tokens" \
 
 # parse authToken for token, omit expiration
 token=$( /usr/bin/awk -F \" '{ print $4 }' <<< "$authToken" | /usr/bin/xargs )
-serialNumberCheck="/tmp/VSCo/jpsStaticGroupSerialCheck.txt"
-filePath="/tmp/VSCo/"
+serialNumberCheck="/tmp/JamfAPI/jpsStaticGroupSerialCheck.txt"
+filePath="/tmp/JamfAPI/"
 loop="Continue"
 oops1Dialog="SORRY! Either the Serial Number entered: "
 oops2Dialog=" was incorrect or that device is not currently being managed by Jamf Pro. Please check the Mac's serial number and try again."
