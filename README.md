@@ -1,7 +1,7 @@
 # Jamf Things
 Stuff I've created for use within Jamf Pro to make my life, the lives of our users, and the lives of our support staff a little easier.
 
-## Scripts
+## Scripts (Bash directory)
 Script for migrating between JSSs when NAC is a pain so you use a 3rd wifi network.
 
 Scripts for add/remove a computer to/from a static group by group ID by values defined in the Jamf script paramiters, using the Jamf API and bearer token authentication
