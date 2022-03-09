@@ -1,7 +1,7 @@
 # Jamf Things
 Stuff I've created for use within Jamf Pro to make my life, the lives of our users, and the lives of our support staff a little easier. (Mostly to make my life easier though if we're being real here).
 
-I'm just starting to use GitHub to save and share some of my work, so the orginization and stuff here isn't great yet and probably won't be for a while. I rather add a bunch of useful things then spend time messing with markup language trying to make this README.me look good right now.
+I'm just starting using GitHub to save some of my work in case I need to reference in the future, and to share the things I've found helpful with others since I've benifited from so many other people's GitHub pages and projects over the years; so the orginization and stuff here isn't great yet and probably won't be for a while..... I rather add a bunch of useful things so I don't forget to save them somewhere and lose them eventually, then spend time messing with markup language trying to make this README.me look good right now. (Insert "Damn bitch, you live like this?" meme)
 
 ## Scripts (Bash directory)
 Script for migrating between JSSs when NAC is a pain so you use a 3rd wifi network.
