@@ -25,6 +25,7 @@ One script that can be used as EAs for displaying the approximate "City,State" o
 Two additional scripts/EAs that display either the City/Locality OR the State/Region a device appears to be located in using it's current external IP address
 #### Note, if you're on VPN when running these and it's not a split-tunnel connection, there is a likely chance your location information will be returned based on the geographical location the endpoint for your VPN connection is located in.
 
+Script to check if ProofPoint ObserveIT is installed, and report back the version if it is.
 
 ## JSON Schemas
 com.vmware.horizon JSON schema for configuring VMWare Horizon Client preferences within the Jamf Pro GUI
