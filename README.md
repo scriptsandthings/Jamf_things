@@ -1,5 +1,5 @@
 # Jamf Things
-Stuff I've created for use within Jamf Pro to make my life, the lives of our users, and the lives of our support staff a little easier.
+Stuff I've created for use within Jamf Pro to make my life, the lives of our users, and the lives of our support staff a little easier. (Mostly to make my life easier though if we're being real here).
 
 ## Scripts (Bash directory)
 Script for migrating between JSSs when NAC is a pain so you use a 3rd wifi network.
