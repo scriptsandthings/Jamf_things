@@ -1,5 +1,5 @@
-# ShitttyJamf
-Jamf things
+# Jamf Things
+Stuff I've created for use within Jamf Pro to make my life a little easier.
 
 ## Scripts
 Script for migrating between JSSs when NAC is a pain so you use a 3rd wifi network.
@@ -22,3 +22,7 @@ Default apps thing I don't think works. Needs to be run under the current user c
 One script that can be used as EAs for displaying the approximate "City,State" or "Locality,Region" a device appears to be located inusing it's current external IP address.
 Two additional scripts/EAs that display either the City/Locality OR the State/Region a device appears to be located in using it's current external IP address
 #### Note, if you're on VPN when running these and it's not a split-tunnel connection, there is a likely chance your location information will be returned based on the geographical location the endpoint for your VPN connection is located in.
+
+
+## JSON Schemas
+com.vmware.horizon JSON schema for configuring VMWare Horizon Client preferences within the Jamf Pro GUI
