@@ -115,7 +115,7 @@ serialNumber=$( echo "$results" | /usr/bin/awk -F "text returned:" '{print $2}' 
 apiDataAddToGroup="<computer_group><computer_additions><computer><serial_number>"$serialNumber"</serial_number></computer></computer_additions></computer_group>"
 #
 ## curl call to the API to Remove the Mac to the provided group ID by doing a PUT of the 
-deleteComputer=$( curl \
+addComputer=$( curl \
 	-s \
 	-f \
     -w "%{http_code}" \
@@ -129,7 +129,7 @@ deleteComputer=$( curl \
 ##############################################################################
 #
 # Evaluate HTTP status code from curl attempt
-resultStatus=${deleteComputer: -3}
+resultStatus=${addComputer: -3}
 code=$( /usr/bin/grep "$resultStatus" <<< "$httpCodes" )
 #
 # Expire the Auth Token since we're done with it
