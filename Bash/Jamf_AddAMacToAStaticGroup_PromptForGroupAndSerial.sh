@@ -10,7 +10,7 @@
 # https://github.com/gknackstedt/
 ###############################################################################
 #
-# This script leverages bash and the Jamf API and bearer token authentication.
+# This script leverages bash, the Jamf API and bearer token authentication.
 #
 # A script to allow users without Jamf admin access to add Macs to
 # static groups using a Self Service Policy, by selecting the static group from a list,
