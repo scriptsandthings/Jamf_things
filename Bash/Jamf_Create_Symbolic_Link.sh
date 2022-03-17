@@ -7,24 +7,20 @@
 # shitttyscripts@gmail.com
 #
 CurrentUser=$3
-# old hardcoded target from Box drive
-# Target="/Users/$CurrentUser/Library/CloudStorage/Box-Box"
 Target="$4"
-#
-#
 Destination="$5"
-#
 TimeStamp=$(date +%Y-%m-%d_%H-%M-%S)
 #
-########################################
-function CheckForExistingBox
+#########################################
+# Make sure we're not replacing a directory or existing file with a symlink...
+function CheckForExisting
 	{
 		if [ -e "$Destination" ] 
 			then
 				echo "##################################"
 				echo ""
   			  	echo "$Destination already exists."
- 	    	   	echo "Renaming as Box Backup $TimeStamp" 
+ 	    	   	echo "Renaming as $Destination\ Backup\ $TimeStamp" 
 				mv "$Destination" "$Destination"\ Backup\ "$TimeStamp"
 			else
 				echo "##################################"
@@ -55,7 +51,7 @@ function CreateSymlink
 #
 #
 #####################################
-CheckForExistingBox
+CheckForExisting
 CreateSymlink
 
 exit 0
