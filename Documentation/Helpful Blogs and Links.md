@@ -20,3 +20,6 @@ https://community.jamf.com/
 
 https://support.jamf.com/
 
+https://mrmacintosh.com/
+
+https://www.gkgigs.com/list-apple-ios-version-history/
