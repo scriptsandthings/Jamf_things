@@ -6,7 +6,7 @@
 # 1.12.2022
 # shitttyscripts@gmail.com
 #
-CurrentUser=$3
+CurrentUser=$(/usr/sbin/scutil <<< "show State:/Users/ConsoleUser" | /usr/bin/awk -F': ' '/[[:space:]]+Name[[:space:]]:/ { if ( $2 != "loginwindow" ) { print $2 }}')
 Target="$4"
 Destination="$5"
 TimeStamp=$(date +%Y-%m-%d_%H-%M-%S)
