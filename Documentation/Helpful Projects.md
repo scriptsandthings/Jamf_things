@@ -22,6 +22,8 @@ https://github.com/msintuneappsdk/intune-app-wrapping-tool-mac
 
 https://github.com/root3nl/SupportApp
 
+https://www.shellhacks.com/cyberark-get-password-curl-cert-based-auth/
+
 Security Compliance
 
 https://github.com/mvdbent/CIS-macOS-Security
