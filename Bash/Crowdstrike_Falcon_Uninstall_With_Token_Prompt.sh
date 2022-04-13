@@ -8,7 +8,7 @@
 #
 # Greg Knackstedt
 # shitttyscripts@gmail.com
-# https://github.com/gknackstedt/
+# https://github.com/scriptsandthings/
 #
 ###### Things to add/fix with this script in the future #####
 # 1. Add logic that allows the script to run the uninstall command without the -t --maintenance-token flags for systems that the system/kernel extensions 
