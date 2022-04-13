@@ -20,6 +20,8 @@ https://github.com/Homebrew/install
 
 https://github.com/msintuneappsdk/intune-app-wrapping-tool-mac
 
+https://github.com/root3nl/SupportApp
+
 Security Compliance
 
 https://github.com/mvdbent/CIS-macOS-Security
