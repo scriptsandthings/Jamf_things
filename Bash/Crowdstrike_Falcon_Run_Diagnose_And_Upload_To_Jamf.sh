@@ -33,6 +33,7 @@
 ##############################################################################
 ##############################################################################
 #
+#
 # Creates temp working directories in /Users/Shared.
 # Redirects logging for this policy to a local .log saved in the temp directory.
 # Opens the .log file in Console.app for the user so they can see that the policy is
@@ -54,12 +55,13 @@
 ##############################################################################
 ############################## Define Variables ##############################
 ##############################################################################
+# Some Params Exist For Future Portability
 #
 # Script Params for Jamf Pro
 #
 # $4 - Jamf API Username
 # $5 - Jamf API Password
-# $6 - Jamf Pro server address - Example: https://jamf.companyname.com/
+# $6 - Jamf Pro server address - Example: https://jamf.companyname.com/ (Optional - Will read from target Mac
 # $7 - Application Name - Example: Crowdstrike Falcon
 # $8 - Path to falonctrl binary - Example: /Applications/Falcon.app/Contents/Resources/falconctl
 # $9 - Command Switch 1 - Example: diagnose
