@@ -22,6 +22,8 @@ Security Compliance
 
 https://github.com/mvdbent/CIS-macOS-Security
 
+https://github.com/CISOfy/lynis
+
 Other people to follow
 
 https://github.com/pbowden-msft
