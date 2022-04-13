@@ -18,6 +18,8 @@ https://github.com/kennyb-222/AutoBrew
 
 https://github.com/Homebrew/install
 
+https://github.com/msintuneappsdk/intune-app-wrapping-tool-mac
+
 Security Compliance
 
 https://github.com/mvdbent/CIS-macOS-Security
