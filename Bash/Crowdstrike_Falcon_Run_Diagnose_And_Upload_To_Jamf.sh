@@ -14,6 +14,19 @@
 #
 ##############################################################################
 ##############################################################################
+# ! ! ! WARNING: THIS WILL PUT A LARGE FILE INTO YOUR JAMF DATABASE ! ! !
+#.       ! ! ! WARNING: MISUSE MAY CORRUPT YOUR JAMF DATABASE ! ! !
+##############################################################################
+##############################################################################
+# This was written for a specific use case. To be run on one system at a time,
+# the logs downloaded by the IT Security team and immediately deleted from the 
+# Jamf inventory record. Failure to do so may cause Jamf to become unresponsive.
+##############################################################################
+##############################################################################
+#
+#
+##############################################################################
+##############################################################################
 # Script to call application specific diagnostic scripts and binaries,
 # gather the logs in a single .zip archive, and upload the .zip archive
 # to the Macs inventory record in Jamf as a file attachment.
