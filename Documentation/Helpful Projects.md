@@ -2,6 +2,10 @@ Things to make life a lot easier
 
 https://github.com/Installomator/Installomator
 
+https://gitlab.com/Mactroll/DEPNotify
+
+https://github.com/jamf/DEPNotify-Starter
+
 https://github.com/macadmins/python
 
 https://github.com/grahampugh/erase-install
