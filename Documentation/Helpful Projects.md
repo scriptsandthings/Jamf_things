@@ -18,6 +18,9 @@ https://github.com/kennyb-222/AutoBrew
 
 https://github.com/Homebrew/install
 
+Security Compliance
+
+https://github.com/mvdbent/CIS-macOS-Security
 
 Other people to follow
 
