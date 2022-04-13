@@ -16,3 +16,8 @@ https://github.com/kennyb-222/AutoBrew
 
 https://github.com/Homebrew/install
 
+
+Other people to follow
+
+https://github.com/pbowden-msft
+
