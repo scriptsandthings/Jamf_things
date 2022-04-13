@@ -9,3 +9,7 @@ https://scriptingosx.com/
 https://travellingtechguy.blog/
 
 https://www.macadmin.info/
+
+https://eclecticlight.co/
+
+https://old.reddit.com/
