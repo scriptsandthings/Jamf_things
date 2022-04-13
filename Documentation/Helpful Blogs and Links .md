@@ -1,4 +1,4 @@
-Helpful blogs and links in no specific order (at this time)
+Helpful blogs and links, in no specific order (at this time)
 
 https://macnotes.wordpress.com/
 
