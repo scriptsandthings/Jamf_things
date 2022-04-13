@@ -1,6 +1,8 @@
-https://business.apple.com/  
-1. Go to Settings>Payment Methods 
-2. Download the correct VPP Token for your Jamf pro Instance 
+### Obtaining and renewaing a VPP token for Jamf Pro
+
+1. Login to Apple Business Manager https://business.apple.com/  
+2. Go to Settings>Payment Methods 
+3. Download the correct VPP Token for your Jamf pro Instance 
 
 Login To Jamf Pro 
 
