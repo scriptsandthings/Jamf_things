@@ -8,6 +8,8 @@ https://github.com/grahampugh/erase-install
 
 https://github.com/macadmins/nudge
 
+https://github.com/joshua-d-miller/macOSLAPS
+
 https://github.com/SAP/macOS-enterprise-privileges
 
 https://github.com/sgmills/PrivilegesDemoter
