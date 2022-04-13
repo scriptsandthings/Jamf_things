@@ -1,5 +1,9 @@
 Helpful blogs and links, in no specific order (at this time)
 
+https://www.macadmins.org/
+
+https://www.macadmins.software/
+
 https://macnotes.wordpress.com/
 
 https://richard-purves.com/
