@@ -1,5 +1,7 @@
 Helpful blogs and links, in no specific order (at this time)
 
+https://isapplesiliconready.com/
+
 https://www.macadmins.org/
 
 https://www.macadmins.software/
