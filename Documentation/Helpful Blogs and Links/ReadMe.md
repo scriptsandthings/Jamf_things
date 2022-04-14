@@ -10,6 +10,8 @@ https://richard-purves.com/
 
 https://derflounder.wordpress.com/author/rtrouton/
 
+https://macops.ca/
+
 https://scriptingosx.com/
 
 https://travellingtechguy.blog/
