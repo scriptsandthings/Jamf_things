@@ -46,6 +46,6 @@ https://github.com/macnotes
 
 https://github.com/macmade
 
-Things to consider if you don't have Jamf, or possibly as a suppliment
+Things to consider if you don't have Jamf, or possibly as a supplement
 
 https://github.com/munki/munki
