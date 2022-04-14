@@ -3,6 +3,7 @@ Info on managing Linux and Windows VMs running on macOS hosts.
 Configuring a DEP capable VM snapshot with VMware Fusion and Parallels Desktop on an Intel Mac.
 
 VM Options for Apple Silicon
+
 https://github.com/utmapp/UTM
 
 https://www.parallels.com/products/desktop/
