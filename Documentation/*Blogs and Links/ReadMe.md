@@ -1,4 +1,4 @@
-Helpful blogs and links, in no specific order (at this time)
+macOS administration and support focused blogs and links, in no specific order (at this time)
 
 https://isapplesiliconready.com/
 
