@@ -1,4 +1,4 @@
-Things to make life a lot easier
+GitHub Projects Worth Looking At
 
 https://github.com/macnotes/jamfscripts/tree/main/jamfpro/getJamfApiCredentials
 
