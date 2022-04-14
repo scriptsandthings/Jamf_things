@@ -1,8 +1,9 @@
 #!/bin/sh
 
-#  Reset user level files for Adobe. Removes all Adobe files from /Users/$CurrentUser/Library, 
-# as well as all files from /Users/$CurrentUser/Library/Caches,
-# and /Users/$CurrentUser/Library/Saved Application State/.
+#  Reset user level files for Adobe. Removes all Adobe files from /Users/$CurrentUser/Library,
+#  as well as all files from /Users/$CurrentUser/Library/Caches,
+#  and /Users/$CurrentUser/Library/Saved Application State/
+#  for the currently logged in user.
 #
 #  Created by Greg Knackstedt on 4.10.18.
 
