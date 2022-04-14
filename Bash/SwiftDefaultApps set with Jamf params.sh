@@ -3,6 +3,8 @@
 #
 # Script to use swda to set default applications for UTIs
 # as defined by Jamf parameters
+# 
+# Note: I don't think this works, as it must be run under the local user context. Saving to be repositioned at a later date.
 #
 # swda_jamf_params.sh
 # 1.0
