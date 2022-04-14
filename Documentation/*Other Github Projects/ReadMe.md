@@ -32,6 +32,8 @@ https://www.shellhacks.com/cyberark-get-password-curl-cert-based-auth/
 
 https://github.com/jamf/JamfMigrator
 
+https://gist.github.com/talkingmoose/a16ca849416ce5ce89316bacd75fc91a - Download and install Microsoft apps by product ID
+
 Security Compliance
 
 https://github.com/mvdbent/CIS-macOS-Security
@@ -45,6 +47,8 @@ https://github.com/pbowden-msft
 https://github.com/macnotes
 
 https://github.com/macmade
+
+https://gist.github.com/talkingmoose/
 
 Things to consider if you don't have Jamf, or possibly as a supplement
 
