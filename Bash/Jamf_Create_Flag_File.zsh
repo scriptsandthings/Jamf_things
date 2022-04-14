@@ -5,8 +5,9 @@
 #
 ############################
 # Utility - Create Flag File.sh
-# Originally pulled from https://community.jamf.com/t5/jamf-pro/add-a-system-to-a-smartgroup-using-self-service/m-p/238671
-# 
+#
+# Originally from Jamf Nation user sdagley
+# https://community.jamf.com/t5/jamf-pro/add-a-system-to-a-smartgroup-using-self-service/m-p/238671
 #
 # This script is intended to be used as a script in a Jamf Pro Policy. It will create a
 # flag file on a Mac that can be read by an EA script which in turn can
