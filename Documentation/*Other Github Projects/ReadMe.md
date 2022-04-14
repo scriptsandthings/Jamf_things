@@ -1,4 +1,4 @@
-GitHub Projects Worth Looking At
+GitHub projects worth looking at for your environment
 
 https://github.com/macnotes/jamfscripts/tree/main/jamfpro/getJamfApiCredentials
 
