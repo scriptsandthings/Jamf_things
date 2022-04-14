@@ -1,4 +1,7 @@
 #!/bin/bash
+# Greg Knackstedt
+# 5.13.2021
+#
 # Script to use ExManCMD to install ZXP plugins for Adobe CC
 # Variables
 ZXPDirectory="$4"
