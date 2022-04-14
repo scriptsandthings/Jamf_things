@@ -10,8 +10,9 @@
 #
 # Greg Knackstedt
 # shitttyscripts@gmail.com
-# https://github.com/gknackstedt
+# https://github.com/scriptsandthings
 #
+# Need to clean up variables and quotes *
 ##############################################################################
 ##############################################################################
 # ! ! ! WARNING: THIS WILL PUT A LARGE FILE INTO YOUR JAMF DATABASE ! ! !
