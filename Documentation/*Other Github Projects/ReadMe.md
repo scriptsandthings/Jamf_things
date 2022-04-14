@@ -30,6 +30,8 @@ https://github.com/root3nl/SupportApp
 
 https://www.shellhacks.com/cyberark-get-password-curl-cert-based-auth/
 
+https://github.com/jamf/JamfMigrator
+
 Security Compliance
 
 https://github.com/mvdbent/CIS-macOS-Security
