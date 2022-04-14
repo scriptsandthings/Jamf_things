@@ -48,6 +48,8 @@ https://github.com/macnotes
 
 https://github.com/macmade
 
+https://github.com/talkingmoose
+
 https://gist.github.com/talkingmoose/
 
 Things to consider if you don't have Jamf, or possibly as a supplement
