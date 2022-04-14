@@ -1,5 +1,7 @@
 Things to make life a lot easier
 
+https://github.com/macnotes/jamfscripts/tree/main/jamfpro/getJamfApiCredentials
+
 https://github.com/Installomator/Installomator
 
 https://gitlab.com/Mactroll/DEPNotify
