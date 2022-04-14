@@ -1,7 +1,7 @@
 #!/bin/zsh
 #######################
 # 
-# To pair with script to create flag file.
+# To pair with Jamf script to create flag file.
 #
 #######################
 #
