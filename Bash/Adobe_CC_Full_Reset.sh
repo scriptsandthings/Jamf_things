@@ -1,6 +1,5 @@
 #!/bin/sh
 
-#  Reset_Adobe_User_Level_v2 - runs as currently logged in user
 #  Reset user level files for Adobe. Removes all Adobe files from /Users/$CurrentUser/Library
 #
 #  Created by Greg Knackstedt on 4.10.18.
