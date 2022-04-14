@@ -14,7 +14,7 @@ ScriptName="Display_IP_Addresses_With_Self_Service"
 # 3.8.2022
 #
 # Greg Knackstedt
-# https://github.com/gknackstedt/
+# https://github.com/scriptsandthings/
 # shitttyscripts@gmail.com
 #
 
