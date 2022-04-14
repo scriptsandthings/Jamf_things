@@ -6,5 +6,5 @@
 5. Jamf Connect Login (depending on IdP, may be optional)
 6. DEPNotify
 7. Jamf DEPNotify Starter Script
-8. Optional: FileVault
-9. Optional: macOSLAPS
+8. Optional/Environment dependent: FileVault
+9. Optional/Environment dependent: macOSLAPS
