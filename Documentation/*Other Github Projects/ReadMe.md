@@ -42,6 +42,8 @@ https://github.com/pbowden-msft
 
 https://github.com/macnotes
 
+https://github.com/macmade
+
 Things to consider if you don't have Jamf, or possibly as a suppliment
 
 https://github.com/munki/munki
