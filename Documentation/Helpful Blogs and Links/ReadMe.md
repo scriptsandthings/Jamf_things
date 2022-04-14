@@ -26,4 +26,6 @@ https://support.jamf.com/
 
 https://mrmacintosh.com/
 
+https://hcsonline.com/support/white-papers/
+
 https://www.gkgigs.com/list-apple-ios-version-history/
