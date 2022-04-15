@@ -1,6 +1,18 @@
 #!/bin/bash
+#
+##################
+##################
+#
+# Depreciated in 2020 as some commands are no longer supported by macOS
+#
+# Originally for migrating systems to a new Jamf instance when NAC is in place on the network. We used a temp WiFi
+# network as a hold-over point during the enrollment to get around our NAC implementation at the time. 
+# This script is the result.
+#
+##################
+##################
 # Greg Knackstedt
-# https://github.com/gknackstedt/Jamf_things/
+# https://github.com/scriptsandthings/Jamf_things/
 # ShitttyScripts(AT)gmail.com
 # 2.13.2020
 # v1.1
@@ -16,7 +28,7 @@
 # Run QuickAdd.pkg to enroll in new Jamf instance
 # Verify jamf binary present and connection to new JSS sucessfull
 #
-ScriptName="JamfMigration.sh"
+ScriptName="JamfNACMigration.sh"
 #
 ################### Jamf Script Parameters ###################
 #
