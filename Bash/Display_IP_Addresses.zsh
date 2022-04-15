@@ -1,4 +1,5 @@
-ScriptName="Display_IP_Addresses_With_Self_Service"
+#!/bin/zsh
+ScriptName="Display_IP_Addresses"
 #
 #
 # Uses Apple Script to display a dialog with the current date/time, the version and build number of macOS installed on the system, the Mac's serial number,
