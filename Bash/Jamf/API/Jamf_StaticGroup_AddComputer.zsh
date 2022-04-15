@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # awickert 2020-03-01
 # Modified to use bearer token auth on 2.11.2022 by Greg Knackstedt - shitttyscripts@gmail.com
 #
