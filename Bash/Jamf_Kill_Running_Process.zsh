@@ -1,6 +1,6 @@
 #!/bin/zsh
 #
-# Jamf_Kill_Running_Process.sh
+# Jamf_Kill_Running_Process.zsh
 # v1.0
 # 3.1.2022
 # Greg Knackstedt
