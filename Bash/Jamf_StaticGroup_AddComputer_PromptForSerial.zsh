@@ -1,7 +1,8 @@
-#! /bin/sh
+#! /bin/zsh
 #######################################################################
 ######################################################################
 # Add A Mac To A Static Group Via Self Service Prompt For Serial Number
+# via self service.
 # Uses Bearer Token Authentication To The JSS
 #
 # v1.0
