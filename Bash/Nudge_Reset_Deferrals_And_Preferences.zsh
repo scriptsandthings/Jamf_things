@@ -6,6 +6,9 @@
 # 9.2.2021
 # https://github.com/scriptsandthings/
 #
+# To be used with the Nudge utility for updating macOS.
+# Resets a system's deferrals, and local preferences.
+#
 #######################
 #######################
 #
