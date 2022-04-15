@@ -34,7 +34,7 @@ https://github.com/jamf/JamfMigrator
 
 https://gist.github.com/talkingmoose/a16ca849416ce5ce89316bacd75fc91a - Download and install Microsoft apps by product ID
 
-## Security Compliance
+## Security compliance
 
 https://github.com/mvdbent/CIS-macOS-Security
 
