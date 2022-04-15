@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # awickert 2020-03-01
 # Add a computer to a static group by its ID with the Jamf API, help from @koalatee
 # Modified to use bearer token auth on 2.11.2022 by Greg Knackstedt - shitttyscripts@gmail.com
