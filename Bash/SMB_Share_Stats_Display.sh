@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Display_SMB_Connection_Stats.sh
+# SMB_Share_Stats_Display.sh
 #
 # Displays current smb mountpoint stats using AppleScript
 #
