@@ -1,6 +1,6 @@
 #!/bin/zsh
 #
-ScriptName="Display_Network_Info_With_Self_Service"
+ScriptName="Display_Network_Info"
 #
 #
 # NOTE: This script can only be executed on systems running macOS Monterey (and presumably versions after Monterey).
