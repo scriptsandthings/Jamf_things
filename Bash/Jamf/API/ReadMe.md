@@ -10,4 +10,4 @@ I would suggest looking at the API authentication options presented at the link 
 
 https://github.com/macnotes/jamfscripts/tree/main/jamfpro/getJamfApiCredentials
 
-##### Always test before using, never test in prod, use these at your own risk.
+## Always test before using, never test in prod, use these at your own risk.
