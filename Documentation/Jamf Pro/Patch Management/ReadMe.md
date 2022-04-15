@@ -3,7 +3,7 @@
 ## 1. Build payloadless packages (.pkg files) containing Installomator as patch definitions
 
 Build payloadless packages (.pkg files) containing [Installomator](https://github.com/Installomator/Installomator) (the script only), with a static defined tag and install variables for individual applications. 
-These payloadless packages can easily be created with Jamf Composer by adding a Post-Install script to a package then removing the dummy file from the package. There are multiple other methods or tools to accomplish this.
+These payloadless packages can easily be created with Jamf Composer by adding a Post-Install script to a package then removing the dummy file from the package. Paste the contents of the Installomator script into the Post-Install and modify for your requirements. There are multiple other methods or tools to accomplish this as well.
 
 This is a great article on Der Flounder by RTrouton to get you started with payloadless packages:
 
