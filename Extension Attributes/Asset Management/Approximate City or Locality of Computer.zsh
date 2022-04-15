@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # Gets the system's approximate city or state it's currently located in by using its current external facing IP
 #
 # v1.0
