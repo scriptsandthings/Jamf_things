@@ -1,4 +1,4 @@
-## These are provided only as basic examples to build upon when crafting a solution that best fits your environment and needs.
+# These are provided only as basic examples to build upon when crafting a solution that best fits your environment and needs.
 
 By no means is anything here to be taken as a best practice suggestion. 
 
@@ -10,4 +10,4 @@ I would suggest looking at the API authentication options presented at the link 
 
 https://github.com/macnotes/jamfscripts/tree/main/jamfpro/getJamfApiCredentials
 
-## Always test before using, never test in prod, use these at your own risk.
+# Always test before using, never test in prod, use these at your own risk.
