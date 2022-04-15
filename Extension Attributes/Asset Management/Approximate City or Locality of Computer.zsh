@@ -1,11 +1,13 @@
 #!/bin/zsh
-# Gets the system's approximate city or state it's currently located in by using its current external facing IP
+#
+# Gets the system's approximate city it's currently located in by using its current external facing IP
+# based on ip-api.com
 #
 # v1.0
 # 3.7.2022
 #
 # Greg Knackstedt
-# https://github.com/gknackstedt
+# https://github.com/scriptsandthings/
 # Shitttyscripts@gmail.com
 #
 ####################################
