@@ -2,6 +2,7 @@
 #######################################################################
 ######################################################################
 # Remove A Mac From A Static Group Via Self Service Prompt For Serial Number
+# via Self Service.
 # Uses Bearer Token Authentication To The JSS
 #
 # v1.0
