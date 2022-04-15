@@ -1,11 +1,13 @@
-#!/bin/bash
+#!/bin/zsh
+#
 # Gets the approximated State or Region the system is currently physically locatted in by using its current external facing IP
+# based on ip-api.com
 #
 # v1.0
 # 3.7.2022
 #
 # Greg Knackstedt
-# https://github.com/gknackstedt
+# https://github.com/scriptsandthings/
 # Shitttyscripts@gmail.com
 #
 ####################################
