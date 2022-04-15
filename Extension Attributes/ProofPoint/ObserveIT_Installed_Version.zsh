@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 ########################################################################
 # A script to collect information on if ProofPoint Observe IT
 # is currently installed. Returns version number if installed,
