@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 #  Clears files from /Users/$CurrentUser/Library/Caches, and /Users/$CurrentUser/Library/Saved Application State/
 #  for the currently logged in user.
