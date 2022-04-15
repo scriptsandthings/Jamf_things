@@ -1,5 +1,6 @@
 #!/bin/zsh
 # Gets the system's approximate physical location by using its current external facing IP
+# Displays the City, State info returned from ip-api.com.
 #
 # v1.0
 # 3.7.2022
