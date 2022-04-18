@@ -2,15 +2,23 @@ Info on managing Linux and Windows VMs running on macOS hosts.
 
 Configuring a DEP capable VM snapshot with VMware Fusion and Parallels Desktop on an Intel Mac.
 
+[Guide for VMware Fusion](https://www.rderewianko.com/how-to-create-a-vm-thatll-work-with-dep-on-vmware-fusion/)
+
+[Another guide for VMware Fusion](https://travellingtechguy.blog/vmware-dep/)
+
+[Guide for Parallels Desktop](https://jerbecause.wordpress.com/2018/02/09/creating-a-dep-vm-using-parallels-desktop/)
+
+[Guide for VirtualBox](https://tobiwashere.de/2017/10/virtualbox-how-to-create-a-macos-high-sierra-vm-to-run-on-a-mac-host-system/)
+
 VM Options for Apple Silicon
 
-https://github.com/utmapp/UTM
+[UTM](https://github.com/utmapp/UTM)
 
-https://www.parallels.com/products/desktop/
+[Parallels Desktop](https://www.parallels.com/products/desktop/)
 
-https://customerconnect.vmware.com/downloads/get-download?downloadGroup=FUS-PUBTP-2021H1 - Fusion Tech Preview - Linux VMs only
+[Fusion Tech Preview - Linux VMs only](https://customerconnect.vmware.com/downloads/get-download?downloadGroup=FUS-PUBTP-2021H1)
 
-https://github.com/macmade/QEMU-Manager - Xcode project
+[QEMU Manager](https://github.com/macmade/QEMU-Manager) - Xcode project
 
 
 VM Options for other OS hosts
