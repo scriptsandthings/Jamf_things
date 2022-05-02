@@ -16,6 +16,8 @@ https://macops.ca/
 
 https://scriptingosx.com/
 
+https://maclovin.org/
+
 https://travellingtechguy.blog/
 
 https://www.macadmin.info/
