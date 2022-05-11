@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 #
 ############################################################
 #
@@ -6,21 +6,20 @@
 # https://github.com/scriptsandthings/Jamf_things/
 # 5.11.2022
 #
-# ProofPoint_ObserveIt_AutoUpdater_Installation_Status.zsh
-# v1.0
+# ProofPoint_ObserveIt_AutoUpdater_Version.zsh
+# v2.0
 #
-# Checks for the ProofPoint ObserveIT AutoUpdater daemon and reports a True or False status
+# Checks for the ProofPoint ObserveIT AutoUpdater daemon and reports the installed version
 #
 ############################################################
-#
 updaterPath="/Library/ITUpdater/updater/"
 updaterName="autoUpdater"
-result="False"
 #
 if [ -e "${updaterPath}${updaterName}" ]; then
-    result="True"
+    updaterVersion=$(/usr/bin/defaults read /Library/ITUpdater/updater/updater.Info.plist CFBundleVersion)
+    echo "<result>$updaterVersion</result>"
+else
+    echo "<result>Not installed</result>"
 fi
-#
-echo "<result>$result</result>"
-#
+
 exit 0
