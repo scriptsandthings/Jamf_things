@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 #
 ############################################################
 #
@@ -7,15 +7,17 @@
 # 5.11.2022
 #
 # ProofPoint_ObserveIt_AutoUpdater_Version.zsh
-# v1.0
+# v2.0
 #
 # Checks for the ProofPoint ObserveIT AutoUpdater daemon and reports the installed version
 #
 ############################################################
+updaterPath="/Library/ITUpdater/updater/"
+updaterName="autoUpdater"
 #
-if [ -d /Library/ITUpdater/updater ]; then
-    AppVersion=`/usr/bin/defaults read /Library/ITUpdater/updater/updater.Info.plist CFBundleVersion`
-    echo "<result>$AppVersion</result>"
+if [ -e "${updaterPath}${updaterName}" ]; then
+    updaterVersion=$(/usr/bin/defaults read /Library/ITUpdater/updater/updater.Info.plist CFBundleVersion)
+    echo "<result>$updaterVersion</result>"
 else
     echo "<result>Not installed</result>"
 fi
