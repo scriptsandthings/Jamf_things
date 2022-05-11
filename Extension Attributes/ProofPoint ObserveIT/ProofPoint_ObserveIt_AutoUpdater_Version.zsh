@@ -16,7 +16,7 @@ updaterPath="/Library/ITUpdater/updater/"
 updaterName="autoUpdater"
 #
 if [ -e "${updaterPath}${updaterName}" ]; then
-    updaterVersion=$(/usr/bin/defaults read /Library/ITUpdater/updater/updater.Info.plist CFBundleVersion)
+    updaterVersion=$(/usr/bin/defaults read /Library/ITUpdater/updater/plist/updater.Info.plist CFBundleVersion)
     echo "<result>$updaterVersion</result>"
 else
     echo "<result>Not installed</result>"
