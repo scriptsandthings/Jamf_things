@@ -9,7 +9,7 @@
 # ProofPoint_ObserveIt_AutoUpdater_Version.zsh
 # v1.0
 #
-# Checks for the ProofPoint ObserveIT AutoUpdater daemon installed version
+# Checks for the ProofPoint ObserveIT AutoUpdater daemon and reports the installed version
 #
 ############################################################
 #
