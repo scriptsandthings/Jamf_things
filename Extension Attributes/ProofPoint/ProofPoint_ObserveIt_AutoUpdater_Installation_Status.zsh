@@ -3,7 +3,9 @@
 ############################################################
 #
 # Greg Knackstedt
+# https://github.com/scriptsandthings/Jamf_things/
 # 5.11.2022
+#
 # ProofPoint_ObserveIt_AutoUpdater_Installation_Status.zsh
 # v1.0
 #
