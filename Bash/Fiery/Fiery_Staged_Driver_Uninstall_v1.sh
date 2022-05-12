@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #
 ####################################
@@ -12,7 +11,6 @@
 # Greg Knackstedt
 # 5.12.2022
 #
-
 #
 sudo /tmp/Fiery\ Printer\ Driver\ Installer.app/Contents/Resources/User\ Software/OSX/Printer\ Driver/Installer\ Wizard.app/Contents/MacOS/Fiery\ Printer\ Driver\ Installer remove
 #
