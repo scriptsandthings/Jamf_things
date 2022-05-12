@@ -35,3 +35,5 @@ https://mrmacintosh.com/
 https://hcsonline.com/support/white-papers/
 
 https://www.gkgigs.com/list-apple-ios-version-history/
+
+https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/
