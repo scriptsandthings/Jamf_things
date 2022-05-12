@@ -15,17 +15,17 @@
 #
 # Variables
 #
-installDMG="$4"
+installDMG=$4
 ##
 ####################################
 #
 # Begin Script
 #
 # Remove quarantine bit from staged dmg
-xattr -dr com.apple.quarantine /Users/Shared/"$installDMG"
+xattr -dr com.apple.quarantine /Users/Shared/$installDMG
 #
 # Mount staged .dmg
-hdiutil attach /Users/Shared/"$installDMG" -nobrowse
+hdiutil attach /Users/Shared/$installDMG -nobrowse
 sleep 10
 #
 # Install Fiery driver
@@ -37,6 +37,6 @@ hdiutil detach /Volumes/Fiery\ Printer\ Driver
 sleep 5
 #
 # Delete staged Fiery driver installation .dmg file
-rm -Rf /Users/Shared/"$installDMG"
+rm -Rf /Users/Shared/$installDMG
 
 exit 0
