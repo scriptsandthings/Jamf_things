@@ -6,7 +6,6 @@
 # 5.12.2022
 # v2.0
 # Greg Knackstedt
-# https://github.com/scriptsandthings/
 # 
 # - Based on the Jamf provided Jamf Connect Uninstaller.pkg written by Matthew Ward and Sameh Sayed.
 # - A more complete removal of additional Jamf Connect related launch agents then my original attempt.
@@ -16,7 +15,7 @@
 # Quit Connect if running 
 ConnectProcess=$(pgrep 'Jamf Connect')
 
-if [ $ConnectProcess > 0 ]; then
+if [ "$ConnectProcess" > 0 ]; then
     kill $ConnectProcess
 fi
 
