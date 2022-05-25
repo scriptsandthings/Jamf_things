@@ -34,6 +34,8 @@ https://mrmacintosh.com/
 
 https://hcsonline.com/support/white-papers/
 
+https://docs.jamf.com/education-services/resources/20211229/Resources_Welcome.html
+
 https://www.gkgigs.com/list-apple-ios-version-history/
 
 #### Specific Topics
