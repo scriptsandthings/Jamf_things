@@ -43,3 +43,5 @@ https://www.gkgigs.com/list-apple-ios-version-history/
 https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/
 
 https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/
+
+https://zerolaunched.herokuapp.com/
