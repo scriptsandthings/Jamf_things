@@ -6,7 +6,7 @@ By no means is anything here to be taken as a best practice suggestion.
 
 #### If you're going to use the Jamf API, it is important to take steps to be as secure as possible. 
 
-I would suggest looking at the API authentication options presented at the link below, by user [macnotes](https://github.com/macnotes/) rather then the methods given in some of these examples.
+I would suggest looking at the API authentication options presented at the link below, by user [macnotes](https://github.com/macnotes/) rather then the methods given in any of these examples.
 
 https://github.com/macnotes/jamfscripts/tree/main/jamfpro/getJamfApiCredentials
 
