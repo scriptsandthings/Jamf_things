@@ -4,7 +4,7 @@ Configuring a DEP capable VM snapshot with VMware Fusion and Parallels Desktop o
 
 [Guide for VMware Fusion](https://www.rderewianko.com/how-to-create-a-vm-thatll-work-with-dep-on-vmware-fusion/)
 
-[Another guide for VMware Fusion](https://travellingtechguy.blog/vmware-dep/)
+[Another guide for VMware Fusion](https://travellingtechguy.blog/vmware-dep/) * I found this to be the best guide
 
 [Guide for Parallels Desktop](https://jerbecause.wordpress.com/2018/02/09/creating-a-dep-vm-using-parallels-desktop/)
 
