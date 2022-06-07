@@ -45,3 +45,5 @@ https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-int
 https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/
 
 https://zerolaunched.herokuapp.com/
+
+https://www.dssw.co.uk/reference/authorization-rights/
