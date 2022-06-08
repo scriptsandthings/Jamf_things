@@ -55,3 +55,5 @@ https://www.cisecurity.org/benchmark/apple_os
 https://www.dssw.co.uk/reference/authorization-rights/
 
 https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys
+
+https://www.tenable.com/audits/items/search - CIS Benchmarks
