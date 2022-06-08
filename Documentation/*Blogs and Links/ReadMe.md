@@ -47,3 +47,5 @@ https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/
 https://zerolaunched.herokuapp.com/
 
 https://www.dssw.co.uk/reference/authorization-rights/
+
+https://www.cisecurity.org/benchmark/apple_os
