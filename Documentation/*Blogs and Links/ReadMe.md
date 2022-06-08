@@ -38,6 +38,8 @@ https://docs.jamf.com/education-services/resources/20211229/Resources_Welcome.ht
 
 https://www.gkgigs.com/list-apple-ios-version-history/
 
+https://www.dssw.co.uk/reference/
+
 #### Specific Topics
 
 https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/
@@ -49,3 +51,5 @@ https://zerolaunched.herokuapp.com/
 https://www.dssw.co.uk/reference/authorization-rights/
 
 https://www.cisecurity.org/benchmark/apple_os
+
+https://www.dssw.co.uk/reference/authorization-rights/
