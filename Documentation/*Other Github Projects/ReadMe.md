@@ -34,9 +34,19 @@ https://github.com/jamf/JamfMigrator
 
 https://gist.github.com/talkingmoose/a16ca849416ce5ce89316bacd75fc91a - Download and install Microsoft apps by product ID
 
+https://github.com/brysontyrrell/EncryptedStrings
+
 ## Security compliance
 
-https://github.com/mvdbent/CIS-macOS-Security
+https://github.com/usnistgov/macos_security 
+
+https://github.com/mvdbent/CIS-macOS-Security 
+
+https://github.com/mvdbent/CIS-Script/ 
+
+https://github.com/jamf/CIS-for-macOS-Sierra-CP/ 
+
+https://github.com/brysontyrrell/EncryptedStrings 
 
 https://github.com/CISOfy/lynis
 
