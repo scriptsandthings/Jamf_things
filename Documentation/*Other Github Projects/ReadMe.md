@@ -38,6 +38,8 @@ https://gist.github.com/talkingmoose/a16ca849416ce5ce89316bacd75fc91a - Download
 
 https://github.com/brysontyrrell/EncryptedStrings
 
+https://mosen.github.io/profiledocs/index.html
+
 ## Security compliance
 
 https://github.com/usnistgov/macos_security 
