@@ -1,5 +1,7 @@
 ## GitHub projects worth looking at
 
+https://github.com/apple/device-management
+
 https://github.com/macnotes/jamfscripts/tree/main/jamfpro/getJamfApiCredentials
 
 https://github.com/Installomator/Installomator
