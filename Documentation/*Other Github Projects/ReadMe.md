@@ -48,8 +48,6 @@ https://github.com/mvdbent/CIS-Script/
 
 https://github.com/jamf/CIS-for-macOS-Sierra-CP/ 
 
-https://github.com/brysontyrrell/EncryptedStrings 
-
 https://github.com/CISOfy/lynis
 
 ## Additional people to follow
