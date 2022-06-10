@@ -1,7 +1,7 @@
 #Configuration Profile Contents
 ## Update Nudge - macOS Update Managment - 12.4-Unsigned.mobileconfig
 
-### optionalFeatures - Configured
+## optionalFeatures - Configured
 
 acceptableCameraUsage - Configured - True
 
@@ -157,7 +157,7 @@ AutoDesk AutoCad 2022 - com.autodesk.AutoCAD2022
 
 enforceMinorUpdates - True
 
-### osVersionRequirements - Configured - macOS Monterey Clients
+## osVersionRequirements - Configured - macOS Monterey Clients
 
 aboutUpdateURL - https://support.apple.com/en-us/HT212585
 
@@ -172,7 +172,7 @@ requiredMinimumOSVersion - Configured - 12.4
 targetedOSVersionsRule - Configured - 12
 
 
-### osVersionRequirements - Configured - macOS Big Sur Clients
+## osVersionRequirements - Configured - macOS Big Sur Clients
 
 aboutUpdateURL - https://support.apple.com/en-us/HT212585
 
@@ -188,7 +188,7 @@ targetedOSVersionsRule - Configured - 11
 
 
 
-### userExperience - Configured
+## userExperience - Configured
 
 allowGracePeriods - Configured - true
 
@@ -222,7 +222,7 @@ randomDelay - Configured - true
 
 
 
-### userInterface - Configured
+## userInterface - Configured
 
 actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install URL
 
@@ -238,7 +238,7 @@ singleQuitButton - Configured - false
 
 
 
-### updateElements - Configured
+## updateElements - Configured
 
 updateElement - Dictionary 1
 
