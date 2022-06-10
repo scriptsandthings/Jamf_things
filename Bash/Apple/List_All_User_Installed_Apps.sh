@@ -1,7 +1,7 @@
 #!/bin/zsh
 #######################
 #
-# List_All_User_Installed_Apps.sh v1.1
+# List_All_User_Installed_Apps.sh v1.2
 #
 # Finds and lists all installed applications on a Mac within the /Applications/ and /Users/ directories.
 #       Short script to list all .app bundles on a Mac using Spotlight to search the contents of the /Applications/ and /Users/ directories.
@@ -11,4 +11,4 @@
 #
 ######################
 #
-mdfind -onlyin /Applications/ -onlyin /Users/ '(kMDItemCFBundleIdentifier != "com.apple.*" && kMDItemKind == "Application"' | sort -g
+mdfind -onlyin /Applications/ -onlyin /Users/ '(kMDItemCFBundleIdentifier != "com.apple.*" && kMDItemKind == "Application")' | sort -g
