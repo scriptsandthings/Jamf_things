@@ -59,3 +59,5 @@ https://developer.apple.com/documentation/devicemanagement/profile-specific_payl
 https://www.tenable.com/audits/items/search - CIS Benchmarks
 
 https://jsonlint.com/
+
+https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html - Known App Bundle IDs
