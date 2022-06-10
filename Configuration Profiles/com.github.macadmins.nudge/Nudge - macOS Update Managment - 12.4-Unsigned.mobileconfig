@@ -1,2 +1,374 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1"><dict><key>PayloadUUID</key><string>17457324-EBF2-4CA7-ABA7-44DD08A2AB17</string><key>PayloadType</key><string>Configuration</string><key>PayloadOrganization</key><string>Bath and Body Works</string><key>PayloadIdentifier</key><string>17457324-EBF2-4CA7-ABA7-44DD08A2AB17</string><key>PayloadDisplayName</key><string>Nudge - macOS Update Managment - 12.4</string><key>PayloadDescription</key><string>Configures Nudge to company standards</string><key>PayloadVersion</key><integer>1</integer><key>PayloadEnabled</key><true/><key>PayloadRemovalDisallowed</key><true/><key>PayloadScope</key><string>System</string><key>PayloadContent</key><array><dict><key>PayloadDisplayName</key><string>Custom Settings</string><key>PayloadIdentifier</key><string>C02C52CB-3F98-42BB-B818-A882F79D80CC</string><key>PayloadOrganization</key><string>JAMF Software</string><key>PayloadType</key><string>com.apple.ManagedClient.preferences</string><key>PayloadUUID</key><string>C02C52CB-3F98-42BB-B818-A882F79D80CC</string><key>PayloadVersion</key><integer>1</integer><key>PayloadContent</key><dict><key>com.github.macadmins.nudge</key><dict><key>Forced</key><array><dict><key>mcx_preference_settings</key><dict><key>osVersionRequirements</key><array><dict><key>aboutUpdateURL</key><string>https://support.apple.com/en-us/HT212585</string><key>requiredInstallationDate</key><string>2022-06-16T00:00:01Z</string><key>requiredMinimumOSVersion</key><string>12.4</string><key>targetedOSVersionsRule</key><string>12</string></dict><dict><key>aboutUpdateURL</key><string>https://support.apple.com/en-us/HT212585</string><key>requiredInstallationDate</key><string>2022-06-16T00:00:01Z</string><key>requiredMinimumOSVersion</key><string>12.4</string><key>targetedOSVersionsRule</key><string>11</string></dict></array><key>optionalFeatures</key><dict><key>acceptableCameraUsage</key><true/><key>acceptableScreenSharingUsage</key><true/><key>aggressiveUserExperience</key><true/><key>asynchronousSoftwareUpdate</key><true/><key>attemptToBlockApplicationLaunches</key><true/><key>attemptToFetchMajorUpgrade</key><true/><key>enforceMinorUpdates</key><true/><key>blockedApplicationBundleIDs</key><array><string>com.adobe.Photoshop</string><string>com.adobe.illustrator</string><string>com.adobe.indesign</string><string>com.adobe.acc.AdobeCreativeCloud</string><string>com.adobe.Acrobat.Pro</string><string>com.adobe.Acrobat</string><string>com.apple.Keynote</string><string>com.apple.Xcode</string><string>com.autodesk.AutoCAD</string><string>com.github.GitHub</string><string>com.google.Chrome</string><string>com.apple.Safari</string><string>org.mozilla.firefox</string><string>com.vivaldi.Vivaldi</string><string>org.eclipse.eclipse</string><string>com.spotify.client</string><string>com.panic.Transmit</string><string>com.operasoftware.Opera</string><string>com.microsoft.Word</string><string>com.microsoft.Powerpoint</string><string>com.microsoft.onenote.mac</string><string>com.microsoft.Excel</string><string>com.google.sketchuppro</string><string>com.apple.iWork.Pages</string><string>com.apple.iWork.Numbers</string><string>com.apple.iPhoto</string><string>com.apple.Music</string><string>com.brave.Browser</string><string>org.torproject.torbrowser</string><string>com.pandora.desktop</string><string>com.microsoft.edgemac</string><string>com.apple.Terminal</string><string>com.apple.ActivityMonitor</string><string>com.postmanlabs.mac</string><string>com.oracle.workbench.MySQLWorkbench</string><string>com.extensis.UniversalTypeClient</string><string>com.microsoft.VSCode</string><string>com.tinyspeck.slackmacgap</string><string>com.apple.FaceTime</string><string>com.apple.configurator.ui</string><string>com.hnc.Discord</string></array></dict><key>userExperience</key><dict><key>allowGracePeriods</key><true/><key>allowUserQuitDeferrals</key><true/><key>allowedDeferrals</key><integer>10</integer><key>allowedDeferralsUntilForcedSecondaryQuitButton</key><integer>5</integer><key>approachingRefreshCycle</key><integer>6000</integer><key>approachingWindowTime</key><integer>72</integer><key>elapsedRefreshCycle</key><integer>300</integer><key>gracePeriodInstallDelay</key><integer>24</integer><key>gracePeriodLaunchDelay</key><integer>4</integer><key>gracePeriodPath</key><string>/private/var/db/.AppleSetupDone</string><key>imminentRefreshCycle</key><integer>300</integer><key>imminentWindowTime</key><integer>48</integer><key>initialRefreshCycle</key><integer>7200</integer><key>maxRandomDelayInSeconds</key><integer>1200</integer><key>randomDelay</key><true/></dict><key>userInterface</key><dict><key>iconLightPath</key><string>/Applications/Install macOS Monterey.app/Contents/Resources/InstallAssistant.icns</string><key>showDeferralCount</key><true/><key>simpleMode</key><false/><key>singleQuitButton</key><false/><key>updateElements</key><array><dict><key>actionButtonText</key><string>Update My Mac</string><key>customDeferralDropdownText</key><string>Remind Me Later</string><key>mainContentHeader</key><string>Your Mac may need to reboot in order to complete update installation.</string><key>mainContentSubHeader</key><string>Updates may take up to 30-45 minutes to install</string><key>mainHeader</key><string>macOS Monterey 12.4 update required</string><key>primaryQuitButtonText</key><string>Remind Me Later</string><key>secondaryQuitButtonText</key><string>I understand</string><key>subHeader</key><string>A friendly reminder from IT</string></dict></array></dict></dict></dict></array></dict></dict></dict></array></dict></plist>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1">
+	<dict>
+		<key>PayloadUUID</key>
+		<string>B4B9643-5DF5-4395-8B78-C8689DGE7E32</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadOrganization</key>
+		<string>OrgName</string>
+		<key>PayloadIdentifier</key>
+		<string>B4B9643-5DF5-4395-8B78-C8689DGE7E32</string>
+		<key>PayloadDisplayName</key>
+		<string>Nudge - macOS Update Managment - 12.4</string>
+		<key>PayloadDescription</key>
+		<string>Configures Nudge to company standards&#13;
+_________________________________&#13;
+optionalFeatures - Configured&#13;
+acceptableCameraUsage - Configured - True&#13;
+acceptableScreenSharingUsage - Configured - True&#13;
+aggressiveUserExperience - Configured - True&#13;
+asynchronousSoftwareUpdate - Configured - True&#13;
+attemptToBlockApplicationLaunches - Configured - True&#13;
+attemptToFetchMajorUpgrade - Configured - True&#13;
+blockedApplicationBundleIDs - Configured&#13;
+Adobe Photoshop - com.adobe.Photoshop&#13;
+Adobe Illustrator - com.adobe.Illustrator&#13;
+Adobe InDesign - com.adobe.InDesign&#13;
+Adobe Creative Cloud Desktop - com.adobe.acc.AdobeCreativeCloud&#13;
+Adobe Acrobat Pro - com.adobe.Acrobat.Pro&#13;
+Adobe Acrobat DC - com.adobe.Acrobat&#13;
+Apple Keynote - com.apple.Keynote&#13;
+Apple Xcode - com.apple.Xcode&#13;
+Apple Pages - com.apple.iWork.Pages&#13;
+Apple iWork - com.apple.iWork.Numbers&#13;
+Apple Music - com.apple.Music&#13;
+Apple iPhoto - com.apple.iPhoto&#13;
+Apple Safari - com.apple.Safari&#13;
+AutoDesk AutoCAD - com.autodesk.AutoCAD&#13;
+GitHub Desktop - com.github.GitHub&#13;
+Google Chrome - com.google.Chrome&#13;
+Mozilla Firefox - org.mozilla.firefox&#13;
+Brave Browser - com.brave.Browser&#13;
+Tor Browser - org.torproject.torbrowser&#13;
+Vivaldi - com.vivaldi.Vivaldi&#13;
+Eclipse IDE - org.eclipse.eclipse&#13;
+Spotify - com.spotify.client&#13;
+Panic Transmit - com.panic.Transmit&#13;
+Opera - com.operasoftware.Opera&#13;
+Microsoft Word - com.microsoft.Word&#13;
+Microsoft Powerpoint - com.microsoft.Powerpoint&#13;
+Microsoft OneNote - com.microsoft.onenote.mac&#13;
+Microsoft Excel - com.microsoft.Excel&#13;
+Microsoft Edge - com.microsoft.edgemac&#13;
+Microsoft Visual Studio Code - com.microsoft.VSCode&#13;
+Google SketchUp - com.google.sketchuppro&#13;
+Pandora - com.pandora.desktop&#13;
+Terminal.app - com.apple.Terminal&#13;
+Activity Monitor.app - com.apple.ActivityMonitor&#13;
+Postman - com.postmanlabs.mac&#13;
+MySQLWorkbench - com.oracle.workbench.MySQLWorkbench&#13;
+Extensis Universal Type Client - com.extensis.UniversalTypeClient&#13;
+Slack - com.tinyspeck.slackmacgap&#13;
+FaceTime - com.apple.FaceTime&#13;
+Apple Configurator - com.apple.configurator.ui&#13;
+Discord - com.hnc.Discord&#13;
+VMware Horizon Client - com.vmware.horizon&#13;
+UTM - com.utmapp.UTM&#13;
+VirtualBox - org.virtualbox.app.VirtualBox&#13;
+Parallels Desktop - com.parallels.desktop.console&#13;
+Adobe Lightroom - com.adobe.lightroomCC&#13;
+Adobe Premiere Pro 2022 - com.adobe.PremierePro.22&#13;
+Adobe Premiere Pro 2021 - com.adobe.PremierePro.21&#13;
+Adobe Premiere Pro 2020 - com.adobe.PremierePro.20&#13;
+Adobe Premiere Pro 2019 - com.adobe.PremierePro.19&#13;
+Adobe Premiere Pro 2018 - com.adobe.PremierePro.18&#13;
+JetBrains PyCharm Community Edition - com.jetbrains.pycharm.ce&#13;
+JetBrains PyCharm Professional - com.jetbrains.pycharm&#13;
+JetBrains WebStorm - com.jetbrains.WebStorm&#13;
+JetBrains PHPStorm - com.jetbrains.PhpStorm&#13;
+JetBrains IntelliJ - com.jetbrains.intellij&#13;
+DBeaver Ultimate - com.dbeaver.product.ultimate&#13;
+DBeaver Community Edition - org.jkiss.dbeaver.core.product&#13;
+DBeaver Enterprise - com.dbeaver.product.enterprise&#13;
+Tableau Desktop - com.tableausoftware.tableaudesktop&#13;
+CLO_Network_OnlineAuth.app - com.clo3d.security.clono&#13;
+Docker - com.docker.docker&#13;
+Gemini2 - com.macpaw.Gemini2&#13;
+AutoDesk AutoCad 2017 - com.autodesk.AutoCAD2017&#13;
+AutoDesk AutoCad 2018 - com.autodesk.AutoCAD2018&#13;
+AutoDesk AutoCad 2019 - com.autodesk.AutoCAD2019&#13;
+AutoDesk AutoCad 2020 - com.autodesk.AutoCAD2020&#13;
+AutoDesk AutoCad 2021 - com.autodesk.AutoCAD2021&#13;
+AutoDesk AutoCad 2022 - com.autodesk.AutoCAD2022&#13;
+enforceMinorUpdates - True&#13;
+_________________________________&#13;
+osVersionRequirements - Configured - macOS Monterey Clients&#13;
+aboutUpdateURL - https://support.apple.com/en-us/HT212585&#13;
+actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install URL&#13;
+majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL - Install URL&#13;
+requiredInstallationDate - Configured - 2022-06-23T00:00:01Z&#13;
+requiredMinimumOSVersion - Configured - 12.4&#13;
+targetedOSVersionsRule - Configured - 12&#13;
+_________________________________&#13;
+osVersionRequirements - Configured - macOS Big Sur Clients&#13;
+aboutUpdateURL - https://support.apple.com/en-us/HT212585&#13;
+actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install URL&#13;
+majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL - Install URL&#13;
+requiredInstallationDate - Configured - 2022-06-23T00:00:01Z&#13;
+requiredMinimumOSVersion - Configured - 12.4&#13;
+targetedOSVersionsRule - Configured - 11&#13;
+_________________________________&#13;
+userExperience - Configured&#13;
+allowGracePeriods - Configured - true&#13;
+allowUserQuitDeferrals - Configured - true&#13;
+allowedDeferrals - Configured - 15&#13;
+allowedDeferralsUntilForcedSecondaryQuitButton - Configured - 5&#13;
+approachingRefreshCycle - Configured - 6000&#13;
+approachingWindowTime - Configured - 72&#13;
+elapsedRefreshCycle - Configured - 300&#13;
+gracePeriodInstallDelay - Configured - 24&#13;
+gracePeriodLaunchDelay - Configured - 4&#13;
+gracePeriodPath - Configured - /private/var/db/.AppleSetupDone&#13;
+imminentRefreshCycle - Configured - 300&#13;
+imminentWindowTime - Configured - 48&#13;
+initialRefreshCycle - Configured - 7200&#13;
+maxRandomDelayInSeconds - Configured - 1200&#13;
+randomDelay - Configured - true&#13;
+_________________________________&#13;
+userInterface - Configured&#13;
+actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install URL&#13;
+iconLightPath - Configured - "/Applications/Install macOS Monterey.app/Contents/Resources/InstallAssistant.icns"&#13;
+iconDarkPath - Configured - "/Applications/Install macOS Monterey.app/Contents/Resources/InstallAssistant.icns"&#13;
+showDeferralCount - Configured - true&#13;
+simpleMode - Configured - false&#13;
+singleQuitButton - Configured - false&#13;
+_________________________________&#13;
+updateElements - Configured&#13;
+updateElement - Dictionary 1&#13;
+actionButtonText - Configured - "Update My Mac"&#13;
+customDeferralButtonText - Configured - "Select a Specific Date and Time"&#13;
+customDeferralDropdownText - Configured - "Remind Me Later"&#13;
+informationButtonText - Configured - "For questions or issues contact corporate IT Support at 1-555-555-5555 for assistance."&#13;
+mainContentHeader - Configured - "Your Mac will need to reboot in order to complete update installation."&#13;
+mainContentNote - "An Important Note Regarding Required Updates"&#13;
+mainContentSubHeader - Configured - "Updates may take up to 30-45 minutes to install"&#13;
+mainContentText - Configured - "A fully up-to-date macOS is required to ensure that corporate IT can your accurately protect your device, and continue to provide you with the best user experience possible everyday.\n\nThe macOS Monterey 12.4 update must be installed on your Mac prior to 12am Thursday, June 23 2022.\n\nIf you do not update your Mac prior to the installation deadline at 12am Thursday, June 23 2022, you will lose access to applications necessary for your day-to-day tasks once the installation deadline has passed until the macOS Monterey 12.4 update is installed on your Mac.\n\nTo begin installing the macOS Monterey 12.4 update now, simply click on the “Update My Mac” button below and follow the provided steps, the installation of macOS Monterey 12.4 will take about 30-45 minutes to complete.\n\nIf you would like to reschedule the macOS Monterey 12.4 update for another time that better fits into your schedule, click the “I Understand” button below then use the “Remind Me Later” menu to schedule a reminder notification."&#13;
+primaryQuitButtonText - Configured - "Remind Me Later"&#13;
+secondaryQuitButtonText - Configured - "I Understand"&#13;
+subHeader - Configured - "A friendly reminder from corporate IT Support"</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+		<key>PayloadEnabled</key>
+		<true/>
+		<key>PayloadRemovalDisallowed</key>
+		<true/>
+		<key>PayloadScope</key>
+		<string>System</string>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>PayloadDisplayName</key>
+				<string>Custom Settings</string>
+				<key>PayloadIdentifier</key>
+				<string>C02C52CB-3F98-42BB-B818-A882F79D80CC</string>
+				<key>PayloadOrganization</key>
+				<string>JAMF Software</string>
+				<key>PayloadType</key>
+				<string>com.apple.ManagedClient.preferences</string>
+				<key>PayloadUUID</key>
+				<string>C02C52CB-3F98-42BB-B818-A882F79D80CC</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+				<key>PayloadContent</key>
+				<dict>
+					<key>com.github.macadmins.nudge</key>
+					<dict>
+						<key>Forced</key>
+						<array>
+							<dict>
+								<key>mcx_preference_settings</key>
+								<dict>
+									<key>osVersionRequirements</key>
+									<array>
+										<dict>
+											<key>aboutUpdateURL</key>
+											<string>https://support.apple.com/en-us/HT212585</string>
+											<key>majorUpgradeAppPath</key>
+											<string>/Applications/Install macOS Monterey.app</string>
+											<key>requiredInstallationDate</key>
+											<string>2022-06-16T00:00:01Z</string>
+											<key>requiredMinimumOSVersion</key>
+											<string>12.4</string>
+											<key>targetedOSVersionsRule</key>
+											<string>12</string>
+										</dict>
+										<dict>
+											<key>aboutUpdateURL</key>
+											<string>https://support.apple.com/en-us/HT212585</string>
+											<key>majorUpgradeAppPath</key>
+											<string>/Applications/Install macOS Monterey.app</string>
+											<key>requiredInstallationDate</key>
+											<string>2022-06-16T00:00:01Z</string>
+											<key>requiredMinimumOSVersion</key>
+											<string>12.4</string>
+											<key>targetedOSVersionsRule</key>
+											<string>11</string>
+										</dict>
+									</array>
+									<key>optionalFeatures</key>
+									<dict>
+										<key>acceptableCameraUsage</key>
+										<true/>
+										<key>acceptableScreenSharingUsage</key>
+										<true/>
+										<key>aggressiveUserExperience</key>
+										<true/>
+										<key>asynchronousSoftwareUpdate</key>
+										<true/>
+										<key>attemptToBlockApplicationLaunches</key>
+										<true/>
+										<key>attemptToFetchMajorUpgrade</key>
+										<true/>
+										<key>enforceMinorUpdates</key>
+										<true/>
+										<key>blockedApplicationBundleIDs</key>
+										<array>
+											<string>com.adobe.Photoshop</string>
+											<string>com.adobe.illustrator</string>
+											<string>com.adobe.indesign</string>
+											<string>com.adobe.acc.AdobeCreativeCloud</string>
+											<string>com.adobe.Acrobat.Pro</string>
+											<string>com.adobe.Acrobat</string>
+											<string>com.apple.Keynote</string>
+											<string>com.apple.Xcode</string>
+											<string>com.autodesk.AutoCAD</string>
+											<string>com.github.GitHub</string>
+											<string>com.google.Chrome</string>
+											<string>com.apple.Safari</string>
+											<string>org.mozilla.firefox</string>
+											<string>com.vivaldi.Vivaldi</string>
+											<string>org.eclipse.eclipse</string>
+											<string>com.spotify.client</string>
+											<string>com.panic.Transmit</string>
+											<string>com.operasoftware.Opera</string>
+											<string>com.microsoft.Word</string>
+											<string>com.microsoft.Powerpoint</string>
+											<string>com.microsoft.onenote.mac</string>
+											<string>com.microsoft.Excel</string>
+											<string>com.google.sketchuppro</string>
+											<string>com.apple.iWork.Pages</string>
+											<string>com.apple.iWork.Numbers</string>
+											<string>com.apple.iPhoto</string>
+											<string>com.apple.Music</string>
+											<string>com.brave.Browser</string>
+											<string>org.torproject.torbrowser</string>
+											<string>com.pandora.desktop</string>
+											<string>com.microsoft.edgemac</string>
+											<string>com.apple.Terminal</string>
+											<string>com.apple.ActivityMonitor</string>
+											<string>com.postmanlabs.mac</string>
+											<string>com.oracle.workbench.MySQLWorkbench</string>
+											<string>com.extensis.UniversalTypeClient</string>
+											<string>com.microsoft.VSCode</string>
+											<string>com.tinyspeck.slackmacgap</string>
+											<string>com.apple.FaceTime</string>
+											<string>com.apple.configurator.ui</string>
+											<string>com.hnc.Discord</string>
+											<string>com.jetbrains.pycharm.ce</string>
+											<string>com.jetbrains.pycharm</string>
+											<string>com.jetbrains.WebStorm</string>
+											<string>com.jetbrains.PhpStorm</string>
+											<string>com.jetbrains.intellij</string>
+											<string>com.dbeaver.product.ultimate</string>
+											<string>org.jkiss.dbeaver.core.product</string>
+											<string>com.dbeaver.product.enterprise</string>
+											<string>com.tableausoftware.tableaudesktop</string>
+											<string>com.clo3d.security.clono</string>
+											<string>com.docker.docker</string>
+											<string>com.macpaw.Gemini2</string>
+											<string>com.dbeaver.product.enterprise</string>
+											<string>com.autodesk.AutoCAD2017</string>
+											<string>com.autodesk.AutoCAD2018</string>
+											<string>com.autodesk.AutoCAD2019</string>
+											<string>com.autodesk.AutoCAD2020</string>
+											<string>com.autodesk.AutoCAD2021</string>
+											<string>com.autodesk.AutoCAD2022</string>
+											<string>com.microsoft.VSCode</string>
+										</array>
+									</dict>
+									<key>userExperience</key>
+									<dict>
+										<key>allowGracePeriods</key>
+										<true/>
+										<key>allowUserQuitDeferrals</key>
+										<true/>
+										<key>allowedDeferrals</key>
+										<integer>15</integer>
+										<key>allowedDeferralsUntilForcedSecondaryQuitButton</key>
+										<integer>5</integer>
+										<key>approachingRefreshCycle</key>
+										<integer>6000</integer>
+										<key>approachingWindowTime</key>
+										<integer>72</integer>
+										<key>elapsedRefreshCycle</key>
+										<integer>300</integer>
+										<key>gracePeriodInstallDelay</key>
+										<integer>24</integer>
+										<key>gracePeriodLaunchDelay</key>
+										<integer>4</integer>
+										<key>gracePeriodPath</key>
+										<string>/private/var/db/.AppleSetupDone</string>
+										<key>imminentRefreshCycle</key>
+										<integer>300</integer>
+										<key>imminentWindowTime</key>
+										<integer>48</integer>
+										<key>initialRefreshCycle</key>
+										<integer>7200</integer>
+										<key>maxRandomDelayInSeconds</key>
+										<integer>1200</integer>
+										<key>randomDelay</key>
+										<true/>
+									</dict>
+									<key>userInterface</key>
+									<dict>
+										<key>iconDarkPath</key>
+										<string>/Applications/Install macOS Monterey.app/Contents/Resources/InstallAssistant.icns</string>
+										<key>iconLightPath</key>
+										<string>/Applications/Install macOS Monterey.app/Contents/Resources/InstallAssistant.icns</string>
+										<key>showDeferralCount</key>
+										<true/>
+										<key>simpleMode</key>
+										<false/>
+										<key>singleQuitButton</key>
+										<false/>
+										<key>updateElements</key>
+										<array>
+											<dict>
+												<key>actionButtonText</key>
+												<string>Update My Mac</string>
+												<key>customDeferralButtonText</key>
+												<string>Select a Specific Date and Time</string>
+												<key>customDeferralDropdownText</key>
+												<string>Remind Me Later</string>
+												<key>informationButtonText</key>
+												<string>For questions or issues contact corporate Support at 1-555-555-5555 for assistance.</string>
+												<key>mainContentHeader</key>
+												<string>Your Mac will need to reboot in order to complete update installation.</string>
+												<key>mainContentNote</key>
+												<string>An Important Note Regarding Required Updates</string>
+												<key>mainContentSubHeader</key>
+												<string>Updates may take up to 30-45 minutes to install</string>
+												<key>mainContentText</key>
+												<string>A fully up-to-date macOS is required to ensure that corporate IT can your accurately protect your device, and continue to provide you with the best user experience possible everyday.\n\nThe macOS Monterey 12.4 update must be installed on your Mac prior to 12am Thursday, June 23 2022.\n\nIf you do not update your Mac prior to the installation deadline at 12am Thursday, June 23 2022, you will lose access to applications necessary for your day-to-day tasks once the installation deadline has passed until the macOS Monterey 12.4 update is installed on your Mac.\n\nTo begin installing the macOS Monterey 12.4 update now, simply click on the “Update My Mac” button below and follow the provided steps, the installation of macOS Monterey 12.4 will take about 30-45 minutes to complete.\n\nIf you would like to reschedule the macOS Monterey 12.4 update for another time that better fits into your schedule, click the “I Understand” button below then use the “Remind Me Later” menu to schedule a reminder notification.</string>
+												<key>mainHeader</key>
+												<string>macOS Monterey 12.4 update required</string>
+												<key>primaryQuitButtonText</key>
+												<string>Remind Me Later</string>
+												<key>secondaryQuitButtonText</key>
+												<string>I understand</string>
+												<key>subHeader</key>
+												<string>A fully up-to-date macOS is required to ensure that corporate IT can your accurately protect your device, and continue to provide you with the best daily user experience possible. \n\nThe macOS Monterey 12.4 update must be installed on your Mac prior to 6.16.2022.\n\nIf you do not update your Mac, you will lose access to applications necessary for your day-to-day tasks once the installation deadline has passed until the macOS Monterey 12.4 update is installed on your Mac.\n\nTo begin installing the macOS Monterey 12.4 update, simply click on the button below and follow the provided steps, the installation of macOS Monterey 12.4 will take about 30-45 minutes to complete.\n\nIf you would like to reschedule the macOS Monterey 12.4 update for another time that better fits into your schedule, click the “Remind Me Later” button to schedule a reminder notification.</string>
+											</dict>
+										</array>
+									</dict>
+								</dict>
+							</dict>
+						</array>
+					</dict>
+				</dict>
+			</dict>
+		</array>
+	</dict>
+</plist>
