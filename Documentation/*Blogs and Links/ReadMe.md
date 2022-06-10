@@ -40,6 +40,8 @@ https://www.gkgigs.com/list-apple-ios-version-history/
 
 https://www.dssw.co.uk/reference/
 
+https://blog.eriknicolasgomez.com/
+
 #### Specific Topics
 
 https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/
