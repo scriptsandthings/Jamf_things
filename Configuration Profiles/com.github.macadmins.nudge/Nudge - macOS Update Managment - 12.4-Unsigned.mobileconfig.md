@@ -1,5 +1,4 @@
-#Configuration Profile Contents
-## Update Nudge - macOS Update Managment - 12.4-Unsigned.mobileconfig
+## Update Nudge - macOS Update Managment - 12.4-Unsigned.mobileconfig - v1.1
 
 The following two keys may not be set (5 occurences total to enter the URL), and will need to be added/configured to point to the proper Jamf Self Service policy installation URLs for Intel and Apple Silicon for your macOS Monterey upgrade workflow.
 
