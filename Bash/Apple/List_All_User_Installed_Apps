@@ -1,10 +1,11 @@
 #!/bin/zsh
 #######################
 #
-# List_All_User_Installed_Apps.sh v1.0
+# List_All_User_Installed_Apps.sh v1.1
 #
 # Finds and lists all installed applications on a Mac within the /Users/ directory.
 #       Short script to list all .app bundles on a Mac using Spotlight to search the contents of the /Users/ directory only.
+#       Apple applications are excluded using the com.apple.* bundle identifier.
 # Greg Knackstedt
 # 6.10.2022
 #
