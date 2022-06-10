@@ -1,7 +1,7 @@
 #!/bin/zsh
 #######################
 #
-# List_All_Installed_Apps.sh v1.1
+# List_All_Installed_Apps.sh v1.2
 #
 # Finds and lists all installed applications on a Mac.
 #       Short script to list all .app bundles on a Mac using Spotlight to search the contents of /Applications/.
@@ -11,4 +11,4 @@
 #
 ######################
 #
-mdfind -onlyin /Applications/ '(kMDItemCFBundleIdentifier != "com.apple.*" && kMDItemKind == "Application"' | sort -g
+mdfind -onlyin /Applications/ '(kMDItemCFBundleIdentifier != "com.apple.*" && kMDItemKind == "Application")' | sort -g
