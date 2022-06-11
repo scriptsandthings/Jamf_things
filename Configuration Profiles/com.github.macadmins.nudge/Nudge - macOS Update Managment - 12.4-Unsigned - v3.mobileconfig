@@ -11,9 +11,9 @@
     <key>PayloadIdentifier</key>
     <string>672e168c-e945-11ec-8fea-0242ac120002</string>
     <key>PayloadDisplayName</key>
-    <string>Nudge - macOS Update Managment - 12.4 - Intel</string>
+    <string>Nudge - macOS Update Managment - 12.4</string>
     <key>PayloadDescription</key>
-    <string>v1.5 - Monterey 12.4&#13;
+    <string>v3 - Monterey 12.4&#13;
 Greg K&#13;
 shitttyscripts@gmail.com&#13;
 6.10.2022&#13;
@@ -359,7 +359,7 @@ subHeader - Configured - "A friendly reminder from IT Support"</string>
                         <key>customDeferralDropdownText</key>
                         <string>Schedule Reminder</string>
                         <key>informationButtonText</key>
-                        <string>Learn About This Update</string>
+                        <string>About This Update</string>
                         <key>mainContentHeader</key>
                         <string>Your Mac will need to reboot in order to complete update installation.</string>
                         <key>mainContentNote</key>
