@@ -146,7 +146,7 @@ _language - Configured - en&#13;
 actionButtonText - Configured - "Install Update Now"&#13;
 customDeferralButtonText - Configured - "Select a Date and Time"&#13;
 customDeferralDropdownText - Configured - "Schedule Reminder"&#13;
-informationButtonText - Configured - "Learn About This Update"&#13;
+informationButtonText - Configured - "About This Update"&#13;
 oneDayDeferralButtonText - Configured - "Tomorrow"&#13;
 oneHourDeferralButtonText - Configured - "One Hour"&#13;
 mainContentHeader - Configured - "Your Mac will need to reboot in order to complete update installation."&#13;
