@@ -179,7 +179,7 @@ aboutUpdateURL - https://support.apple.com/en-us/HT212585
 
 actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 
-majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL - Install or View URL
+majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 
 requiredInstallationDate - Configured - 2022-06-23T00:00:01Z
 
@@ -194,7 +194,7 @@ aboutUpdateURL - https://support.apple.com/en-us/HT212585
 
 actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 
-majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL - Install or View URL
+majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 
 requiredInstallationDate - Configured - 2022-06-23T00:00:01Z
 
