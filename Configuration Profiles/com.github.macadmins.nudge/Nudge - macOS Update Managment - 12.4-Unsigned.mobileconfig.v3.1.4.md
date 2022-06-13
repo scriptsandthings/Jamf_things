@@ -252,15 +252,17 @@ singleQuitButton - Configured - false
 
 ## updateElements - Configured
 
+language - Configured - en
+
 updateElement - Dictionary 1
 
-actionButtonText - Configured - "Update My Mac"
+actionButtonText - Configured - "Install Update Now"
 
-customDeferralButtonText - Configured - "Select a Specific Date and Time"
+customDeferralButtonText - Configured - "Select a Date and Time"
 
 customDeferralDropdownText - Configured - "Remind Me Later"
 
-informationButtonText - Configured - "For questions or issues contact corporate IT Support at 1-555-555-5555 for assistance."
+informationButtonText - Configured - "About This Update"
 
 mainContentHeader - Configured - "Your Mac will need to reboot in order to complete update installation."
 
@@ -268,9 +270,17 @@ mainContentNote - "An Important Note Regarding Required Updates"
 
 mainContentSubHeader - Configured - "Updates may take up to 30-45 minutes to install"
 
-mainContentText - Configured - "A fully up-to-date macOS is required to ensure that corporate IT can your accurately protect your device, and continue to provide you with the best user experience possible everyday.\n\nThe macOS Monterey 12.4 update must be installed on your Mac prior to 12am Thursday, June 23 2022.\n\nIf you do not update your Mac prior to the installation deadline at 12am Thursday, June 23 2022, you will lose access to applications necessary for your day-to-day tasks once the installation deadline has passed until the macOS Monterey 12.4 update is installed on your Mac.\n\nTo begin installing the macOS Monterey 12.4 update now, simply click on the “Update My Mac” button below and follow the provided steps, the installation of macOS Monterey 12.4 will take about 30-45 minutes to complete.\n\nIf you would like to reschedule the macOS Monterey 12.4 update for another time that better fits into your schedule, click the “I Understand” button below then use the “Remind Me Later” menu to schedule a reminder notification."
+mainContentText - Configured - "An fully up-to-date macOS is required to ensure that IT Support can your accurately protect and support your Mac, so it can continue to provide you with the best user experience possible everyday.\n\nThis update must be installed on your Mac prior to Thursday June 23, 2022. If you do not update your Mac prior to the installation deadline, you may lose access to applications necessary for your day-to-day tasks until it is installed.\n\nTo begin the install now, simply click the blue “Install Update Now” button above and follow the provided steps. To schedule a reminder to install later, click “I Understand” or "Schedule Reminder" below."
 
-primaryQuitButtonText - Configured - "Remind Me Later"
+mainHeader - Configured - "macOS Monterey 12.4 update required"
+
+oneDayDeferralButtonText - Configured - "Tomorrow"
+
+oneHourDeferralButtonText - Configured - "One Hour"
+
+mainHeader - Configured - "macOS Monterey 12.4 update required"
+
+primaryQuitButtonText - Configured - "Later"
 
 secondaryQuitButtonText - Configured - "I Understand"
 
