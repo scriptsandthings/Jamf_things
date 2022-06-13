@@ -12,7 +12,7 @@
     <string>672e168c-e945-11ec-8fea-0242ac120002</string>
     <key>PayloadDisplayName</key>
     <string>Nudge - macOS Update Managment - 12.4</string>
-    <key></key>
+    <key>PayloadDescription</key>
     <string></string>
     <key>PayloadVersion</key>
     <integer>1</integer>
