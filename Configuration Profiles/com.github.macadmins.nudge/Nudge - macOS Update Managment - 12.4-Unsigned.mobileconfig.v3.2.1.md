@@ -1,17 +1,21 @@
-## Update Nudge - macOS Update Managment - 12.4-Unsigned.mobileconfig - v1.1
+# Update Nudge - macOS Update Managment - 12.4-Unsigned.mobileconfig - v1.1
+
+## About this profile
 
 The following two keys may not be set (5 occurences total to enter the URL), and will need to be added/configured to point to the proper Jamf Self Service policy installation URLs for Intel and Apple Silicon for your macOS Monterey upgrade workflow.
 
 osVersionRequirements - Configured - macOS Big Sur Clients
-- actionButtonPath
-- majorUpgradeAppPath 
+- actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
+- majorUpgradeAppPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 
 osVersionRequirements - Configured - macOS Monterey Clients
-- actionButtonPath
-- majorUpgradeAppPath 
+- actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
+- majorUpgradeAppPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 
 userInterface
-- actionButtonPath
+- actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
+- iconLightPath - If you wish to customize the logo used or don't pre-cache the Install macOS Monterey.app on your clients, update this.
+- iconDarkPath - If you wish to customize the logo used or don't pre-cache the Install macOS Monterey.app on your clients, update this.
 
 ## optionalFeatures - Configured
 
@@ -173,9 +177,9 @@ enforceMinorUpdates - True
 
 aboutUpdateURL - https://support.apple.com/en-us/HT212585
 
-actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install URL
+actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 
-majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL - Install URL
+majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL - Install or View URL
 
 requiredInstallationDate - Configured - 2022-06-23T00:00:01Z
 
@@ -188,9 +192,9 @@ targetedOSVersionsRule - Configured - 12
 
 aboutUpdateURL - https://support.apple.com/en-us/HT212585
 
-actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install URL
+actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 
-majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL - Install URL
+majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL - Install or View URL
 
 requiredInstallationDate - Configured - 2022-06-23T00:00:01Z
 
@@ -260,7 +264,7 @@ actionButtonText - Configured - "Install Update Now"
 
 customDeferralButtonText - Configured - "Select a Date and Time"
 
-customDeferralDropdownText - Configured - "Remind Me Later"
+customDeferralDropdownText - Configured - "Schedule Reminder"
 
 informationButtonText - Configured - "About This Update"
 
