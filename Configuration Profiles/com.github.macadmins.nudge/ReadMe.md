@@ -2,7 +2,7 @@
 
 ## About this profile
 
-The following two keys may not be set (5 occurences total to enter the URL), and will need to be added/configured to point to the proper Jamf Self Service policy installation URLs for Intel and Apple Silicon for your macOS Monterey upgrade workflow.
+The following two keys may not be set (5 occurences total to enter the URL), and will need to be added/configured to point to the proper Jamf Self Service policy installation URLs for Intel and Apple Silicon for your macOS Monterey upgrade workflow. Also configure the iconLightPath / iconDarkPath if you'd like otherwise remove it.
 
 osVersionRequirements - Configured - macOS Big Sur Clients
 - actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
