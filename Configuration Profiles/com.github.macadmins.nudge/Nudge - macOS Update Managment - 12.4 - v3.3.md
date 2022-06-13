@@ -1,4 +1,4 @@
-# Update Nudge - macOS Update Managment - 12.4-Unsigned.mobileconfig - v1.1
+# Nudge - macOS Update Managment - 12.4 - v3.3.plist
 
 ## About this profile
 
@@ -214,11 +214,11 @@ allowedDeferrals - Configured - 15
 
 allowedDeferralsUntilForcedSecondaryQuitButton - Configured - 5
 
-approachingRefreshCycle - Configured - 6000
+approachingRefreshCycle - Configured - 3600
 
-approachingWindowTime - Configured - 72
+approachingWindowTime - Configured - 96
 
-elapsedRefreshCycle - Configured - 300
+elapsedRefreshCycle - Configured - 60
 
 gracePeriodInstallDelay - Configured - 24
 
@@ -226,15 +226,15 @@ gracePeriodLaunchDelay - Configured - 4
 
 gracePeriodPath - Configured - /private/var/db/.AppleSetupDone
 
-imminentRefreshCycle - Configured - 300
+imminentRefreshCycle - Configured - 120
 
 imminentWindowTime - Configured - 48
 
-initialRefreshCycle - Configured - 7200
+initialRefreshCycle - Configured - 9000
 
 maxRandomDelayInSeconds - Configured - 1200
 
-randomDelay - Configured - true
+randomDelay - Configured - false
 
 
 
