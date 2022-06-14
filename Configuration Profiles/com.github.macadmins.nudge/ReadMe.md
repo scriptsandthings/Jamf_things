@@ -254,9 +254,9 @@ singleQuitButton - Configured - false
 
 ## updateElements - Configured
 
-language - Configured - en
+#### updateElement - Dictionary 1
 
-updateElement - Dictionary 1
+language - Configured - "en"
 
 actionButtonText - Configured - "Install Update Now"
 
