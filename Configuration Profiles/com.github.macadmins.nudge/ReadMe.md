@@ -222,8 +222,6 @@ elapsedRefreshCycle - Configured - 60
 
 gracePeriodInstallDelay - Configured - 24
 
-gracePeriodLaunchDelay - Configured - 4
-
 gracePeriodPath - Configured - /private/var/db/.AppleSetupDone
 
 imminentRefreshCycle - Configured - 120
