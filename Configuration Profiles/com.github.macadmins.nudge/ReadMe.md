@@ -1,14 +1,10 @@
-# Nudge - macOS Update Managment - 12.4 - v3.3.plist
+# Nudge - macOS Update Managment - 12.4 - v3.4.plist
 
 ## About this profile
 
-The following two keys may not be set (5 occurences total to enter the URL), and will need to be added/configured to point to the proper Jamf Self Service policy installation URLs for Intel and Apple Silicon for your macOS Monterey upgrade workflow. Also configure the iconLightPath / iconDarkPath if you'd like otherwise remove it if the OS isn't pre-cached prior to launching Nudge.
+The following two keys may not be set (3 occurences total to enter the URL), and will need to be added/configured to point to the proper Jamf Self Service policy installation URLs for Intel and Apple Silicon for your macOS Monterey upgrade workflow. Also configure the iconLightPath / iconDarkPath if you'd like otherwise remove it if the OS isn't pre-cached prior to launching Nudge.
 
-osVersionRequirements - Configured - macOS Big Sur Clients
-- actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
-- majorUpgradeAppPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
-
-osVersionRequirements - Configured - macOS Monterey Clients
+osVersionRequirements - Configured
 - actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 - majorUpgradeAppPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 
@@ -173,7 +169,7 @@ AutoDesk AutoCad 2022 - com.autodesk.AutoCAD2022
 
 enforceMinorUpdates - True
 
-## osVersionRequirements - Configured - macOS Monterey Clients
+## osVersionRequirements - Configured - macOS Monterey + macOS Big Sur Clients (targetedOSVersionsRule = default)
 
 aboutUpdateURL - https://support.apple.com/en-us/HT212585
 
@@ -185,24 +181,7 @@ requiredInstallationDate - Configured - 2022-06-23T00:00:01Z
 
 requiredMinimumOSVersion - Configured - 12.4
 
-targetedOSVersionsRule - Configured - 12
-
-
-## osVersionRequirements - Configured - macOS Big Sur Clients
-
-aboutUpdateURL - https://support.apple.com/en-us/HT212585
-
-actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
-
-majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
-
-requiredInstallationDate - Configured - 2022-06-23T00:00:01Z
-
-requiredMinimumOSVersion - Configured - 12.4
-
-targetedOSVersionsRule - Configured - 11
-
-
+targetedOSVersionsRule - Configured - "default"
 
 ## userExperience - Configured
 
@@ -221,6 +200,8 @@ approachingWindowTime - Configured - 96
 elapsedRefreshCycle - Configured - 60
 
 gracePeriodInstallDelay - Configured - 24
+
+gracePeriodLaunchDelay - Configured - 4
 
 gracePeriodPath - Configured - /private/var/db/.AppleSetupDone
 
