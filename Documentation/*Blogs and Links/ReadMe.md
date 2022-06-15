@@ -42,6 +42,8 @@ https://www.dssw.co.uk/reference/
 
 https://blog.eriknicolasgomez.com/
 
+https://babodee.wordpress.com/
+
 #### Specific Topics
 
 https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/
