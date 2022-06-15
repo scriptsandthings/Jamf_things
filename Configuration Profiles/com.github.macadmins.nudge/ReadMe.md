@@ -1,5 +1,5 @@
 # Nudge - macOS Update Managment - 12.4 - v3.4.plist
-### For Nudge 1.1.7
+### For Nudge version 1.1.7+
 ## About this profile
 
 The following two keys may not be set (3 occurences total to enter the URL), and will need to be added/configured to point to the proper Jamf Self Service policy installation URLs for Intel and Apple Silicon for your macOS Monterey upgrade workflow. Also configure the iconLightPath / iconDarkPath if you'd like otherwise remove it if the OS isn't pre-cached prior to launching Nudge.
