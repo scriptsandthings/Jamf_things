@@ -26,7 +26,9 @@ Before
 
 ## Files and Processes
 
+### Execute Command
+
+/Library/Management/erase-install/erase-install.sh --reinstall --build=21F79 --depnotify --fs --check-power --power-wait-limit 300 --min-drive-space=45
+
 <img width="922" alt="macOS Monterey 12 4 - Self Service policy - Intel  - v1 - 4" src="https://user-images.githubusercontent.com/52809959/173921528-b323e9d8-d027-406d-819e-dca0b267fb6e.png">
 
-### Execute Command
-/Library/Management/erase-install/erase-install.sh --reinstall --build=21F79 --depnotify --fs --check-power --power-wait-limit 300 --min-drive-space=45
