@@ -90,29 +90,15 @@
         <key>aboutUpdateURL</key>
         <string>https://support.apple.com/en-us/HT212585</string>
         <key>actionButtonPath</key>
-        <string>jamfselfservice://content?entity=policy&amp;id=1234&amp;action=view</string>
+        <string>jamfselfservice://content?entity=policy&amp;id=12345&amp;action=view</string>
         <key>majorUpgradeAppPath</key>
-        <string>jamfselfservice://content?entity=policy&amp;id=1234&amp;action=view</string>
+        <string>jamfselfservice://content?entity=policy&amp;id=12345&amp;action=view</string>
         <key>requiredInstallationDate</key>
         <string>2022-06-23T00:00:00Z</string>
         <key>requiredMinimumOSVersion</key>
         <string>12.4</string>
         <key>targetedOSVersionsRule</key>
-        <string>12</string>
-      </dict>
-      <dict>
-        <key>aboutUpdateURL</key>
-        <string>https://support.apple.com/en-us/HT212585</string>
-        <key>actionButtonPath</key>
-        <string>jamfselfservice://content?entity=policy&amp;id=1234&amp;action=view</string>
-        <key>majorUpgradeAppPath</key>
-        <string>jamfselfservice://content?entity=policy&amp;id=1234&amp;action=view</string>
-        <key>requiredInstallationDate</key>
-        <string>2022-06-24T00:00:00Z</string>
-        <key>requiredMinimumOSVersion</key>
-        <string>12.4</string>
-        <key>targetedOSVersionsRule</key>
-        <string>11</string>
+        <string>default</string>
       </dict>
     </array>
     <key>userExperience</key>
@@ -133,6 +119,8 @@
       <integer>60</integer>
       <key>gracePeriodInstallDelay</key>
       <integer>24</integer>
+      <key>gracePeriodLaunchDelay</key>
+      <integer>4</integer>
       <key>gracePeriodPath</key>
       <string>/private/var/db/.AppleSetupDone</string>
       <key>imminentRefreshCycle</key>
@@ -149,7 +137,7 @@
     <key>userInterface</key>
     <dict>
       <key>actionButtonPath</key>
-      <string>jamfselfservice://content?entity=policy&amp;id=1234&amp;action=view</string>
+      <string>jamfselfservice://content?entity=policy&amp;id=12345&amp;action=view</string>
       <key>iconDarkPath</key>
       <string>/Applications/Install macOS Monterey.app/Contents/Resources/InstallAssistant.icns</string>
       <key>iconLightPath</key>
