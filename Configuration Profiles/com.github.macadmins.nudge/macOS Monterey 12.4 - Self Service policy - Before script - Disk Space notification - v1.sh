@@ -19,7 +19,7 @@ jamfHelper="/Library/Application Support/JAMF/bin/jamfHelper.app/Contents/MacOS/
 windowType="hud"
 description="IMPORTANT: The macOS Monterey 12.4 update requires 45GB of free space on Macintosh HD to complete installation. 
 
-To continue installing the update now, select 'Install macOS' below and the macOS Monterey 12.4 update will begin installation shortly. This update can take upwards of 35-45 minutes to complete. If you are unable to perform this update at this time or do not currently have 45GB of avaliable disk space, please select 'Cancel' to be prompted again later. 
+To continue installing the update now, select 'Install macOS' below and the macOS Monterey 12.4 update will begin installation shortly. This update can take upwards of 35-45 minutes to complete. If you are unable to perform this update at this time or do not currently have 45GB of available disk space, please select 'Cancel' to be prompted again later. 
 
 If you attempt to run the macOS Monterey 12.4 update and encounter any issues such as the policy showing 'Complete' but the installer failing to launch, double check your avaliable free space on Macintosh HD and attempt the update again using a wired network connection.
 
