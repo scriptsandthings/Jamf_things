@@ -29,7 +29,7 @@ If you require assistance, please contact corporate IT support by phone at 1-555
 
 button1="Install macOS"
 button2="Cancel"
-icon="/Library/Application Support/branding_assets/AppIcons/VSandCO/black_background/install.png"
+icon="/Library/Application Support/branding_assets/AppIcons/logodir/solid_background/install.png"
 title="Important: macOS Monterey 12.4 requires 45GB free space"
 alignDescription="left" 
 alignHeading="center"
