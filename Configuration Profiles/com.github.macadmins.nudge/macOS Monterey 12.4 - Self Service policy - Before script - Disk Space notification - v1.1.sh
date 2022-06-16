@@ -3,7 +3,7 @@
 #############################
 #############################
 #
-# macOS Monterey 12.4 - Self Service policy - Before script - Disk Space notification - v1.sh
+# macOS Monterey 12.4 - Self Service policy - Before script - Disk Space notification - v1.1.sh
 #
 # Greg Knackstedt
 # shitttyscripts@gmail.com
@@ -21,7 +21,7 @@ description="IMPORTANT: The macOS Monterey 12.4 update requires 45GB of free spa
 
 To continue installing the update now, select 'Install macOS' below and the macOS Monterey 12.4 update will begin installation shortly. This update can take upwards of 35-45 minutes to complete. If you are unable to perform this update at this time or do not currently have 45GB of available disk space, please select 'Cancel' to be prompted again later. 
 
-If you attempt to run the macOS Monterey 12.4 update and encounter any issues such as the policy showing 'Complete' but the installer failing to launch, double check your avaliable free space on Macintosh HD and attempt the update again using a wired network connection.
+If you attempt to run the macOS Monterey 12.4 update and encounter any issues such as the policy showing 'Complete' but the installer failing to launch, double check your available free space on Macintosh HD and attempt the update again using a wired network connection.
 
 If you require assistance, please contact corporate IT support by phone at 1-555-555-5555 or by email at support@email.address.
 
