@@ -1,0 +1,23 @@
+theme: jekyll-theme-slate
+domain: scriptsandthings.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://scriptsandthings.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+# Your name, as you want it to appear underneath each post and in the footer
+author: Greg Knackstedt
+# Your email if you want it to be linked on the contact page
+author_email: shitttyscripts@gmail.com
+category_dir: /
+search: true
+show_date: true
+date_format: "%Y-%m-%d"
+permalink: pretty
+# include:
+#  - 
+# plugins:
+#   - jekyll-paginate
+#   - jekyll-sitemap
+#   - jekyll-gist
+#   - jekyll-feed
+#   - jemoji
+#   - jekyll-include-cache
+#   - jekyll-remote-theme
+#   paginate: 3
