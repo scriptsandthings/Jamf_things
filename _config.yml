@@ -1,4 +1,4 @@
-theme: jekyll-theme-slate
+theme: jekyll-theme-time-machine
 domain: scriptsandthings.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url: https://scriptsandthings.github.io  # the base hostname and protocol for your site, e.g. http://example.com
 # Your name, as you want it to appear underneath each post and in the footer
