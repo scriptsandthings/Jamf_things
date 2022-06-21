@@ -32,6 +32,9 @@ theme_config:
     title_misc_list: Details
     title_blog: Blog
     title_old_projects: Old Projects
+    
+soopr:
+  publish-token: "pt_77884a35ec63e2816732d99736df8ce7" 
 
 highlighter: rouge
 
