@@ -1,7 +1,7 @@
 # macOS administration and support focused blogs and links, in no specific order (at this time)
 
 - [Is Apple Silicon ready?](https://isapplesiliconready.com/) - The complete guide for MacOS Apps Optimized for Apple Silicon Macs and the M1 Processor
-- [Mac Admins Foundation (Mac Admins Slack](https://www.macadmins.org/)
+- [Mac Admins Foundation (Mac Admins Slack)](https://www.macadmins.org/)
 - [ ](https://www.macadmins.software/)
 - [ ](https://macnotes.wordpress.com/)
 - [ ](https://richard-purves.com/)
@@ -32,6 +32,6 @@
 - [ ](https://www.cisecurity.org/benchmark/apple_os)
 - [ ](https://www.dssw.co.uk/reference/authorization-rights/)
 - [ ](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys)
-- [ ](https://www.tenable.com/audits/items/search - CIS Benchmarks)
-- [ ](https://jsonlint.com/)
+- [Tenable Security Benchmarks Audit Item Search](https://www.tenable.com/audits/items/search)
+- [JSONLint](https://jsonlint.com/) - The JSON Validator (Browser based JSON validator)
 - [Listing of Known App Bundle IDs - worthdoingbadly.com](https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html)
