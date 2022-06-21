@@ -9,7 +9,7 @@
  - [EncryptedStrings](https://github.com/brysontyrrell/EncryptedStrings) - The Bash and Python scripts included here contain functions that use 'openssl' to generate encrypted strings with unqiue hashes and passphrases required for decoding and the functions to use those values to decrypt the strings.
  - [erase-install](https://github.com/grahampugh/erase-install) - Easily upgrade macOS or erase a Mac and reinstall macOS with the click of a button
  - [getJamfApiCredentials](https://github.com/macnotes/jamfscripts/tree/main/jamfpro/getJamfApiCredentials) - Get secrets (passwords) out of your API scripts.
- - [Homebrew](https://github.com/Homebrew/) - Homebrew Package Manager
+ - [Homebrew](https://github.com/Homebrew/) - The missing package manager for macOS (or Linux)
  - [Installomator](https://github.com/Installomator/Installomator) - Install many common applications on-demand without packaging, downloaded directly from each developer's CDN or GitHub project at runtime
  - [intune-app-wrapping-tool-mac](https://github.com/msintuneappsdk/intune-app-wrapping-tool-mac) - Intune App Wrapping Tool - Useful for obtaining checksums used when creating package manifest files for on-prem Jamf Pro pre-stage enrollment packages
  - [JamfMigrator](https://github.com/jamf/JamfMigrator) - Migrate/copy data between two Jamf instances (or export to an .xml file)
