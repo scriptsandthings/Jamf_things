@@ -10,7 +10,7 @@
  - [erase-install](https://github.com/grahampugh/erase-install) - Easily upgrade macOS or erase a Mac and reinstall macOS with the click of a button
  - [getJamfApiCredentials](https://github.com/macnotes/jamfscripts/tree/main/jamfpro/getJamfApiCredentials)
  - [Homebrew](https://github.com/Homebrew/) - Homebrew Package Manager
- - [Installomator](https://github.com/Installomator/Installomator)
+ - [Installomator](https://github.com/Installomator/Installomator) - Installomator - Install many common applications on-demand without packaging, downloaded directly from each developer's CDN or GitHub project at runtime
  - [intune-app-wrapping-tool-mac](https://github.com/msintuneappsdk/intune-app-wrapping-tool-mac) - Intune App Wrapping Tool - Useful for obtaining checksums used when creating package manifest files for on-prem Jamf Pro pre-stage enrollment packages
  - [JamfMigrator](https://github.com/jamf/JamfMigrator) - Migrate/copy data between two Jamf instances (or export to an .xml file)
  - [Mac Admins Python](https://github.com/macadmins/python) - Mac Admins Foundation's Python redistributable
