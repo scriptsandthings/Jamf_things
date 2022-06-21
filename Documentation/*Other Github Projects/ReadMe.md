@@ -20,7 +20,7 @@
  - [plist-yaml-plist](https://github.com/grahampugh/plist-yaml-plist) - yaml/plist/json converter
  - [Privileges.app (macOS-enterprise-privileges)](https://github.com/SAP/macOS-enterprise-privileges) - Grant temporary admin access to standard users w/controls + logging options
  - [PrivilegesDemoter](https://github.com/sgmills/PrivilegesDemoter) - Essential if using Privileges.app - Removes the temporarily granted admin rights
- - [profiledocs](https://mosen.github.io/profiledocs/index.html)
+ - [profiledocs](https://mosen.github.io/profiledocs/index.html) - Mac Admins Profile Reference’s documentation
  - [SupportApp](https://github.com/root3nl/SupportApp) - Menu Bar app for client systems w/helpful info for users by Root3
  - [talkingmoose Microsoft App Install Script](https://gist.github.com/talkingmoose/a16ca849416ce5ce89316bacd75fc91a) - Download and install Microsoft apps by product ID
 
