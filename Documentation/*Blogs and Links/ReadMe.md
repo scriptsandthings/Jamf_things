@@ -1,37 +1,37 @@
-# macOS administration and support focused blogs and links, in no specific order (at this time)
+# macOS administration and support focused blogs and links
+#### In Alphabetical Order
 
+- [Babo D's Corner (Blog)](https://babodee.wordpress.com/)
+- [Der Flounder (Blog)](https://derflounder.wordpress.com/) - Rich Trouton's Blog
+- [DssW (Dragon Systems Software Limited)](https://www.dssw.co.uk/reference/) - "We often need to provide links and references to useful documentation. This section is home to documents, guides, and materials we have found helpful."
+- [HCS Technology Group - White Papers](https://hcsonline.com/support/white-papers/) - Technical Articles and White Papers on a wide range of macOS topics
 - [Is Apple Silicon ready?](https://isapplesiliconready.com/) - The complete guide for MacOS Apps Optimized for Apple Silicon Macs and the M1 Processor
-- [Mac Admins Foundation (Mac Admins Slack)](https://www.macadmins.org/)
-- [ ](https://www.macadmins.software/)
-- [ ](https://macnotes.wordpress.com/)
-- [ ](https://richard-purves.com/)
-- [ ](https://derflounder.wordpress.com/author/rtrouton/)
-- [ ](https://macops.ca/)
-- [ ](https://scriptingosx.com/)
-- [ ](https://maclovin.org/)
-- [ ](https://travellingtechguy.blog/)
-- [ ](https://www.macadmin.info/)
-- [ ](https://eclecticlight.co/)
-- [ ](https://old.reddit.com/)
-- [ ](https://community.jamf.com/)
-- [ ](https://support.jamf.com/)
-- [ ](https://mrmacintosh.com/)
-- [ ](https://hcsonline.com/support/white-papers/)
-- [ ](https://docs.jamf.com/education-services/resources/20211229/Resources_Welcome.html)
-- [ ](https://www.gkgigs.com/list-apple-ios-version-history/)
-- [ ](https://www.dssw.co.uk/reference/)
-- [ ](https://blog.eriknicolasgomez.com/)
-- [ ](https://babodee.wordpress.com/)
+- [Jamf Nation](https://community.jamf.com/)
+- [Jamf Support](https://support.jamf.com/)
+- [Mac Admin Info](https://www.macadmin.info/) - A resource for beginning and experienced Mac/Apple administrators.
+- [Mac Admins Foundation](https://www.macadmins.org/) - Mac Admins Slack
+- [Mac Admins Microsoft Mac Downloads](https://www.macadmins.software/) - Microsoft Mac Downloads - Version tracking and helpful utilities for supporting Office on macOS
+- [Mac Lovin' (Blog)](https://maclovin.org/) - A few tidbits to help you get started deploying Apple devices at scale
+- [Macnotes](https://macnotes.wordpress.com/)
+- [Macops.ca](https://macops.ca/)
+- [Mr. Macintosh](https://mrmacintosh.com/) - Apple Macintosh & macOS News – Troubleshooting – Problem Reporting – How to Articles (Mr. Macintosh has great notes on each macOS point release)
+- [One More Admin (Blog)](https://blog.eriknicolasgomez.com/) - Eric Gomez's Blog
+- [Reddit.com/r/MacSysAdmin](https://www.reddit.com/r/macsysadmin/) - A subreddit for all things related to the administration of Apple devices.
+- [Richard Purves' Homepage (Blog)](https://richard-purves.com/) - Recovering Filmmaker. Recovering Apple Admin. Recovering Brit.
+- [Scriptingosx.com (Blog)](https://scriptingosx.com/) - Armin Briegel's Blog
+- [The Eclectic Light Company](https://eclecticlight.co/) - Macs, painting, and more
+- [Traveling Tech Guy (Blog)](https://travellingtechguy.blog/) - macOS and iOS management with a twist of Jamf (less travel, a lot more tech) - Frederick Abeloos's Blog
 
 # Specific Topics
 
-- [ ](https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/)
-- [ ](https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/)
-- [ ](https://zerolaunched.herokuapp.com/)
-- [ ](https://www.dssw.co.uk/reference/authorization-rights/)
-- [ ](https://www.cisecurity.org/benchmark/apple_os)
-- [ ](https://www.dssw.co.uk/reference/authorization-rights/)
-- [ ](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys)
-- [Tenable Security Benchmarks Audit Item Search](https://www.tenable.com/audits/items/search)
+- ['launched'](https://zerolaunched.herokuapp.com/) - A launchd plist generator - By [heroku.com](https://www.heroku.com/)
+- [Adding a Printer to Jamf Pro Web Interface](https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/) - Steps to configuring/adding a printer in Jamf Admin for deployment to client systems - By NC State University's Office of Information Technology
+- [Apple Developer Documentation - Profile-Specific Payload Keys](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys) - Use the appropriate payload for your configuration needs
+- [Authorization Rights](https://www.dssw.co.uk/reference/authorization-rights/) - This reference of default authorization rights provides an overview of the rights available in recent versions of macOS.
+- [CIS Apple macOS Benchmarks](https://www.cisecurity.org/benchmark/apple_os) - cisecurity.org benchmarks for macOS
+- [iOS Version History](https://www.gkgigs.com/list-apple-ios-version-history/) - List Of All Apple iOS Version History
+- [Jamf Training Documentation](https://docs.jamf.com/education-services/resources/20211229/Resources_Welcome.html) - Resources for Jamf training courses
 - [JSONLint](https://jsonlint.com/) - The JSON Validator (Browser based JSON validator)
 - [Listing of Known App Bundle IDs - worthdoingbadly.com](https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html)
+- [macOS Big Sur on VMWare Fusion 12](https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/) - The Traveling Tech Guy's blog entry on creating macOS Big Sur VMs for use with Apple DEP testing in VMware Fusion 12 (guide works for Monterey as well)
+- [Tenable Security Benchmarks Audit Item Search](https://www.tenable.com/audits/items/search)
