@@ -1,6 +1,8 @@
-Info on managing Linux and Windows VMs running on macOS hosts. 
+# Virtual Machines
 
-Configuring a DEP capable VM snapshot with VMware Fusion and Parallels Desktop on an Intel Mac.
+### Info on managing Linux, Windows, and macOS VMs running on macOS hosts. 
+
+## Configuring a DEP capable VM snapshot with VMware Fusion and Parallels Desktop on an Intel Mac.
 
 [Guide for VMware Fusion](https://www.rderewianko.com/how-to-create-a-vm-thatll-work-with-dep-on-vmware-fusion/)
 
@@ -10,7 +12,7 @@ Configuring a DEP capable VM snapshot with VMware Fusion and Parallels Desktop o
 
 [Guide for VirtualBox](https://tobiwashere.de/2017/10/virtualbox-how-to-create-a-macos-high-sierra-vm-to-run-on-a-mac-host-system/)
 
-VM Options for Apple Silicon
+## VM Options for Apple Silicon
 
 [UTM](https://github.com/utmapp/UTM)
 
@@ -20,7 +22,6 @@ VM Options for Apple Silicon
 
 [QEMU Manager](https://github.com/macmade/QEMU-Manager) - Xcode project
 
-
-VM Options for other OS hosts
+## VM Options for other OS hosts
 
 https://github.com/kholia/OSX-KVM
