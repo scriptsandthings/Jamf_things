@@ -1,4 +1,3 @@
-# Jamf Things
 A collection of resources for macOS and Jamf Pro management (with an on-premise lean) to make the lives of sysadmins, engineers, their support staff, and their users a little easier.
 
 ## In This Repo:
