@@ -6,8 +6,8 @@
 - [DssW (Dragon Systems Software Limited)](https://www.dssw.co.uk/reference/) - "We often need to provide links and references to useful documentation. This section is home to documents, guides, and materials we have found helpful."
 - [HCS Technology Group - White Papers](https://hcsonline.com/support/white-papers/) - Technical Articles and White Papers on a wide range of macOS topics
 - [Is Apple Silicon ready?](https://isapplesiliconready.com/) - The complete guide for MacOS Apps Optimized for Apple Silicon Macs and the M1 Processor
-- [Jamf Nation](https://community.jamf.com/)
-- [Jamf Support](https://support.jamf.com/)
+- [Jamf Nation](https://community.jamf.com/) - Jamf's official community forum and communications channel
+- [Jamf Support](https://support.jamf.com/) - Contact Jamf Support or open a ticket for an issue
 - [Mac Admin Info](https://www.macadmin.info/) - A resource for beginning and experienced Mac/Apple administrators.
 - [Mac Admins Foundation](https://www.macadmins.org/) - Mac Admins Slack
 - [Mac Admins Microsoft Mac Downloads](https://www.macadmins.software/) - Microsoft Mac Downloads - Version tracking and helpful utilities for supporting Office on macOS
@@ -22,7 +22,7 @@
 - [Scriptingosx.com (Blog)](https://scriptingosx.com/) - Armin Briegel's Blog
 - [The Eclectic Light Company](https://eclecticlight.co/) - Macs, painting, and more
 - [Traveling Tech Guy (Blog)](https://travellingtechguy.blog/) - macOS and iOS management with a twist of Jamf (less travel, a lot more tech) - Frederick Abeloos's Blog
-- [worthdoingbadly.com](https://worthdoingbadly.com) - "If a thing is worth doing, it is worth doing badly" quote by G. K. Chesterton - 'This is a blog where I create - and document - new projects.'
+- [worthdoingbadly.com (Blog)](https://worthdoingbadly.com) - "If a thing is worth doing, it is worth doing badly" quote by G. K. Chesterton - 'This is a blog where I create - and document - new projects.'
 
 # Specific Topics
 
