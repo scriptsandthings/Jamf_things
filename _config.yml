@@ -1,6 +1,8 @@
 theme: jekyll-theme-slate
-domain: scriptsandthings.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://scriptsandthings.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+domain: gregknackstedt.com       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://gregknackstedt.com  # the base hostname and protocol for your site, e.g. http://example.com
+title: "Jamf Things"
+description: "A collection of macOS and Jamf related support information and scripts"
 # Your name, as you want it to appear underneath each post and in the footer
 author: Greg Knackstedt
 # Your email if you want it to be linked on the contact page
