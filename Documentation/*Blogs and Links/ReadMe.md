@@ -6,18 +6,18 @@
 - [DssW (Dragon Systems Software Limited)](https://www.dssw.co.uk/reference/) - "We often need to provide links and references to useful documentation. This section is home to documents, guides, and materials we have found helpful."
 - [HCS Technology Group - White Papers](https://hcsonline.com/support/white-papers/) - Technical Articles and White Papers on a wide range of macOS topics
 - [Is Apple Silicon ready?](https://isapplesiliconready.com/) - The complete guide for MacOS Apps Optimized for Apple Silicon Macs and the M1 Processor
-- [Jamf Nation](https://community.jamf.com/) - Jamf's official community forum and communications channel
+- [Jamf Nation (Forum)](https://community.jamf.com/) - Jamf's official community forum and communications channel
 - [Jamf Support](https://support.jamf.com/) - Contact Jamf Support or open a ticket for an issue
 - [Mac Admin Info](https://www.macadmin.info/) - A resource for beginning and experienced Mac/Apple administrators.
 - [Mac Admins Foundation](https://www.macadmins.org/) - Mac Admins Slack
 - [Mac Admins Microsoft Mac Downloads](https://www.macadmins.software/) - Microsoft Mac Downloads - Version tracking and helpful utilities for supporting Office on macOS
 - [Mac Lovin' (Blog)](https://maclovin.org/) - A few tidbits to help you get started deploying Apple devices at scale
-- [Macnotes](https://macnotes.wordpress.com/)
+- [Macnotes (Blog)](https://macnotes.wordpress.com/)
 - [Macops.ca](https://macops.ca/)
 - [Mr. Macintosh](https://mrmacintosh.com/) - Apple Macintosh & macOS News – Troubleshooting – Problem Reporting – How to Articles (Mr. Macintosh has great notes on each macOS point release)
 - [One More Admin (Blog)](https://blog.eriknicolasgomez.com/) - Eric Gomez's Blog
-- [Reddit.com/r/MacSysAdmin](https://old.reddit.com/r/macsysadmin/) - A subreddit for all things related to the administration of Apple devices.
-- [Reddit.com/r/Jamf](https://old.reddit.com/r/Jamf/) - A subreddit for Jamf specific topics. - Not super active and not an official Jamf channel
+- [Reddit.com/r/MacSysAdmin (Forum)](https://old.reddit.com/r/macsysadmin/) - A subreddit for all things related to the administration of Apple devices.
+- [Reddit.com/r/Jamf (Forum)](https://old.reddit.com/r/Jamf/) - A subreddit for Jamf specific topics. - Not super active and not an official Jamf channel
 - [Richard Purves' Homepage (Blog)](https://richard-purves.com/) - Recovering Filmmaker. Recovering Apple Admin. Recovering Brit.
 - [Scriptingosx.com (Blog)](https://scriptingosx.com/) - Armin Briegel's Blog
 - [The Eclectic Light Company](https://eclecticlight.co/) - Macs, painting, and more
