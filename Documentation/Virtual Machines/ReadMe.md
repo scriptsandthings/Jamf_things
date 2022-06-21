@@ -3,7 +3,7 @@
 ### Info on managing Linux, Windows, and macOS VMs running on macOS hosts. 
 
 ## Configuring a DEP capable VM snapshot with VMware Fusion and Parallels Desktop
-### These guids only work on an Intel Mac at this time.
+### These guides only work on an Intel Mac at this time.
 
 [Guide for VMware Fusion](https://www.rderewianko.com/how-to-create-a-vm-thatll-work-with-dep-on-vmware-fusion/)
 
