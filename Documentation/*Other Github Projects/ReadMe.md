@@ -3,7 +3,6 @@
 
  - [device-management](https://github.com/apple/device-management) - Apple's GitHub repository of device management commands and documentation
  - [AutoBrew](https://github.com/kennyb-222/AutoBrew) - Homebrew install script for currently logged in user (no admin rights required)
- - [cyberark-get-password-curl-cert-based-auth](https://www.shellhacks.com/cyberark-get-password-curl-cert-based-auth/)
  - [DEPNotify-Starter](https://github.com/jamf/DEPNotify-Starter) - DEPNotify Starter - Launch script for DEPNotify
  - [DEPNotify](https://gitlab.com/Mactroll/DEPNotify) - DEPNotify - UX for DEP/Automated Device Enrollment system setups durring the software install/configuration phase
  - [EncryptedStrings](https://github.com/brysontyrrell/EncryptedStrings) - The Bash and Python scripts included here contain functions that use 'openssl' to generate encrypted strings with unqiue hashes and passphrases required for decoding and the functions to use those values to decrypt the strings.
