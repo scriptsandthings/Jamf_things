@@ -21,6 +21,7 @@
 - [Scriptingosx.com (Blog)](https://scriptingosx.com/) - Armin Briegel's Blog
 - [The Eclectic Light Company](https://eclecticlight.co/) - Macs, painting, and more
 - [Traveling Tech Guy (Blog)](https://travellingtechguy.blog/) - macOS and iOS management with a twist of Jamf (less travel, a lot more tech) - Frederick Abeloos's Blog
+- [worthdoingbadly.com](https://worthdoingbadly.com) - "If a thing is worth doing, it is worth doing badly" quote by G. K. Chesterton - 'This is a blog where I create - and document - new projects.'
 
 # Specific Topics
 
@@ -32,6 +33,7 @@
 - [iOS Version History](https://www.gkgigs.com/list-apple-ios-version-history/) - List Of All Apple iOS Version History
 - [Jamf Training Documentation](https://docs.jamf.com/education-services/resources/20211229/Resources_Welcome.html) - Resources for Jamf training courses
 - [JSONLint](https://jsonlint.com/) - The JSON Validator (Browser based JSON validator)
-- [Listing of Known App Bundle IDs - worthdoingbadly.com](https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html)
+- [Listing of Known App Bundle IDs](https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html) - Listing of application bundle identifiers - By [worthdoingbadly.com](https://worthdoingbadly.com)
 - [macOS Big Sur on VMWare Fusion 12](https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/) - The Traveling Tech Guy's blog entry on creating macOS Big Sur VMs for use with Apple DEP testing in VMware Fusion 12 (guide works for Monterey as well)
+- [Shellcheck.net](https://shellcheck.net) - Finds bugs in your shell scripts. 
 - [Tenable Security Benchmarks Audit Item Search](https://www.tenable.com/audits/items/search)
