@@ -1,7 +1,7 @@
 # macOS administration and support focused blogs and links, in no specific order (at this time)
 
 - [Is Apple Silicon ready?](https://isapplesiliconready.com/) - The complete guide for MacOS Apps Optimized for Apple Silicon Macs and the M1 Processor
-- [ ](https://www.macadmins.org/)
+- [Mac Admins Foundation (Mac Admins Slack](https://www.macadmins.org/)
 - [ ](https://www.macadmins.software/)
 - [ ](https://macnotes.wordpress.com/)
 - [ ](https://richard-purves.com/)
