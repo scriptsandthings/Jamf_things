@@ -16,7 +16,8 @@
 - [Macops.ca](https://macops.ca/)
 - [Mr. Macintosh](https://mrmacintosh.com/) - Apple Macintosh & macOS News – Troubleshooting – Problem Reporting – How to Articles (Mr. Macintosh has great notes on each macOS point release)
 - [One More Admin (Blog)](https://blog.eriknicolasgomez.com/) - Eric Gomez's Blog
-- [Reddit.com/r/MacSysAdmin](https://www.reddit.com/r/macsysadmin/) - A subreddit for all things related to the administration of Apple devices.
+- [Reddit.com/r/MacSysAdmin](https://old.reddit.com/r/macsysadmin/) - A subreddit for all things related to the administration of Apple devices.
+- [Reddit.com/r/Jamf](https://old.reddit.com/r/Jamf/) - A subreddit for Jamf specific topics. - Not super active and not an official Jamf channel
 - [Richard Purves' Homepage (Blog)](https://richard-purves.com/) - Recovering Filmmaker. Recovering Apple Admin. Recovering Brit.
 - [Scriptingosx.com (Blog)](https://scriptingosx.com/) - Armin Briegel's Blog
 - [The Eclectic Light Company](https://eclecticlight.co/) - Macs, painting, and more
