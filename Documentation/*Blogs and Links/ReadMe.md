@@ -36,4 +36,4 @@
 - [Listing of Known App Bundle IDs](https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html) - Listing of application bundle identifiers - By [worthdoingbadly.com](https://worthdoingbadly.com)
 - [macOS Big Sur on VMWare Fusion 12](https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/) - The Traveling Tech Guy's blog entry on creating macOS Big Sur VMs for use with Apple DEP testing in VMware Fusion 12 (guide works for Monterey as well)
 - [Shellcheck.net](https://shellcheck.net) - Finds bugs in your shell scripts. 
-- [Tenable Security Benchmarks Audit Item Search](https://www.tenable.com/audits/items/search) - Security benchmarks for macOS (Covers multiple benchmarks. NIST, CIS, etc as well as multiple OSs beyond macOS including Windows and Linux)
+- [Tenable Security Benchmarks Audit Item Search](https://www.tenable.com/audits/items/search) - Security benchmarks for macOS - Covers multiple benchmarks. NIST, CIS, etc as well as multiple OSs beyond macOS including Windows and Linux
