@@ -4,7 +4,7 @@ url: https://gregknackstedt.com  # the base hostname and protocol for your site,
 title: "Jamf Things"
 description: "A collection of macOS and Jamf related support information and scripts"
 # Your name, as you want it to appear underneath each post and in the footer
-author: Greg Knackstedt
+author: "Greg Knackstedt"
 # Your email if you want it to be linked on the contact page
 author_email: shitttyscripts@gmail.com
 category_dir: /
