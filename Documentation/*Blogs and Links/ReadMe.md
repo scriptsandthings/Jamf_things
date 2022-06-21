@@ -29,11 +29,11 @@
 - [Adding a Printer to Jamf Pro Web Interface](https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/) - Steps to configuring/adding a printer in Jamf Admin for deployment to client systems - By NC State University's Office of Information Technology
 - [Apple Developer Documentation - Profile-Specific Payload Keys](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys) - Use the appropriate payload for your configuration needs
 - [Authorization Rights](https://www.dssw.co.uk/reference/authorization-rights/) - This reference of default authorization rights provides an overview of the rights available in recent versions of macOS.
-- [CIS Apple macOS Benchmarks](https://www.cisecurity.org/benchmark/apple_os) - cisecurity.org benchmarks for macOS
+- [CIS Apple macOS Benchmarks](https://www.cisecurity.org/benchmark/apple_os) - cisecurity.org - Security benchmarks for macOS
 - [iOS Version History](https://www.gkgigs.com/list-apple-ios-version-history/) - List Of All Apple iOS Version History
 - [Jamf Training Documentation](https://docs.jamf.com/education-services/resources/20211229/Resources_Welcome.html) - Resources for Jamf training courses
 - [JSONLint](https://jsonlint.com/) - The JSON Validator (Browser based JSON validator)
 - [Listing of Known App Bundle IDs](https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html) - Listing of application bundle identifiers - By [worthdoingbadly.com](https://worthdoingbadly.com)
 - [macOS Big Sur on VMWare Fusion 12](https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/) - The Traveling Tech Guy's blog entry on creating macOS Big Sur VMs for use with Apple DEP testing in VMware Fusion 12 (guide works for Monterey as well)
 - [Shellcheck.net](https://shellcheck.net) - Finds bugs in your shell scripts. 
-- [Tenable Security Benchmarks Audit Item Search](https://www.tenable.com/audits/items/search)
+- [Tenable Security Benchmarks Audit Item Search](https://www.tenable.com/audits/items/search) - Security benchmarks for macOS (Covers multiple benchmarks. NIST, CIS, etc as well as multiple OSs beyond macOS including Windows and Linux)
