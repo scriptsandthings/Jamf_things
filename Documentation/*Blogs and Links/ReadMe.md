@@ -1,67 +1,37 @@
 # macOS administration and support focused blogs and links, in no specific order (at this time)
 
-https://isapplesiliconready.com/
+- [Is Apple Silicon ready?](https://isapplesiliconready.com/) - The complete guide for MacOS Apps Optimized for Apple Silicon Macs and the M1 Processor
+- [ ](https://www.macadmins.org/)
+- [ ](https://www.macadmins.software/)
+- [ ](https://macnotes.wordpress.com/)
+- [ ](https://richard-purves.com/)
+- [ ](https://derflounder.wordpress.com/author/rtrouton/)
+- [ ](https://macops.ca/)
+- [ ](https://scriptingosx.com/)
+- [ ](https://maclovin.org/)
+- [ ](https://travellingtechguy.blog/)
+- [ ](https://www.macadmin.info/)
+- [ ](https://eclecticlight.co/)
+- [ ](https://old.reddit.com/)
+- [ ](https://community.jamf.com/)
+- [ ](https://support.jamf.com/)
+- [ ](https://mrmacintosh.com/)
+- [ ](https://hcsonline.com/support/white-papers/)
+- [ ](https://docs.jamf.com/education-services/resources/20211229/Resources_Welcome.html)
+- [ ](https://www.gkgigs.com/list-apple-ios-version-history/)
+- [ ](https://www.dssw.co.uk/reference/)
+- [ ](https://blog.eriknicolasgomez.com/)
+- [ ](https://babodee.wordpress.com/)
 
-https://www.macadmins.org/
+# Specific Topics
 
-https://www.macadmins.software/
-
-https://macnotes.wordpress.com/
-
-https://richard-purves.com/
-
-https://derflounder.wordpress.com/author/rtrouton/
-
-https://macops.ca/
-
-https://scriptingosx.com/
-
-https://maclovin.org/
-
-https://travellingtechguy.blog/
-
-https://www.macadmin.info/
-
-https://eclecticlight.co/
-
-https://old.reddit.com/
-
-https://community.jamf.com/
-
-https://support.jamf.com/
-
-https://mrmacintosh.com/
-
-https://hcsonline.com/support/white-papers/
-
-https://docs.jamf.com/education-services/resources/20211229/Resources_Welcome.html
-
-https://www.gkgigs.com/list-apple-ios-version-history/
-
-https://www.dssw.co.uk/reference/
-
-https://blog.eriknicolasgomez.com/
-
-https://babodee.wordpress.com/
-
-#### Specific Topics
-
-https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/
-
-https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/
-
-https://zerolaunched.herokuapp.com/
-
-https://www.dssw.co.uk/reference/authorization-rights/
-
-https://www.cisecurity.org/benchmark/apple_os
-
-https://www.dssw.co.uk/reference/authorization-rights/
-
-https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys
-
-https://www.tenable.com/audits/items/search - CIS Benchmarks
-
-https://jsonlint.com/
-
-https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html - Known App Bundle IDs
+- [ ](https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/)
+- [ ](https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/)
+- [ ](https://zerolaunched.herokuapp.com/)
+- [ ](https://www.dssw.co.uk/reference/authorization-rights/)
+- [ ](https://www.cisecurity.org/benchmark/apple_os)
+- [ ](https://www.dssw.co.uk/reference/authorization-rights/)
+- [ ](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys)
+- [ ](https://www.tenable.com/audits/items/search - CIS Benchmarks)
+- [ ](https://jsonlint.com/)
+- [Listing of Known App Bundle IDs - worthdoingbadly.com](https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html)
