@@ -42,6 +42,8 @@ https://mosen.github.io/profiledocs/index.html
 
 https://gitlab.rrze.fau.de/faumac/networkShareMounter
 
+https://github.com/grahampugh/plist-yaml-plist - yaml/plist/json converter
+
 ## Security compliance
 
 https://github.com/usnistgov/macos_security 
