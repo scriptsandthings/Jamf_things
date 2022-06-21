@@ -15,7 +15,7 @@
  - [JamfMigrator](https://github.com/jamf/JamfMigrator) - Migrate/copy data between two Jamf instances (or export to an .xml file)
  - [Mac Admins Python](https://github.com/macadmins/python) - Mac Admins Foundation's Python redistributable
  - [macOSLAPS](https://github.com/joshua-d-miller/macOSLAPS) - Unique per-system admin passwords on a rotating basis escrowed to AD or Jamf (Jamf escrowed passwords are stored in plain text)
- - [networkShareMounter](https://gitlab.rrze.fau.de/faumac/networkShareMounter)
+ - [networkShareMounter](https://gitlab.rrze.fau.de/faumac/networkShareMounter) - App to mount network shares at login or on changes of network state.
  - [Nudge](https://github.com/macadmins/nudge) - 'Nudge' your users to complete macOS updates
  - [plist-yaml-plist](https://github.com/grahampugh/plist-yaml-plist) - yaml/plist/json converter
  - [Privileges.app (macOS-enterprise-privileges)](https://github.com/SAP/macOS-enterprise-privileges) - Grant temporary admin access to standard users w/controls + logging options
