@@ -12,7 +12,7 @@
 - [Mac Admins Foundation](https://www.macadmins.org/) - Mac Admins Slack
 - [Mac Admins Microsoft Mac Downloads](https://www.macadmins.software/) - Microsoft Mac Downloads - Version tracking and helpful utilities for supporting Office on macOS
 - [Mac Lovin' (Blog)](https://maclovin.org/) - A few tidbits to help you get started deploying Apple devices at scale
-- [Macnotes (Blog)](https://macnotes.wordpress.com/)
+- [Macnotes (Blog)](https://macnotes.wordpress.com/) - Helpful stuff for Jamf Pro + Azure
 - [Macops.ca (Blog)](https://macops.ca/)
 - [Mr. Macintosh (Blog-ish)](https://mrmacintosh.com/) - Apple Macintosh & macOS News – Troubleshooting – Problem Reporting – How to Articles (Mr. Macintosh has great notes on each macOS point release)
 - [One More Admin (Blog)](https://blog.eriknicolasgomez.com/) - Eric Gomez's Blog
