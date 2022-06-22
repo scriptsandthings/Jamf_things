@@ -1,14 +1,8 @@
 navbar_entries:
-#  - title: About
-#    url: About
-
-#  - title: blog
-#    url: Blog
-
   - title: Home
     url: https://gregknackstedt.com
  
-   - title: About Scripts and Things
+  - title: About Scripts and Things
     url: https://gregknackstedt.com/about
 
 project_entries:
