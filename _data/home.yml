@@ -7,6 +7,9 @@ navbar_entries:
 
   - title: Home
     url: https://gregknackstedt.com
+ 
+   - title: About Scripts and Things
+    url: https://gregknackstedt.com/about
 
 project_entries:
   - title: Apple
