@@ -13,8 +13,8 @@
 - [Mac Admins Microsoft Mac Downloads](https://www.macadmins.software/) - Microsoft Mac Downloads - Version tracking and helpful utilities for supporting Office on macOS
 - [Mac Lovin' (Blog)](https://maclovin.org/) - A few tidbits to help you get started deploying Apple devices at scale
 - [Macnotes (Blog)](https://macnotes.wordpress.com/)
-- [Macops.ca](https://macops.ca/)
-- [Mr. Macintosh](https://mrmacintosh.com/) - Apple Macintosh & macOS News – Troubleshooting – Problem Reporting – How to Articles (Mr. Macintosh has great notes on each macOS point release)
+- [Macops.ca (Blog)](https://macops.ca/)
+- [Mr. Macintosh (Blog-ish)](https://mrmacintosh.com/) - Apple Macintosh & macOS News – Troubleshooting – Problem Reporting – How to Articles (Mr. Macintosh has great notes on each macOS point release)
 - [One More Admin (Blog)](https://blog.eriknicolasgomez.com/) - Eric Gomez's Blog
 - [Reddit.com/r/MacSysAdmin (Forum)](https://old.reddit.com/r/macsysadmin/) - A subreddit for all things related to the administration of Apple devices.
 - [Reddit.com/r/Jamf (Forum)](https://old.reddit.com/r/Jamf/) - A subreddit for Jamf specific topics. - Not super active and not an official Jamf channel
