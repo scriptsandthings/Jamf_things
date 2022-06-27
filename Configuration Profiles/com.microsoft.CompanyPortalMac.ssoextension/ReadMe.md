@@ -4,7 +4,7 @@
 sets the following keys
 
   - disable_explicit_app_prompt_and_autologon - 1
-  - AppPrefixAllowList- com.microsoft.,com.jamf.,com.apple.
+  - AppPrefixAllowList - com.microsoft.,com.jamf.,com.apple.
   - browser_sso_disable_mfa - 1
   - Enable_SSO_On_All_ManagedApps - 1
   - browser_sso_interaction_enabled - 1
