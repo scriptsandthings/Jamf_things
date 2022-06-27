@@ -7,3 +7,9 @@ A collection of resources for macOS and Jamf Pro management (with an on-premise 
 - [Documentation](https://gregknackstedt.com/Jamf_things/Documentation)
 - [Jamf Extension Attributes](https://gregknackstedt.com/Jamf_things/Extension%20Attributes)
 - [Jamf JSON Schemas](https://gregknackstedt.com/scriptsandthings_Jamf_JSON_Schemas)
+
+
+### Navigation
+
+- [Scripts and Things Homepage](https://gregknackstedt.com/)
+- [Jamf Things - Home](https://gregknackstedt.com/Jamf_things/)
