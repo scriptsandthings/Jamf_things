@@ -36,5 +36,5 @@
  - [talkingmoose - GitHub Gists](https://gist.github.com/talkingmoose/)
  - [talkingmoose - GitHub](https://github.com/talkingmoose)
  
-## Things to consider if you don't have Jamf, or possibly as a supplement
+# Things to consider if you don't have Jamf, or possibly as a supplement
  - [Munki](https://github.com/munki/munki)
