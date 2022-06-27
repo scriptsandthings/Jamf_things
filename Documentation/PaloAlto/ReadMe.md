@@ -1,5 +1,5 @@
 ### GlobalProtect PreLogon
-https://old.reddit.com/r/macsysadmin/comments/txwq0p/global_protect_prelogon/
+[Tips for deploying](https://old.reddit.com/r/macsysadmin/comments/txwq0p/global_protect_prelogon/)
 
 
 
