@@ -33,9 +33,6 @@ ___
 
 #### In mostly alphebetical order.
 
-
-- [/r/ADHD_Programmers](https://reddit.com/r/ADHD_Programmers/)
-
 - [/r/AdobeAudition](https://reddit.com/r/AdobeAudition/)
 
 - [/r/AdobeIllustrator](https://reddit.com/r/AdobeIllustrator/)
@@ -195,7 +192,7 @@ ___
 
 - [/r/premiere](https://reddit.com/r/premiere/)
 
-[/r/Programming/](https://www.reddit.com/r/programming/) - Subreddit for general Programming
+[/r/Programming/](https://www.reddit.com/r/programming/) -  General Programming Subreddit
 
 [/r/Safari/](https://www.reddit.com/r/Safari/) - This subreddit is dedicated to news and discussion pertaining to Safari, the web browser by Apple, as well as its extensions and rumours of the future.
 
@@ -234,6 +231,8 @@ ___
  *Possible solutions present themselves in the strangest places sometimes.*
 
  #### In mostly alphabetical order.
+
+- [/r/ADHD_Programmers](https://reddit.com/r/ADHD_Programmers/)
 
 - [/r/CellBoosters](https://reddit.com/r/CellBoosters/)
 
