@@ -12,7 +12,6 @@
 - [Intune](https://gregknackstedt.com/Jamf_things/Documentation/Intune/)
 - [Conditional Access - Intune + Jamf.md](https://gregknackstedt.com/Jamf_things/Documentation/Intune/Conditional%20Access/)
 - [PaloAlto](https://gregknackstedt.com/Jamf_things/Documentation/PaloAlto/)
-- [Global Protect - Pre-logon.md](https://gregknackstedt.com/Jamf_things/Documentation/PaloAlto/Global%20Protect%20-%20Pre-logon.md)
 - [SCEP Information](https://gregknackstedt.com/Jamf_things/Documentation/SCEP/)
 - [Virtual Machines](https://gregknackstedt.com/Jamf_things/Documentation/Virtual%20Machines/)
 
