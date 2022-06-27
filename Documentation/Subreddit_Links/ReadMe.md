@@ -1,5 +1,6 @@
-Too many subreddits to toss on the end of the 'Blogs and Links' page without compromising it's original intent. So, here's the Reddit stuff.
-Still needs cleaning and have to complete the blurbs about each sub.
+Too many subreddits to toss on the end of the 'Blogs and Links' page without compromising it's original intent. So, here's the Reddit stuff and some Discord community links.
+
+Still needs cleaning and have to complete the blurbs about each subreddit.
 
 ___
 
