@@ -2,7 +2,7 @@ A collection of resources for macOS and Jamf Pro management (with an on-premise 
 
 ## In This Repo:
 
-- [Bash/zsh Scripts](https://ggregknackstedt.com/Jamf_things/Bash)
+- [Bash/zsh Scripts](https://gregknackstedt.com/Jamf_things/Bash)
 - [Configuration Profiles](https://gregknackstedt.com/Jamf_things/Configuration%20Profiles)
 - [Documentation](https://gregknackstedt.com/Jamf_things/Documentation)
 - [Jamf Extension Attributes](https://gregknackstedt.com/Jamf_things/Extension%20Attributes)
