@@ -10,7 +10,7 @@ sets the following keys
   Enable_SSO_On_All_ManagedApps - 1
   browser_sso_interaction_enabled - 1
 
-[Download the com.microsoft.CompanyPortalMac.ssoextension.plist](https://raw.githubusercontent.com/scriptsandthings/Jamf_things/master/Configuration%20Profiles/com.microsoft.CompanyPortalMac.ssoextension/com.microsoft.CompanyPortalMac.ssoextension.plist)
+[Download the com.microsoft.CompanyPortalMac.ssoextension.plist](https://gregknackstedt.com/Configuration%20Profiles/com.microsoft.CompanyPortalMac.ssoextension/com.microsoft.CompanyPortalMac.ssoextension.plist)
 
 ### Navigation
 
