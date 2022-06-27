@@ -50,71 +50,35 @@ ___
 
 - [/r/ADHD_Programmers](https://reddit.com/r/ADHD_Programmers/)
 
-- [/r/AZURE](https://reddit.com/r/AZURE/)
-
 - [/r/AdobeAudition](https://reddit.com/r/AdobeAudition/)
 
 - [/r/AdobeIllustrator](https://reddit.com/r/AdobeIllustrator/)
-
-- [/r/Adobe](https://reddit.com/r/Adobe/)
-
-- [/r/AfterEffects](https://reddit.com/r/AfterEffects/)
-
-- [/r/AskElectronics](https://reddit.com/r/AskElectronics/)
-
-- [/r/AutomateYourself](https://reddit.com/r/AutomateYourself/)
-
-- [/r/ColumbusIT](https://reddit.com/r/ColumbusIT/)
-
-- [/r/CompTIA](https://reddit.com/r/CompTIA/)
-
-- [/r/Dreamweaver](https://reddit.com/r/Dreamweaver/)
-
-- [/r/ElectricalEngineering](https://reddit.com/r/ElectricalEngineering/)
-
-- [/r/Express_VPN](https://reddit.com/r/Express_VPN/)
-
-- [/r/IAmA](https://reddit.com/r/IAmA/)
-
-- [/r/ITCareerQuestions](https://reddit.com/r/ITCareerQuestions/)
-
-- [/r/Intune](https://reddit.com/r/Intune/)
-
-- [/r/Lightroom](https://reddit.com/r/Lightroom/)
-
-- [/r/Malwarebytes](https://reddit.com/r/Malwarebytes/)
-
-- [/r/MicrosoftEdge](https://reddit.com/r/MicrosoftEdge/)
-
-- [/r/MicrosoftFlow](https://reddit.com/r/MicrosoftFlow/)
-
-- [/r/MicrosoftServices](https://reddit.com/r/MicrosoftServices/)
-
-- [/r/Office365](https://reddit.com/r/Office365/)
-
-- [/r/PowerApps](https://reddit.com/r/PowerApps/)
-
-- [/r/PowerBI](https://reddit.com/r/PowerBI/)
-
-- [/r/PowerPlatform](https://reddit.com/r/PowerPlatform/)
-
-- [/r/SCCM](https://reddit.com/r/SCCM/)
-
-- [/r/TpLink](https://reddit.com/r/TpLink/)
-
-- [/r/TronScript](https://reddit.com/r/TronScript/)
 
 - [/r/adobemuse](https://reddit.com/r/adobemuse/)
 
 - [/r/adobeportfolio](https://reddit.com/r/adobeportfolio/)
 
-- [/r/apolloapp](https://reddit.com/r/apolloapp/)
+- [/r/Adobe](https://reddit.com/r/Adobe/)
 
-- [/r/apple](https://reddit.com/r/apple/)
+- [/r/AfterEffects](https://reddit.com/r/AfterEffects/)
+
+- [/r/apolloapp](https://reddit.com/r/apolloapp/)
 
 - [/r/applebusinessmanager](https://reddit.com/r/applebusinessmanager/)
 
 - [/r/applehelp](https://reddit.com/r/applehelp/)
+
+- [/r/apple](https://reddit.com/r/apple/)
+
+- [/r/AskElectronics](https://reddit.com/r/AskElectronics/)
+
+- [/r/AutomateYourself](https://reddit.com/r/AutomateYourself/)
+
+- [/r/AZURE](https://reddit.com/r/AZURE/)
+
+- [/r/ColumbusIT](https://reddit.com/r/ColumbusIT/)
+
+- [/r/CompTIA](https://reddit.com/r/CompTIA/)
 
 - [/r/creativecloud](https://reddit.com/r/creativecloud/)
 
@@ -126,21 +90,33 @@ ___
 
 - [/r/diyelectronics](https://reddit.com/r/diyelectronics/)
 
+- [/r/Dreamweaver](https://reddit.com/r/Dreamweaver/)
+
+- [/r/ElectricalEngineering](https://reddit.com/r/ElectricalEngineering/)
+
 - [/r/electronics](https://reddit.com/r/electronics/)
 
 - [/r/excel](https://reddit.com/r/excel/)
 
 - [/r/exchangeserver](https://reddit.com/r/exchangeserver/)
 
+- [/r/Express_VPN](https://reddit.com/r/Express_VPN/)
+
 - [/r/graphic_design](https://reddit.com/r/graphic_design/)
 
 - [/r/hardwareswap](https://reddit.com/r/hardwareswap/)
 
-- [/r/homelab](https://reddit.com/r/homelab/)
-
 - [/r/homelabsales](https://reddit.com/r/homelabsales/)
 
+- [/r/homelab](https://reddit.com/r/homelab/)
+
+- [/r/IAmA](https://reddit.com/r/IAmA/)
+
 - [/r/indesign](https://reddit.com/r/indesign/)
+
+- [/r/Intune](https://reddit.com/r/Intune/)
+
+- [/r/ITCareerQuestions](https://reddit.com/r/ITCareerQuestions/)
 
 - [/r/jailbreak](https://reddit.com/r/jailbreak/)
 
@@ -150,45 +126,70 @@ ___
 
 - [/r/k12sysadmin](https://reddit.com/r/k12sysadmin/)
 
+- [/r/Lightroom](https://reddit.com/r/Lightroom/)
+
 - [/r/linux4noobs](https://reddit.com/r/linux4noobs/)
 
 - [/r/macsysadmin](https://reddit.com/r/macsysadmin/)
+
+- [/r/Malwarebytes](https://reddit.com/r/Malwarebytes/)
+
+- [/r/MicrosoftEdge](https://reddit.com/r/MicrosoftEdge/)
+
+- [/r/MicrosoftFlow](https://reddit.com/r/MicrosoftFlow/)
+
+- [/r/MicrosoftServices](https://reddit.com/r/MicrosoftServices/)
 
 - [/r/microsoft](https://reddit.com/r/microsoft/)
 
 - [/r/msp](https://reddit.com/r/msp/)
 
-- [/r/netsec](https://reddit.com/r/netsec/)
-
 - [/r/netsecstudents](https://reddit.com/r/netsecstudents/)
 
+- [/r/netsec](https://reddit.com/r/netsec/)
+
 - [/r/networking](https://reddit.com/r/networking/)
+
+- [/r/Office365](https://reddit.com/r/Office365/)
 
 - [/r/phoneswap](https://reddit.com/r/phoneswap/)
 
 - [/r/photoshop](https://reddit.com/r/photoshop/)
 
+- [/r/PowerApps](https://reddit.com/r/PowerApps/)
+
+- [/r/PowerBI](https://reddit.com/r/PowerBI/)
+
+- [/r/PowerPlatform](https://reddit.com/r/PowerPlatform/)
+
 - [/r/powerpoint](https://reddit.com/r/powerpoint/)
 
 - [/r/premiere](https://reddit.com/r/premiere/)
+
+- [/r/SCCM](https://reddit.com/r/SCCM/)
 
 - [/r/selfhosted](https://reddit.com/r/selfhosted/)
 
 - [/r/sharepoint](https://reddit.com/r/sharepoint/)
 
-- [/r/sysadmin](https://reddit.com/r/sysadmin/)
-
 - [/r/sysadminjobs](https://reddit.com/r/sysadminjobs/)
 
 - [/r/sysadmintools](https://reddit.com/r/sysadmintools/)
+
+- [/r/sysadmin](https://reddit.com/r/sysadmin/)
 
 - [/r/tails](https://reddit.com/r/tails/)
 
 - [/r/technology](https://reddit.com/r/technology/)
 
+- [/r/TpLink](https://reddit.com/r/TpLink/)
+
+- [/r/TronScript](https://reddit.com/r/TronScript/)
+
 - [/r/uBlockOrigin](https://reddit.com/r/uBlockOrigin/)
 
 - [/r/unRAID](https://reddit.com/r/unRAID/)
+
 
  ## Possibly IT/Technology/Networking Subreddits depending on how you use them; (and some for pure entertainment).
  
@@ -198,47 +199,19 @@ ___
 
 - [/r/CellBoosters](https://reddit.com/r/CellBoosters/)
 
-- [/r/NoContract](https://reddit.com/r/NoContract/)
-
-- [/r/Palm](https://reddit.com/r/Palm/)
-
-- [/r/PrepperIntel](https://reddit.com/r/PrepperIntel/)
-
-- [/r/RASPBERRY_PI_PROJECTS](https://reddit.com/r/RASPBERRY_PI_PROJECTS/)
-
-- [/r/RVLiving](https://reddit.com/r/RVLiving/)
-
-- [/r/RiftForSale](https://reddit.com/r/RiftForSale/)
-
-- [/r/Ring](https://reddit.com/r/Ring/)
-
-- [/r/Rural_Internet](https://reddit.com/r/Rural_Internet/)
-
-- [/r/ShittySysadmin](https://reddit.com/r/ShittySysadmin/)
-
-- [/r/Shortages](https://reddit.com/r/Shortages/)
-
-- [/r/StallmanWasRight](https://reddit.com/r/StallmanWasRight/)
-
-- [/r/ThatPeelingFeeling](https://reddit.com/r/ThatPeelingFeeling/)
-
-- [/r/VRtoER](https://reddit.com/r/VRtoER/)
-
-- [/r/VisiblePartyPay](https://reddit.com/r/VisiblePartyPay/)
-
-- [/r/Visible](https://reddit.com/r/Visible/)
-
-- [/r/celigo](https://reddit.com/r/celigo/)
-
 - [/r/cellmapper](https://reddit.com/r/cellmapper/)
 
 - [/r/iiiiiiitttttttttttt](https://reddit.com/r/iiiiiiitttttttttttt/)
+
+- [/r/NoContract](https://reddit.com/r/NoContract/)
 
 - [/r/octoprint](https://reddit.com/r/octoprint/)
 
 - [/r/oculus](https://reddit.com/r/oculus/)
 
 - [/r/openwrt](https://reddit.com/r/openwrt/)
+
+- [/r/Palm](https://reddit.com/r/Palm/)
 
 - [/r/pebble](https://reddit.com/r/pebble/)
 
@@ -248,57 +221,77 @@ ___
 
 - [/r/povertyfinance](https://reddit.com/r/povertyfinance/)
 
+- [/r/PrepperIntel](https://reddit.com/r/PrepperIntel/)
+
 - [/r/preppers](https://reddit.com/r/preppers/)
+
+- [/r/RASPBERRY_PI_PROJECTS](https://reddit.com/r/RASPBERRY_PI_PROJECTS/)
 
 - [/r/resinprinting](https://reddit.com/r/resinprinting/)
 
+- [/r/RiftForSale](https://reddit.com/r/RiftForSale/)
+
+- [/r/Ring](https://reddit.com/r/Ring/)
+
+- [/r/Rural_Internet](https://reddit.com/r/Rural_Internet/)
+
+- [/r/RVLiving](https://reddit.com/r/RVLiving/)
+
 - [/r/rvs](https://reddit.com/r/rvs/)
 
+- [/r/ShittySysadmin](https://reddit.com/r/ShittySysadmin/)
+
+- [/r/Shortages](https://reddit.com/r/Shortages/)
+
+- [/r/StallmanWasRight](https://reddit.com/r/StallmanWasRight/)
+
 - [/r/supplychain](https://reddit.com/r/supplychain/)
+
+- [/r/ThatPeelingFeeling](https://reddit.com/r/ThatPeelingFeeling/)
+
+- [/r/VisiblePartyPay](https://reddit.com/r/VisiblePartyPay/)
+
+- [/r/Visible](https://reddit.com/r/Visible/)
+
+- [/r/VRtoER](https://reddit.com/r/VRtoER/)
 
 ## 3D Printing Related Subreddits
 
 #### In alphabetical order.
 
-- [/r/3DPV](https://reddit.com/r/3DPV/)
+- [/r/3Dprintedtabletop](https://reddit.com/r/3Dprintedtabletop/)
+
+- [/r/3dPrintedVapeGear](https://reddit.com/r/3dPrintedVapeGear/)
+
+- [/r/3dprinters](https://reddit.com/r/3dprinters/)
+
+- [/r/3dprinter_deals](https://reddit.com/r/3dprinter_deals/)
+
+- [/r/3dprintingdeals](https://reddit.com/r/3dprintingdeals/)
 
 - [/r/3DPrintingDeal](https://reddit.com/r/3DPrintingDeal/)
-
-- [/r/3Dprintedtabletop](https://reddit.com/r/3Dprintedtabletop/)
 
 - [/r/3Dprinting](https://reddit.com/r/3Dprinting/)
 
 - [/r/3Dprintmything](https://reddit.com/r/3Dprintmything/)
 
-- [/r/3dPrintedVapeGear](https://reddit.com/r/3dPrintedVapeGear/)
-
-- [/r/3dprinter_deals](https://reddit.com/r/3dprinter_deals/)
-
-- [/r/3dprinters](https://reddit.com/r/3dprinters/)
-
-- [/r/3dprintingdeals](https://reddit.com/r/3dprintingdeals/)
+- [/r/3DPV](https://reddit.com/r/3DPV/)
 
 - [/r/AskElectronics](https://reddit.com/r/AskElectronics/)
 
 - [/r/Ceramic3Dprinting](https://reddit.com/r/Ceramic3Dprinting/)
 
+- [/r/Diyelectronics](https://reddit.com/r/diyelectronics/)
+
 - [/r/ElectricalEngineering](https://reddit.com/r/ElectricalEngineering/)
+
+- [/r/Electronics](https://reddit.com/r/electronics/)
+
+- [/r/Ender3](https://reddit.com/r/ender3/)
 
 - [/r/FixMyPrint](https://reddit.com/r/FixMyPrint/)
 
 - [/r/FlashForge](https://reddit.com/r/FlashForge/)
-
-- [/r/Longer3d](https://reddit.com/r/Longer3d/)
-
-- [/r/RASPBERRY_PI_PROJECTS](https://reddit.com/r/RASPBERRY_PI_PROJECTS/)
-
-- [/r/ResinCasting](https://reddit.com/r/ResinCasting/)
-
-- [/r/diyelectronics](https://reddit.com/r/diyelectronics/)
-
-- [/r/electronics](https://reddit.com/r/electronics/)
-
-- [/r/ender3](https://reddit.com/r/ender3/)
 
 - [/r/functionalprint](https://reddit.com/r/functionalprint/)
 
@@ -306,8 +299,14 @@ ___
 
 - [/r/klippers](https://reddit.com/r/klippers/)
 
+- [/r/Longer3d](https://reddit.com/r/Longer3d/)
+
 - [/r/nOfAileDPriNtS](https://reddit.com/r/nOfAileDPriNtS/)
 
 - [/r/octoprint](https://reddit.com/r/octoprint/)
+
+- [/r/RASPBERRY_PI_PROJECTS](https://reddit.com/r/RASPBERRY_PI_PROJECTS/)
+
+- [/r/ResinCasting](https://reddit.com/r/ResinCasting/)
 
 - [/r/resinprinting](https://reddit.com/r/resinprinting/)
