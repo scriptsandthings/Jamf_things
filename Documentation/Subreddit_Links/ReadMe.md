@@ -1,11 +1,34 @@
 Too many subreddits to toss on the end of the 'Blogs and Links' page without compromising it's original intent. So, here's the Reddit stuff.
 Still needs cleaning and have to complete the blurbs about each sub.
 
-#### In mostly alphebetical order.
+___
+
+# Universal Scammer List
+USE THIS FOR ALL ONLINE TRANSACTIONS WITH OTHERS - Search a username and see if they have a reported history of pulling scams. NOTE: **Just because a name produces no results doesn't mean they're 100% in the clear,** it could just be nobody has taken the time to file a report. **However if a name DOES produce a result, the results can speak for themselves in that case.** [The Universal Scammer List](https://universalscammerlist.com/search.php)
+
+___
+
+# Discord Communities
+
+[/r/AppleSwap Discord](https://discord.gg/x3NMeN3)
+
+/r/Hackintosh has two Discord communities, one for [Intel Hackintosh Systems](https://discord.gg/u8V7N5C) and one for [AMD Hackintosh Systems](https://discord.gg/EfCYAJW)
+
+[/r/iOS Discord](https://discord.gg/iphone)
+
+[/r/iPad Discord](https://discord.com/invite/aC3tD8K)
+
+[/r/iPhone Discord](https://discord.gg/r5McVVhqqs)
+
+[/r/Mac Discord](https://discord.gg/mXPdrHK)
+
 
 # IT/Engineering/Apple/Endpoint Engineering Subreddits
 
-**Good to have in your feed to have to keep a general knowledge on a lot of subjects**
+*Good to have in your feed to have to keep a general knowledge on a lot of subjects*
+
+#### In mostly alphebetical order.
+
 
 - [/r/ADHD_Programmers](https://reddit.com/r/ADHD_Programmers/)
 
