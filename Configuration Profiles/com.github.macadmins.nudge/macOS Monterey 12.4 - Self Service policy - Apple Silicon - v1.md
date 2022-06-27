@@ -11,7 +11,7 @@ Ongoing
 <img width="910" alt="macOS Monterey 12 4 - Self Service policy - Apple Silicon  - v1 - General" src="https://user-images.githubusercontent.com/52809959/173923529-7f40005a-b0ce-43e3-8790-55678de3f70b.png">
 
 ## Packages
-### Latest version of[erase-install-XX.xx.pkg](https://github.com/grahampugh/erase-install) by Graham Pugh
+### Latest version of [erase-install-XX.xx.pkg](https://github.com/grahampugh/erase-install) by Graham Pugh
 
 <img width="921" alt="macOS Monterey 12 4 - Self Service policy - Apple Silicon  - v1 - Packages" src="https://user-images.githubusercontent.com/52809959/173923579-33978fae-37f0-49ae-9df5-3818c23b6f4e.png">
 
@@ -29,6 +29,6 @@ Before
 
 ### Execute Command
 
-/Library/Management/erase-install/erase-install.sh  --reinstall --build=21F79 --current-user --depnotify --fs --check-power --power-wait-limit 300 --min-drive-space=45 --cleanup-after-use
+> /Library/Management/erase-install/erase-install.sh  --reinstall --build=21F79 --current-user --depnotify --fs --check-power --power-wait-limit 300 --min-drive-space=45 --cleanup-after-use
 
 <img width="916" alt="macOS Monterey 12 4 - Self Service policy - Apple Silicon  - v1 - Files and Processes" src="https://user-images.githubusercontent.com/52809959/173923557-778d232b-9ec8-4c3d-9d53-e0dee38c6c1e.png">
