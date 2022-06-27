@@ -13,7 +13,7 @@
 - [Apple smbx Documentation](https://gregknackstedt.com/Jamf_things/Documentation/smbx/)
 
 - [Intune](https://gregknackstedt.com/Jamf_things/Documentation/Intune/)
-- [Conditional Access - Intune + Jamf.md](https://gregknackstedt.com/Jamf_things/Intune/Conditional%20Access%20-%20Intune%20%2B%20Jamf.md)
+- [Conditional Access - Intune + Jamf.md](https://gregknackstedt.com/Jamf_things/Intune/Conditional%20Access/)
 
 
 - [PaloAlto](https://gregknackstedt.com/Jamf_things/Documentation/PaloAlto/)
