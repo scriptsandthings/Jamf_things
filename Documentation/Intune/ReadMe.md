@@ -1,4 +1,4 @@
-Helpful blogs and links
+# Helpful Intune blogs and links
 
 [hmaslowski.com/ (Blog)](https://hmaslowski.com/) - General macOS/Intune info
 
