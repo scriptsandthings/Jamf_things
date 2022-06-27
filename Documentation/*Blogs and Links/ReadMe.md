@@ -1,7 +1,7 @@
 ___
 
 # Universal Scammer List
-USE THIS FOR ALL ONLINE TRANSACTIONS - Search a username and see if they have a reported history of pulling scams. [The Universal Scammer List](https://universalscammerlist.com/search.php)
+USE THIS FOR ALL ONLINE TRANSACTIONS - Search a username and see if they have a reported history of pulling scams. NOTE: **Just because a name produces no results doesn't mean they're 100% in the clear,** it could just be nobody has taken the time to file a report. **However if a name DOES produce a result, the results can speak for themselves in that case.** [The Universal Scammer List](https://universalscammerlist.com/search.php)
 
 ___
 
