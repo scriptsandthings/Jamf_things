@@ -55,7 +55,7 @@ ___
 
 # Discord Communities + Reddit/Subreddit Links Moved
 
-There quickly became too many to add to this page without this one page becoming oveerwhelming. So, I've migrated the Discord Communities List and listing of Subreddits to follow over to it's own page. [Click here to view it on GitHub Pages in pretty HTML and CSS](https://www.gregknackstedt.com/Jamf_things/Documentation/Subreddit_Links/), or, if you want to stick on GitHub [you can view it here instead](https://github.com/scriptsandthings/Jamf_things/tree/master/Documentation/Subreddit_Links]. Exaact same info, just in different formats.
+There quickly became too many to add to this page without this one page becoming oveerwhelming. So, I've migrated the Discord Communities List and listing of Subreddits to follow over to it's own page. [Click here to view it on GitHub Pages in pretty HTML and CSS](https://www.gregknackstedt.com/Jamf_things/Documentation/Subreddit_Links/), or, if you want to stick on GitHub [you can view it here instead](https://github.com/scriptsandthings/Jamf_things/tree/master/Documentation/Subreddit_Links). Exaact same info, just in different formats.
 
 ___
 
