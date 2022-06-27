@@ -12,6 +12,7 @@ Ongoing
 
 ## Packages
 ### Latest version of [erase-install-XX.xx.pkg](https://github.com/grahampugh/erase-install) by Graham Pugh
+#### We had issues with erase-install-26.1.pkg and reverted back to erase-install-26.0.pkg and haven't had issues since.
 
 <img width="921" alt="macOS Monterey 12 4 - Self Service policy - Apple Silicon  - v1 - Packages" src="https://user-images.githubusercontent.com/52809959/173923579-33978fae-37f0-49ae-9df5-3818c23b6f4e.png">
 
