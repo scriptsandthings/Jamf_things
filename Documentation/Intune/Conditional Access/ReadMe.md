@@ -1,4 +1,4 @@
-Good starting point - ["Integrate and configure jamf pro and microsoft intune for conditional access for macos" technical white paper from HCSOnline.com](https://hcsonline.com/support/white-papers/integrate-and-configure-jamf-pro-and-microsoft-intune-for-conditional-access-for-macos)
+Source Documentation from HCS Online - ["Integrate and configure jamf pro and microsoft intune for conditional access for macos" technical white paper from HCSOnline.com](https://hcsonline.com/support/white-papers/integrate-and-configure-jamf-pro-and-microsoft-intune-for-conditional-access-for-macos)
 
 # HCS Online Technical Whitepaper
 ## Integrate and configure Jamf Pro and Microsoft Intune for Conditional Access for macOS
