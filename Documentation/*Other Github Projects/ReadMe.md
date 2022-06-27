@@ -1,6 +1,5 @@
 ## GitHub projects worth looking at
 #### In Alphabetical Order
-
  - [device-management](https://github.com/apple/device-management) - Apple's GitHub repository of device management commands and documentation
  - [AutoBrew](https://github.com/kennyb-222/AutoBrew) - Homebrew install script for currently logged in user (no admin rights required)
  - [DEPNotify-Starter](https://github.com/jamf/DEPNotify-Starter) - DEPNotify Starter - Launch script for DEPNotify
@@ -24,7 +23,6 @@
  - [talkingmoose Microsoft App Install Script](https://gist.github.com/talkingmoose/a16ca849416ce5ce89316bacd75fc91a) - Download and install Microsoft apps by product ID
 
 ## Security Benchmark Compliance
-
  - [CIS-for-macOS-Sierra-CP](https://github.com/jamf/CIS-for-macOS-Sierra-CP/) - Jamf's guide to CIS Benchmarks for macOS Sierra
  - [CIS-macOS-Security - CIS-Script](https://github.com/mvdbent/CIS-Script/) - Remediation script for CIS Benchmarks - Part of the macOS CIS Benchmark Project
  - [CIS-macOS-Security](https://github.com/mvdbent/CIS-macOS-Security) - macOS CIS Benchmark Project
@@ -38,6 +36,5 @@
  - [talkingmoose - GitHub Gists](https://gist.github.com/talkingmoose/)
  - [talkingmoose - GitHub](https://github.com/talkingmoose)
  
- ## Things to consider if you don't have Jamf, or possibly as a supplement
- 
+## Things to consider if you don't have Jamf, or possibly as a supplement
  - [Munki](https://github.com/munki/munki)
