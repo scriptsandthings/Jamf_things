@@ -1,3 +1,10 @@
+___
+
+# Universal Scammer List
+USE THIS FOR ALL ONLINE TRANSACTIONS - Search a username and see if they have a reported history of pulling scams. [The Universal Scammer List](https://universalscammerlist.com/search.php)
+
+___
+
 # macOS administration and support focused blogs and links
 #### In Alphabetical Order
 
@@ -44,9 +51,24 @@
 
 ___
 
-# Subreddits (Topic Specific Communities On Reddit.com)
+# Discord Communities
 
-## IT/Sysadmin/Engineering/Endpoint Engineering Subreddits, and dedicated subreddits for specific applications and software suites. (Such as the Adobe Creative Cloud products).
+[/r/Mac Discord](https://discord.gg/mXPdrHK)
+
+
+[/r/iOS Discord](https://discord.gg/iphone)
+
+[/r/iPhone Discord](https://discord.gg/r5McVVhqqs)
+
+[/r/AppleSwap Discord](https://discord.gg/x3NMeN3)
+
+[/r/iPad Discord](https://discord.com/invite/aC3tD8K)
+
+/r/Hackintosh has two Discord communities, one for [Intel Hackintosh Systems](https://discord.gg/u8V7N5C) and one for [AMD Hackintosh Systems](https://discord.gg/EfCYAJW)
+
+___
+
+# IT/Sysadmin/Engineering/Endpoint Engineering Subreddits, and dedicated subreddits for specific applications and software suites. (Such as the Adobe Creative Cloud products).
 
 #### In Alphabetical Order
 
@@ -68,9 +90,17 @@ ___
 
 - [/r/applebusinessmanager](https://reddit.com/r/applebusinessmanager/)
 
-- [/r/applehelp](https://reddit.com/r/applehelp/)
+/r/AppleHelp - A place to ask Apple technology related questions (Beta discussion prohibited) - [/r/applehelp](https://reddit.com/r/applehelp/)
 
-- [/r/apple](https://reddit.com/r/apple/)
+/r/Apple - The unofficial community for Apple news, rumors, and discussions. - [/r/Apple](https://reddit.com/r/apple/)
+
+/r/AppleHelp_Betas -  A place to ask Apple technology related questions (Beta discussion prohibited) - [/r/applehelp_betas](https://www.reddit.com/r/applehelp_betas/)
+
+/r/AppleSwap - To sell, buy, or trade your devices! - [/r/AppleSwap](https://www.reddit.com/r/AppleSwap/)
+
+/r/AppleTechs - r/appletechs is a private community for AASP techs/Apple Store techs. This is not a technical support subreddit. - [/r/AppleTechs](https://www.reddit.com/r/AppleTechs)
+
+/r/AppleTV - A community for discussion about Apple TV news, apps and tech. - [/r/appletv/](https://www.reddit.com/r/appletv/)
 
 - [/r/AskElectronics](https://reddit.com/r/AskElectronics/)
 
@@ -87,6 +117,8 @@ ___
 - [/r/crowdstrike](https://reddit.com/r/crowdstrike/)
 
 - [/r/cscareerquestions](https://reddit.com/r/cscareerquestions/)
+
+/r/ComputerScience - This subreddit is dedicated to such Computer Science topics like algorithms, computation, theory of languages, theory of programming, some software engineering, AI, cryptography, information theory, computer architecture etc. - [/r/computerscience/](https://www.reddit.com/r/computerscience/)
 
 - [/r/cyberDeck](https://reddit.com/r/cyberDeck/)
 
@@ -106,6 +138,8 @@ ___
 
 - [/r/graphic_design](https://reddit.com/r/graphic_design/)
 
+/r/hackintosh - FOR PERSONAL EDUCATION ONLY - Install macOS on generic PC hardware - [/r/hackintosh/](https://www.reddit.com/r/hackintosh/)
+
 - [/r/hardwareswap](https://reddit.com/r/hardwareswap/)
 
 - [/r/homelabsales](https://reddit.com/r/homelabsales/)
@@ -113,6 +147,12 @@ ___
 - [/r/homelab](https://reddit.com/r/homelab/)
 
 - [/r/IAmA](https://reddit.com/r/IAmA/)
+
+/r/iOS - A community for discussion about Apple iOS news, apps and tech. - [/r/ios/](https://www.reddit.com/r/ios/)
+
+/r/iOSDev - Apple iOS Development -  [/r/iosdev/](https://www.reddit.com/r/iosdev/)
+
+/r/iPhone - Apple iPhone Subreddit -  [/r/iphone/](https://www.reddit.com/r/iphone/)
 
 - [/r/indesign](https://reddit.com/r/indesign/)
 
@@ -132,7 +172,23 @@ ___
 
 - [/r/linux4noobs](https://reddit.com/r/linux4noobs/)
 
+/r/Linux_on_mac - All about running linux on Apple/Mac hardware, both PPC and Intel based. How to's, requests for help, news, you name it! - [/r/linux_on_mac/](https://www.reddit.com/r/linux_on_mac/)
+
+/r/LearnObjectiveC - Subreddit to help learn ObjectiveC - [/r/learnobjectivec/](https://www.reddit.com/r/learnobjectivec/)
+
+/r/MacApps - Subreddit to discover 3rd party macOS Applications - [/r/macapps/](https://www.reddit.com/r/macapps/)
+
+/r/Mac - Reddit's community of Mac users, enthusiasts, and experts. - [/r/Mac](https://reddit.com/r/Mac/)
+
+/r/macOS - r/macOS, the community for all macOS news, rumors, and discussions. - [/r/MacOS/](https://www.reddit.com/r/MacOS/)
+
+/r/MacSetups - This subreddit is a spin-off of [/r/battlestations](https://reddit.com/r/battlestations), but solely for Mac setups. Sometimes we don't receive much love over there, so post them here too! - [/r/macsetups/](https://www.reddit.com/r/macsetups/)
+
 - [/r/macsysadmin](https://reddit.com/r/macsysadmin/)
+
+/r/MacProgramming - Mac programming Subreddit - [/r/macprogramming/](https://www.reddit.com/r/macprogramming/)
+
+/r/MacGaming - The home for gaming on Mac machines! Here you will find resources, information, and a great community of gamers [/r/macgaming/](https://www.reddit.com/r/macgaming/)
 
 - [/r/Malwarebytes](https://reddit.com/r/Malwarebytes/)
 
@@ -152,7 +208,13 @@ ___
 
 - [/r/networking](https://reddit.com/r/networking/)
 
+/r/ObjectiveC - Sub for ObjectiveC Programming Language - [/r/ObjectiveC/](https://www.reddit.com/r/ObjectiveC/)
+
 - [/r/Office365](https://reddit.com/r/Office365/)
+
+/r/OSX - Reddit's community for users, developers, and hackers of Mac OS X – the computer operating system from Apple! - [/r/OSX](https://www.reddit.com/r/osx/)
+
+/r/OSXTweaks - Tweaks for macOS X - [/r/OSXTweaks/](https://www.reddit.com/r/OSXTweaks/)
 
 - [/r/phoneswap](https://reddit.com/r/phoneswap/)
 
@@ -168,6 +230,10 @@ ___
 
 - [/r/premiere](https://reddit.com/r/premiere/)
 
+/r/Programming - [/r/programming/](https://www.reddit.com/r/programming/)
+
+/r/Safari - This subreddit is dedicated to news and discussion pertaining to Safari, the web browser by Apple, as well as its extensions and rumours of the future. [/r/Safari/](https://www.reddit.com/r/Safari/)
+
 - [/r/SCCM](https://reddit.com/r/SCCM/)
 
 - [/r/selfhosted](https://reddit.com/r/selfhosted/)
@@ -179,6 +245,10 @@ ___
 - [/r/sysadmintools](https://reddit.com/r/sysadmintools/)
 
 - [/r/sysadmin](https://reddit.com/r/sysadmin/)
+
+/r/Swift - Dedicated to the Swift programming language released by Apple. [r/swift/](https://www.reddit.com/r/swift/)
+
+/r/SwiftJobs - Job listing board for the Swift programming language. Helping developers find careers and contract work in the language they love. Helping employers see their Apple iOS and OS X apps come to life! - [/r/SwiftJobs/](https://www.reddit.com/r/SwiftJobs/)
 
 - [/r/tails](https://reddit.com/r/tails/)
 
@@ -192,8 +262,9 @@ ___
 
 - [/r/unRAID](https://reddit.com/r/unRAID/)
 
+/r/VintageApple - A place to discuss and share anything related to vintage Apple computers and products. - [/r/VintageApple/](https://www.reddit.com/r/VintageApple/)
 
-## Possibly IT/Technology/Networking Subreddits depending on how you use them; (and some for pure entertainment).
+# Possibly IT/Technology/Networking Subreddits depending on how you use them; (and some for pure entertainment).
  
 **Possible solutions present themselves in the strangest places sometimes.**
  
@@ -257,7 +328,13 @@ ___
 
 - [/r/VRtoER](https://reddit.com/r/VRtoER/)
 
-## 3D Printing Related Subreddits
+/r/applecirclejerk - ⌘ PRAISE BE TO JONY IVE ⌘ STEVE JOBS IS LOVE, STEVE JOBS IS LIFE - [/r/applecirclejerk](https://reddit.com/r/applecirclejerk/)
+
+/r/iOS8 - A community for discussion about Apple iOS8 news, apps and tech. - [/r/ios8/](https://www.reddit.com/r/ios8/)
+
+/r/Woz - Woz sightings IRL or in media -  [/r/woz/](https://www.reddit.com/r/woz/)
+
+# 3D Printing Related Subreddits
 
 #### In Alphabetical Order
 
