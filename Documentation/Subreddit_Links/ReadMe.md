@@ -60,7 +60,7 @@ ___
 
 - [/r/AppleSwap](https://www.reddit.com/r/AppleSwap/) - To sell, buy, or trade your devices!
 
- -[/r/AppleTechs](https://www.reddit.com/r/AppleTechs) - r/appletechs is a private community for AASP techs/Apple Store techs. This is not a technical support subreddit.
+- [/r/AppleTechs](https://www.reddit.com/r/AppleTechs) - r/appletechs is a private community for AASP techs/Apple Store techs. This is not a technical support subreddit.
 
 - [/r/AppleTV](https://www.reddit.com/r/appletv/) - A community for discussion about Apple TV news, apps and tech/
 
