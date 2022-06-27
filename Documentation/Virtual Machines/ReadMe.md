@@ -26,3 +26,12 @@
 ## VM Options for other OS hosts
 
 https://github.com/kholia/OSX-KVM
+
+
+
+### Navigation
+
+- [Scripts and Things Jamf JSON Schemas Home](https://gregknackstedt/scriptsandthings_Jamf_JSON_Schemas)
+- [Scripts and Things Homepage](https://gregknackstedt.com/)
+- [Jamf Things Documentation - Home](https://gregknackstedt.com/Jamf_things/Documentation/)
+- [Jamf Things - Home](https://gregknackstedt.com/Jamf_things/Documentation/)
