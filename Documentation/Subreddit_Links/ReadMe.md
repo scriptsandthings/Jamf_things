@@ -56,7 +56,7 @@ ___
 
 /r/Apple - An unofficial community for Apple news, rumors, and discussions. - [/r/Apple](https://reddit.com/r/apple/)
 
-/r/AppleHelp_Betas -  A place to ask Apple technology related questions (Beta discussion prohibited) - [/r/applehelp_betas](https://www.reddit.com/r/applehelp_betas/)
+[/r/Applehelp_Betas](https://www.reddit.com/r/applehelp_betas/) - A place to ask Apple technology related questions for beta releases.
 
 /r/AppleSwap - To sell, buy, or trade your devices! - [/r/AppleSwap](https://www.reddit.com/r/AppleSwap/)
 
