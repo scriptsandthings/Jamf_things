@@ -25,6 +25,8 @@
 - [worthdoingbadly.com (Blog)](https://worthdoingbadly.com) - "If a thing is worth doing, it is worth doing badly" quote by G. K. Chesterton - 'This is a blog where I create - and document - new projects.'
 
 # Specific Topics
+#### In Alphabetical Order
+
 
 - ['launched'](https://zerolaunched.herokuapp.com/) - A launchd plist generator - By [heroku.com](https://www.heroku.com/)
 - [Adding a Printer to Jamf Pro Web Interface](https://oit.ncsu.edu/help-support/apple/jamf-pro/jamf-pro-add-printer-in-web-interface/) - Steps to configuring/adding a printer in Jamf Admin for deployment to client systems - By NC State University's Office of Information Technology
@@ -46,7 +48,7 @@ ___
 
 ## IT/Sysadmin/Engineering/Endpoint Engineering Subreddits, and dedicated subreddits for specific applications and software suites. (Such as the Adobe Creative Cloud products).
 
-#### In alphabetical order.
+#### In Alphabetical Order
 
 - [/r/ADHD_Programmers](https://reddit.com/r/ADHD_Programmers/)
 
@@ -191,11 +193,11 @@ ___
 - [/r/unRAID](https://reddit.com/r/unRAID/)
 
 
- ## Possibly IT/Technology/Networking Subreddits depending on how you use them; (and some for pure entertainment).
+## Possibly IT/Technology/Networking Subreddits depending on how you use them; (and some for pure entertainment).
  
- **Possible solutions present themselves in the strangest places sometimes.**
+**Possible solutions present themselves in the strangest places sometimes.**
  
- #### In alphabetical order.
+#### In Alphabetical Order
 
 - [/r/CellBoosters](https://reddit.com/r/CellBoosters/)
 
@@ -257,7 +259,7 @@ ___
 
 ## 3D Printing Related Subreddits
 
-#### In alphabetical order.
+#### In Alphabetical Order
 
 - [/r/3Dprintedtabletop](https://reddit.com/r/3Dprintedtabletop/)
 
