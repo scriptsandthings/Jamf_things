@@ -3,8 +3,11 @@ Still needs cleaning and have to complete the blurbs about each sub.
 
 ___
 
-# Universal Scammer List
-USE THIS FOR ALL ONLINE TRANSACTIONS WITH OTHERS - Search a username and see if they have a reported history of pulling scams. NOTE: **Just because a name produces no results doesn't mean they're 100% in the clear,** it could just be nobody has taken the time to file a report. **However if a name DOES produce a result, the results can speak for themselves in that case.** [The Universal Scammer List](https://universalscammerlist.com/search.php)
+# [Universal Scammer List](https://universalscammerlist.com/index.php)
+USE THIS FOR ALL ONLINE TRANSACTIONS WITH OTHERS - Search a username and see if they have a reported history of pulling scams. NOTE: **Just because a name produces no results doesn't mean they're 100% in the clear,** it could just be nobody has taken the time to file a report, or it was never seen because it was 'out of scope' of where The Universal Scammer bot watches transactions. **However if a name DOES produce a result, the results can speak for themselves in that case.** 
+- [The Universal Scammer List Username Search](https://universalscammerlist.com/search.php)
+- [About The Universal Scammer List and How It Works](https://universalscammerlist.com/index.php)
+- [Current Status for The Universal Scammer List (view which subreddits' data was added and how recent the last update was from each subreddit)](https://universalscammerlist.com/status.php)
 
 ___
 
