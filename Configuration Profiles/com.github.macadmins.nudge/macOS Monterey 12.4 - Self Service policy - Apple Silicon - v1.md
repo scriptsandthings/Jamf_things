@@ -18,7 +18,7 @@ Ongoing
 
 
 ## Scripts
-### [macOS Monterey 12.4 - Self Service policy - Before script - Disk Space notification - v1.sh](https://github.com/scriptsandthings/Jamf_things/blob/master/Configuration%20Profiles/com.github.macadmins.nudge/macOS%20Monterey%2012.4%20-%20Self%20Service%20policy%20-%20Before%20script%20-%20Disk%20Space%20notification%20-%20v1.sh)
+### [macOS Monterey 12.4 - Self Service policy - Before script - Disk Space notification - v1.sh](https://gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/macOS%20Monterey%2012.4%20-%20Self%20Service%20policy%20-%20Before%20script%20-%20Disk%20Space%20notification%20-%20v1.1.sh)
 
 ### Priority
 
