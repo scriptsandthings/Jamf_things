@@ -25,7 +25,7 @@ ___
 - [Macnotes (Blog)](https://macnotes.wordpress.com/) - Helpful stuff for Jamf Pro + Azure
 - [Macops.ca (Blog)](https://macops.ca/)
 - [Mr. Macintosh (Blog-ish)](https://mrmacintosh.com/) - Apple Macintosh & macOS News – Troubleshooting – Problem Reporting – How to Articles (Mr. Macintosh has great notes on each macOS point release)
-- [One More Admin (Blog)](https://blog.eriknicolasgomez.com/) - Eric Gomez's Blog
+- [One More Admin (Blog)](https://blog.eriknicolasgomez.com/) - Erik Gomez's Blog
 - [Reddit.com/r/MacSysAdmin (Forum)](https://old.reddit.com/r/macsysadmin/) - A subreddit for all things related to the administration of Apple devices.
 - [Reddit.com/r/Jamf (Forum)](https://old.reddit.com/r/Jamf/) - A subreddit for Jamf specific topics. - Not super active and not an official Jamf channel
 - [Richard Purves' Homepage (Blog)](https://richard-purves.com/) - Recovering Filmmaker. Recovering Apple Admin. Recovering Brit.
