@@ -1,4 +1,4 @@
-## GitHub projects worth looking at
+## GitHub projects (and other apps) worth looking at
 #### In Alphabetical Order
  - [device-management](https://github.com/apple/device-management) - Apple's GitHub repository of device management commands and documentation
  - [AutoBrew](https://github.com/kennyb-222/AutoBrew) - Homebrew install script for currently logged in user (no admin rights required)
@@ -15,6 +15,7 @@
  - [macOSLAPS](https://github.com/joshua-d-miller/macOSLAPS) - Unique per-system admin passwords on a rotating basis escrowed to AD or Jamf (Jamf escrowed passwords are stored in plain text)
  - [networkShareMounter](https://gitlab.rrze.fau.de/faumac/networkShareMounter) - App to mount network shares at login or on changes of network state
  - [Nudge](https://github.com/macadmins/nudge) - 'Nudge' your users to complete macOS updates
+ - [Office-Reset.com](https://office-reset.com/macadmins/) - Office-Reset is a free downloadable tool that you can use to fix problems and errors encountered with Microsoft Office for Mac apps. This includes Word, Excel, PowerPoint, Outlook, OneNote, OneDrive, Teams and AutoUpdate. The tool can help fix app launch errors, freezes, hangs, crashes, bad plug-ins, corrupt templates, performance issues, and confusing error messages.
  - [plist-yaml-plist](https://github.com/grahampugh/plist-yaml-plist) - yaml/plist/json converter
  - [macOS-enterprise-privileges (Privileges.app)](https://github.com/SAP/macOS-enterprise-privileges) - Grant temporary admin access to standard users w/controls + logging options
  - [PrivilegesDemoter](https://github.com/sgmills/PrivilegesDemoter) - Essential if using Privileges.app - Removes the temporarily granted admin rights
