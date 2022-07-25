@@ -35,6 +35,7 @@ The following keys will need to be configured (or removed) depending on your env
 - acceptableCameraUsage - Configured - true
 - acceptableScreenSharingUsage - Configured - true
 - aggressiveUserExperience - Configured - true
+- aggressiveUserFullScreenExperience - Configured - True
 - asynchronousSoftwareUpdate - Configured - true
 - attemptToBlockApplicationLaunches - Configured - true
 - attemptToFetchMajorUpgrade - Not Configured
