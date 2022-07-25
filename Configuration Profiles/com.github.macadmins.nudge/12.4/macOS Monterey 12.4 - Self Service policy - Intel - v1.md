@@ -16,7 +16,7 @@ Ongoing
 <img width="918" alt="macOS Monterey 12 4 - Self Service policy - Intel  - v1 - Packages" src="https://user-images.githubusercontent.com/52809959/173923726-a06196e3-7e4c-470e-b347-f8e559557a3a.png">
 
 ## Scripts
-### [macOS Monterey 12.4 - Self Service policy - Before script - Disk Space notification - v1.sh](https://github.com/scriptsandthings/Jamf_things/blob/master/Configuration%20Profiles/com.github.macadmins.nudge/macOS%20Monterey%2012.4%20-%20Self%20Service%20policy%20-%20Before%20script%20-%20Disk%20Space%20notification%20-%20v1.sh)
+### [macOS Monterey 12.4 - Self Service policy - Before script - Disk Space notification - v1.1.sh](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/12.4/macOS%20Monterey%2012.4%20-%20Self%20Service%20policy%20-%20Before%20script%20-%20Disk%20Space%20notification%20-%20v1.1.sh)
 
 ### Priority
 
