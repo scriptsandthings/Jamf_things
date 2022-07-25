@@ -6,5 +6,13 @@ Plists to use as a base for configuring Nudge to assist users with macOS updates
 
 ## Nudge plists for macOS versions:
 
-- [macOS Monterey - 12.4](https://github.com/scriptsandthings/Jamf_things/tree/master/Configuration%20Profiles/com.github.macadmins.nudge/12.4)
-- [macOS Monterey - 12.5](https://github.com/scriptsandthings/Jamf_things/tree/master/Configuration%20Profiles/com.github.macadmins.nudge/12.5)
+#### macOS Monterey 12.4
+- [macOS Monterey - 12.4 repo](https://github.com/scriptsandthings/Jamf_things/tree/master/Configuration%20Profiles/com.github.macadmins.nudge/12.4) 
+- Seperate Intel and Apple Silicon .plists 
+- Update via Self Service/Jamf Policy using pre-cached "Install macOS Monterey.app" for version 12.4 and [Graham Pugh's erase-install](https://github.com/grahampugh/erase-install)
+- Configured to bring macOS Big Sur clients and macOS Monterey clients prior to version 12.4 all up to macOS Monterey 12.4 across the board
+
+#### macOS Monterey 12.5
+- [macOS Monterey - 12.5 repo](https://github.com/scriptsandthings/Jamf_things/tree/master/Configuration%20Profiles/com.github.macadmins.nudge/12.5)
+- Single .plist for both Intel and Apple Silicon  
+- Download/install updates via Apple Software Update
