@@ -9,6 +9,7 @@ Plists to use as a base for configuring Nudge to assist users with macOS updates
 #### macOS Monterey 12.4
 - [macOS Monterey - 12.4 repo](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/12.4/) 
 - Seperate Intel and Apple Silicon .plists 
+- Seperate Intel and Apple Silicon Jamf Self Service policies
 - Update via Self Service/Jamf Policy using pre-cached "Install macOS Monterey.app" for version 12.4 and [Graham Pugh's erase-install](https://github.com/grahampugh/erase-install)
 - Configured to bring macOS Big Sur clients and macOS Monterey clients prior to version 12.4 all up to macOS Monterey 12.4 across the board
 
@@ -16,3 +17,11 @@ Plists to use as a base for configuring Nudge to assist users with macOS updates
 - [macOS Monterey - 12.5 repo](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/12.5)
 - Single .plist for both Intel and Apple Silicon  
 - Download/install updates via Apple Software Update
+
+#### macOS Ventura 13
+##### INCOMPLETE / NOT TESTED / CONCEPT PHASE
+- [macOS Ventura - 13 repo](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/13.0)
+- Will have seperate Intel and Apple Silicon .plists 
+- Will have seperate Intel and Apple Silicon Jamf Self Service policies
+- Update via Self Service/Jamf Policy using pre-cached "Install macOS Ventura.app" for version 13.0 and [Graham Pugh's erase-install](https://github.com/grahampugh/erase-install)
+- Configured to bring macOS Monterey clients up to macOS Ventura 13.0
