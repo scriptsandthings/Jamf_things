@@ -38,6 +38,7 @@ The following keys will need to be configured (or removed) depending on your env
 - asynchronousSoftwareUpdate - Configured - true
 - attemptToBlockApplicationLaunches - Configured - true
 - attemptToFetchMajorUpgrade - Not Configured
+- enforceMinorUpdates - True
 - blockedApplicationBundleIDs - Configured
 ##### blockedApplicationBundleIDs:
 - Adobe Acrobat DC - com.adobe.Acrobat
@@ -109,12 +110,11 @@ The following keys will need to be configured (or removed) depending on your env
 - VirtualBox - org.virtualbox.app.VirtualBox
 - Vivaldi - com.vivaldi.Vivaldi
 - VMware Horizon Client - com.vmware.horizon
-- enforceMinorUpdates - True
 
 ### osVersionRequirements - Configured - macOS Monterey + macOS Big Sur Clients (targetedOSVersionsRule = default)
 - aboutUpdateURL - https://support.apple.com/en-us/HT212585
-- actionButtonPath - Not Configured
-- majorUpgradeAppPath - Not Configured
+- actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install URL
+- majorUpgradeAppPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install URL
 - requiredInstallationDate - Configured - 2022-06-23T00:00:01Z
 - requiredMinimumOSVersion - Configured - 12.4
 - targetedOSVersions - Configured - 11.0.1 ,11.1 ,11.2 ,11.2.1 ,11.2.2 ,11.2.3 ,11.3 ,11.3.1 ,11.4 ,11.5 ,11.5.1 ,11.5.2 ,11.6 ,11.6.1 ,11.6.2 ,11.6.3 ,11.6.4 ,11.6.5 ,11.6.6 ,11.6.7 ,12.0.1 ,12.1 ,12.2 ,12.2.1 ,12.3 ,12.3.1
@@ -137,7 +137,6 @@ The following keys will need to be configured (or removed) depending on your env
 - maxRandomDelayInSeconds - Configured - 1200
 - randomDelay - Configured - false
 
-
 ## userInterface - Configured
 - actionButtonPath - Configured - Self Service macOS Monterey Policy URL (architecture specific policies) - Install URL
 - iconLightPath - Configured - "/Applications/Install macOS Monterey.app/Contents/Resources/InstallAssistant.icns"
@@ -145,7 +144,6 @@ The following keys will need to be configured (or removed) depending on your env
 - showDeferralCount - Configured - true
 - simpleMode - Configured - false
 - singleQuitButton - Configured - false
-
 
 ### updateElements - Configured
 #### updateElement - Dictionary 1
