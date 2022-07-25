@@ -34,7 +34,7 @@
 - [Apple Developer Documentation - Profile-Specific Payload Keys](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys) - Use the appropriate payload for your configuration needs
 - [Authorization Rights](https://www.dssw.co.uk/reference/authorization-rights/) - This reference of default authorization rights provides an overview of the rights available in recent versions of macOS.
 - [CIS Apple macOS Benchmarks](https://www.cisecurity.org/benchmark/apple_os) - Security benchmarks for macOS from cisecurity.org
-- [Crowdstrike Falcon commands - kb.MIT.edu](http://kb.mit.edu/confluence/display/istcontrib/CrowdStrike+Falcon+-+Installation+Instructions)
+- [Crowdstrike Falcon commands](http://kb.mit.edu/confluence/display/istcontrib/CrowdStrike+Falcon+-+Installation+Instructions) - Helpful commands for Crowdstrike Falcon from kb.MIT.edu
 - [cyberark-get-password-curl-cert-based-auth](https://www.shellhacks.com/cyberark-get-password-curl-cert-based-auth/) - CyberArk Get Password – cURL – Cert-Based Auth
 - [iOS Version History](https://www.gkgigs.com/list-apple-ios-version-history/) - List Of All Apple iOS Version History
 - [Jamf Training Documentation](https://docs.jamf.com/education-services/resources/20211229/Resources_Welcome.html) - Resources for Jamf training courses
