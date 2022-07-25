@@ -18,66 +18,75 @@
       <true/>
       <key>blockedApplicationBundleIDs</key>
       <array>
-        <string>com.adobe.Photoshop</string>
+        <string>com.adobe.Acrobat</string>
+        <string>com.adobe.Acrobat.Pro</string>
+        <string>com.adobe.acc.AdobeCreativeCloud</string>
         <string>com.adobe.illustrator</string>
         <string>com.adobe.indesign</string>
-        <string>com.adobe.acc.AdobeCreativeCloud</string>
-        <string>com.adobe.Acrobat.Pro</string>
-        <string>com.adobe.Acrobat</string>
-        <string>com.apple.Keynote</string>
-        <string>com.apple.Xcode</string>
-        <string>com.autodesk.AutoCAD</string>
-        <string>com.github.GitHub</string>
-        <string>com.google.Chrome</string>
-        <string>com.apple.Safari</string>
-        <string>org.mozilla.firefox</string>
-        <string>com.vivaldi.Vivaldi</string>
-        <string>org.eclipse.eclipse</string>
-        <string>com.spotify.client</string>
-        <string>com.panic.Transmit</string>
-        <string>com.operasoftware.Opera</string>
-        <string>com.microsoft.Word</string>
-        <string>com.microsoft.Powerpoint</string>
-        <string>com.microsoft.onenote.mac</string>
-        <string>com.microsoft.Excel</string>
-        <string>com.google.sketchuppro</string>
-        <string>com.apple.iWork.Pages</string>
-        <string>com.apple.iWork.Numbers</string>
-        <string>com.apple.iPhoto</string>
-        <string>com.apple.Music</string>
-        <string>com.brave.Browser</string>
-        <string>org.torproject.torbrowser</string>
-        <string>com.pandora.desktop</string>
-        <string>com.microsoft.edgemac</string>
-        <string>com.apple.Terminal</string>
-        <string>com.apple.ActivityMonitor</string>
-        <string>com.postmanlabs.mac</string>
-        <string>com.oracle.workbench.MySQLWorkbench</string>
-        <string>com.extensis.UniversalTypeClient</string>
-        <string>com.microsoft.VSCode</string>
-        <string>com.tinyspeck.slackmacgap</string>
-        <string>com.apple.FaceTime</string>
+        <string>com.adobe.lightroomCC</string>
+        <string>com.adobe.Photoshop</string>
+        <string>com.adobe.PremierePro.18</string>
+        <string>com.adobe.PremierePro.19</string>
+        <string>com.adobe.PremierePro.20</string>
+        <string>com.adobe.PremierePro.21</string>
+        <string>com.adobe.PremierePro.22</string>
         <string>com.apple.configurator.ui</string>
-        <string>com.hnc.Discord</string>
-        <string>com.jetbrains.pycharm.ce</string>
-        <string>com.jetbrains.pycharm</string>
-        <string>com.jetbrains.WebStorm</string>
-        <string>com.jetbrains.PhpStorm</string>
-        <string>com.jetbrains.intellij</string>
-        <string>com.dbeaver.product.ultimate</string>
-        <string>org.jkiss.dbeaver.core.product</string>
-        <string>com.dbeaver.product.enterprise</string>
-        <string>com.tableausoftware.tableaudesktop</string>
-        <string>com.clo3d.security.clono</string>
-        <string>com.docker.docker</string>
-        <string>com.macpaw.Gemini2</string>
-        <string>com.dbeaver.product.enterprise</string>
+        <string>com.apple.FaceTime</string>
+        <string>com.apple.iPhoto</string>
+        <string>com.apple.Keynote</string>
+        <string>com.apple.Music</string>
+        <string>com.apple.iWork.Numbers</string>
+        <string>com.apple.iWork.Pages</string>
+        <string>com.apple.Safari</string>
+        <string>com.apple.Xcode</string>
+        <string>com.apple.ActivityMonitor</string>
+        <string>com.apple.Terminal</string>
         <string>com.autodesk.AutoCAD2017</string>
         <string>com.autodesk.AutoCAD2018</string>
         <string>com.autodesk.AutoCAD2019</string>
         <string>com.autodesk.AutoCAD2020</string>
         <string>com.autodesk.AutoCAD2021</string>
         <string>com.autodesk.AutoCAD2022</string>
+        <string>com.autodesk.AutoCAD</string>
+        <string>com.brave.Browser</string>
+        <string>com.clo3d.security.clono</string>
+        <string>org.jkiss.dbeaver.core.product</string>
+        <string>com.dbeaver.product.enterprise</string>
+        <string>com.dbeaver.product.ultimate</string>
+        <string>com.hnc.Discord</string>
+        <string>com.docker.docker</string>
+        <string>org.eclipse.eclipse</string>
+        <string>com.extensis.UniversalTypeClient</string>
+        <string>com.macpaw.Gemini2</string>
+        <string>com.github.GitHub</string>
+        <string>com.google.Chrome</string>
+        <string>com.google.sketchuppro</string>
+        <string>com.jetbrains.intellij</string>
+        <string>com.jetbrains.PhpStorm</string>
+        <string>com.jetbrains.pycharm.ce</string>
+        <string>com.jetbrains.pycharm</string>
+        <string>com.jetbrains.WebStorm</string>
+        <string>com.microsoft.edgemac</string>
+        <string>com.microsoft.Excel</string>
+        <string>com.microsoft.onenote.mac</string>
+        <string>com.microsoft.Powerpoint</string>
+        <string>com.microsoft.VSCode</string>
+        <string>com.microsoft.Word</string>
+        <string>org.mozilla.firefox</string>
+        <string>com.oracle.workbench.MySQLWorkbench</string>
+        <string>com.operasoftware.Opera</string>
+        <string>com.pandora.desktop</string>
+        <string>com.panic.Transmit</string>
+        <string>com.parallels.desktop.console</string>
+        <string>com.postmanlabs.mac</string>
+        <string>com.tinyspeck.slackmacgap</string>
+        <string>com.spotify.client</string>
+        <string>com.tableausoftware.tableaudesktop</string>
+        <string>org.torproject.torbrowser</string>
+        <string>org.utmapp.UTM</string>
+        <string>org.virutalbox.app.VirtualBox</string>
+        <string>com.vivaldi.Vivaldi</string>
+        <string>com.vmware.horizon</string>
       </array>
       <key>enforceMinorUpdates</key>
       <true/>
@@ -174,7 +183,7 @@
           <key>mainContentSubHeader</key>
           <string>Updates may take up to 30-45 minutes to install</string>
           <key>mainContentText</key>
-          <string>An fully up-to-date macOS is required to ensure that IT Support can your accurately protect and support your Mac, so it can continue to provide you with the best user experience possible everyday.\n\nThis update must be installed on your Mac prior to Thursday September 15th, 2022. If you do not update your Mac prior to the installation deadline, you will lose access to the applications necessary for your day-to-day tasks until it is installed.\n\nTo begin the install now, simply click the blue “Install Update Now” button above and follow the provided steps. To schedule a reminder to install later, click “I Understand” or "Schedule Reminder" below.</string>
+          <string>An fully up-to-date macOS is required to ensure that Corporate IT Support can your accurately protect and support your Mac, so it can continue to provide you with the best user experience possible everyday.\n\nThis update must be installed on your Mac prior to Thursday September 15th, 2022. If you do not update your Mac prior to the installation deadline, you will lose access to the applications necessary for your day-to-day tasks until it is installed.\n\nTo begin the install now, simply click the blue “Install Update Now” button above and follow the provided steps. To schedule a reminder to install later, click “I Understand” or "Schedule Reminder" below.</string>
           <key>mainHeader</key>
           <string>macOS Monterey 12.5 update required</string>
           <key>primaryQuitButtonText</key>
@@ -182,7 +191,7 @@
           <key>secondaryQuitButtonText</key>
           <string>I Understand</string>
           <key>subHeader</key>
-          <string>A friendly reminder from Corporate Technology Support</string>
+          <string>A friendly reminder from Corporate IT Support</string>
         </dict>
       </array>
     </dict>
