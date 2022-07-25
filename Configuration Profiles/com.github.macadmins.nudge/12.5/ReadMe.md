@@ -1,4 +1,4 @@
-# Nudge - macOS Update Management - 12.5 - v1.2.plist
+# Nudge - macOS Update Management - 12.5 - v1.3.plist
 ### For Nudge version 1.1.7+
 ## About this profile
 
@@ -22,9 +22,10 @@ userInterface
 - acceptableCameraUsage - Configured - true
 - acceptableScreenSharingUsage - Configured - true
 - aggressiveUserExperience - Configured - true
+- aggressiveUserFullScreenExperience - Configured - true
 - asynchronousSoftwareUpdate - Configured - true
 - attemptToBlockApplicationLaunches - Configured - true
-- attemptToFetchMajorUpgrade - Configured - true
+- attemptToFetchMajorUpgrade - Not Configured
 - blockedApplicationBundleIDs - Configured
 ##### blockedApplicationBundleIDs:
 - Adobe Acrobat DC - com.adobe.Acrobat
