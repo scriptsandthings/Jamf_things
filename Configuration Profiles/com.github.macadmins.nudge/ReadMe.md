@@ -6,5 +6,5 @@ Plists to use as a base for configuring Nudge to assist users with macOS updates
 
 ## Nudge plists for macOS versions:
 
-[macOS Monterey - 12.4](https://github.com/scriptsandthings/Jamf_things/tree/master/Configuration%20Profiles/com.github.macadmins.nudge/12.4)
-[macOS Monterey - 12.5](https://github.com/scriptsandthings/Jamf_things/tree/master/Configuration%20Profiles/com.github.macadmins.nudge/12.5)
+- [macOS Monterey - 12.4](https://github.com/scriptsandthings/Jamf_things/tree/master/Configuration%20Profiles/com.github.macadmins.nudge/12.4)
+- [macOS Monterey - 12.5](https://github.com/scriptsandthings/Jamf_things/tree/master/Configuration%20Profiles/com.github.macadmins.nudge/12.5)
