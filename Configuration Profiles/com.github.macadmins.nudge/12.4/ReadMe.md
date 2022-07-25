@@ -39,7 +39,7 @@ The following keys will need to be configured (or removed) depending on your env
 - asynchronousSoftwareUpdate - Configured - true
 - attemptToBlockApplicationLaunches - Configured - true
 - attemptToFetchMajorUpgrade - Not Configured
-- enforceMinorUpdates - True
+- enforceMinorUpdates - Configured - True
 - blockedApplicationBundleIDs - Configured
 ##### blockedApplicationBundleIDs:
 - Adobe Acrobat DC - com.adobe.Acrobat
