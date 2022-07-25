@@ -1,4 +1,6 @@
-# Nudge - macOS Update Management - 13 - v0.2.plist
+# Nudge
+## macOS Update Management - macOS Ventura 13.0
+### .plist version 0.2
 ### For Nudge version 1.1.7+
 
 # NOTE: 
