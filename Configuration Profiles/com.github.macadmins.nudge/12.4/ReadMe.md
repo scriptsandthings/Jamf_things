@@ -17,7 +17,7 @@
 #### OPTIONAL: Pre-Install disk space notification policy
 - [macOS Monterey 12.4 - Self Service policy - Before script - Disk Space notification - v1.1.sh](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/12.4/macOS%20Monterey%2012.4%20-%20Self%20Service%20policy%20-%20Before%20script%20-%20Disk%20Space%20notification%20-%20v1.1.sh)
 
-The following keys will need to be configured (or removed) depending on your environment. Also configure the iconLightPath / iconDarkPath if you'd like otherwise remove it if the OS isn't pre-cached prior to launching Nudge.
+## The following keys will need to be configured (or removed) depending on your environment. Also configure the iconLightPath / iconDarkPath if you'd like otherwise remove it if the OS isn't pre-cached prior to launching Nudge.
 
 **osVersionRequirements**
 - actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
@@ -29,7 +29,7 @@ The following keys will need to be configured (or removed) depending on your env
 - iconLightPath - If you wish to customize the logo used or don't pre-cache the Install macOS Monterey.app on your clients, update this.
 - iconDarkPath - If you wish to customize the logo used or don't pre-cache the Install macOS Monterey.app on your clients, update this.
 
-## .plist keys
+# .plist keys
 
 ### optionalFeatures - Configured
 - acceptableCameraUsage - Configured - true
