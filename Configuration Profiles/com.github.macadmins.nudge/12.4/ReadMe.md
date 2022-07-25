@@ -22,7 +22,7 @@ The following keys will need to be configured (or removed) depending on your env
 **osVersionRequirements**
 - actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
 - majorUpgradeAppPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
-- **requiredInstallationDate**: Set the Nudge / macOS update install deadline. *Currently set for September 15th, 2022*: "2022-09-15T00:00:00Z"
+- **requiredInstallationDate**: Set the Nudge / macOS update install deadline. *Currently set for June 23rd, 2022*: "2022-06-23T00:00:00Z"
 
 **userInterface**
 - actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
