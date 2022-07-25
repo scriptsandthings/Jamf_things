@@ -26,8 +26,7 @@ userInterface
 - attemptToBlockApplicationLaunches - Configured - true
 - attemptToFetchMajorUpgrade - Configured - true
 - blockedApplicationBundleIDs - Configured
-
-#### blockedApplicationBundleIDs:
+##### blockedApplicationBundleIDs:
 - Adobe Acrobat DC - com.adobe.Acrobat
 - Adobe Acrobat Pro - com.adobe.Acrobat.Pro
 - Adobe Creative Cloud Desktop - com.adobe.acc.AdobeCreativeCloud
