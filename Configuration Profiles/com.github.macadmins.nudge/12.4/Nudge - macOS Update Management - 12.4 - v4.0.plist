@@ -11,7 +11,7 @@
 		<key>aggressiveUserExperience</key>
 			<true/>
 		<key>aggressiveUserFullScreenExperience</key>
-			<false/>
+			<true/>
 		<key>asynchronousSoftwareUpdate</key>
 			<true/>
 		<key>attemptToBlockApplicationLaunches</key>
