@@ -1,4 +1,4 @@
-# Nudge - macOS Update Management - 13 - v0.1.plist
+# Nudge - macOS Update Management - 13 - v0.2.plist
 ### For Nudge version 1.1.7+
 
 # NOTE: 
@@ -14,9 +14,12 @@ optionalFeatures
 - **blockedApplicationBundleIDs**: 69 applications are currently listed within blockedApplicationBundleIDs. Customize this for your environment, or to not block/restrict applications in your profile set **attemptToBlockApplicationLaunches** to "false" and set **blockedApplicationBundleIDs** to "Not Configured".
 
 osVersionRequirements
+- actionButtonPath - Configured - https://jamfselfservice://content?entity=policy&amp;id=123456&amp;action=view
+- majorUpgradeAppPath - Configured - https://jamfselfservice://content?entity=policy&amp;id=123456&amp;action=view
 - **requiredInstallationDate**: Set the Nudge / macOS update install deadline. *Currently set for October 20th, 2022*: "2022-09-15T00:00:00Z"
 
 userInterface
+- actionButtonPath - Configured - https://jamfselfservice://content?entity=policy&amp;id=123456&amp;action=view
 - **iconLightPath**: If you wish to customize the logo, update this. Requires image file be pre-staged/pre-deployed to client systems prior to activating Nudge.
 - **iconDarkPath**: If you wish to customize the logo, update this. Requires image file be pre-staged/pre-deployed to client systems prior to activating Nudge.
 
@@ -26,9 +29,11 @@ userInterface
 - acceptableCameraUsage - Configured - true
 - acceptableScreenSharingUsage - Configured - true
 - aggressiveUserExperience - Configured - true
+- aggressiveUserFullScreenExperience - Configured - true
 - asynchronousSoftwareUpdate - Configured - true
 - attemptToBlockApplicationLaunches - Configured - true
-- attemptToFetchMajorUpgrade - Configured - true
+- attemptToFetchMajorUpgrade - Not Configured
+- enforceMinorUpdates - Configured - true
 - blockedApplicationBundleIDs - Configured
 ##### blockedApplicationBundleIDs:
 - Adobe Acrobat DC - com.adobe.Acrobat
@@ -99,13 +104,13 @@ userInterface
 - UTM - com.utmapp.UTM
 - VirtualBox - org.virtualbox.app.VirtualBox
 - Vivaldi - com.vivaldi.Vivaldi
-- VMware Horizon Client - com.vmware.horizonenforceMinorUpdates - Configured - true
+- VMware Horizon Client - com.vmware.horizon
 
 ### osVersionRequirements - Configured - macOS Monterey + (targetedOSVersionsRule = default)
 
 - aboutUpdateURL - https://support.apple.com/en-us/XXXXXXXX
-- actionButtonPath - Not Configured
-- majorUpgradeAppPath - Not Configured
+- actionButtonPath - Configured - https://jamfselfservice://content?entity=policy&amp;id=123456&amp;action=view
+- majorUpgradeAppPath - Configured - https://jamfselfservice://content?entity=policy&amp;id=123456&amp;action=view
 - requiredInstallationDate - Configured - 2022-10-20T00:00:01Z
 - requiredMinimumOSVersion - Configured - 13
 - targetedOSVersions - Configured - 12.0.1, 12.1, 12.2, 12.2.1, 12.3, 12.3.1, 12.4, 12.5
@@ -130,8 +135,9 @@ userInterface
 
 
 ### userInterface - Configured
-- iconLightPath - Configured - "/Library/Application Support/Corp_Branding/Light/install.png"
-- iconDarkPath - Configured - "/Library/Application Support/Corp_Branding/Dark/install.png"
+- actionButtonPath - Configured - https://jamfselfservice://content?entity=policy&amp;id=123456&amp;action=view
+- iconLightPath - Configured - "/Library/Applications/Install macOS Ventura.app/Contents/Resources/InstallAssistant.icns"
+- iconDarkPath - Configured - "/Library/Applications/Install macOS Ventura.app/Contents/Resources/InstallAssistant.icns"
 - showDeferralCount - Configured - true
 - simpleMode - Configured - false
 - singleQuitButton - Configured - false
