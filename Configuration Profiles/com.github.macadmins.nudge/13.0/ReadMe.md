@@ -150,7 +150,7 @@ userInterface
 - mainContentNote - "An Important Note Regarding Required Updates"
 - mainContentSubHeader - Configured - "Updates may take up to 30-45 minutes to install"
 - mainContentText - Configured - "An fully up-to-date macOS is required to ensure that IT Support can your accurately protect and support your Mac, so it can continue to provide you with the best user experience possible everyday.\n\nThis update must be installed on your Mac prior to Thursday October 20th, 2022. If you do not update your Mac prior to the installation deadline, you may lose access to applications necessary for your day-to-day tasks until it is installed.\n\nTo begin the install now, simply click the blue “Install Update Now” button above and follow the provided steps. To schedule a reminder to install later, click “I Understand” or "Schedule Reminder" below."
-- mainHeader - Configured - "macOS Ventura 13.0 update required"
+- mainHeader - Configured - "macOS Ventura update required"
 - primaryQuitButtonText - Configured - "Later"
 - secondaryQuitButtonText - Configured - "I Understand"
 - subHeader - Configured - "A friendly reminder from corporate IT Support"
