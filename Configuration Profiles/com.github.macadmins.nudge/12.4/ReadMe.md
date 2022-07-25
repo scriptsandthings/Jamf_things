@@ -1,8 +1,24 @@
 # Nudge - macOS Update Management - 12.4 - v3.4.plist
 ### For Nudge version 1.1.7+
-## About this profile
+
+[Download Nudge - macOS Update Management - 12.4 - v3.4.plist](https://github.com/scriptsandthings/Jamf_things/blob/master/Configuration%20Profiles/com.github.macadmins.nudge/12.4/Nudge%20-%20macOS%20Update%20Management%20-%2012.4%20-%20v3.4.plist)
+
+![alt text](https://github.com/scriptsandthings/Jamf_things/blob/master/Configuration%20Profiles/com.github.macadmins.nudge/12.4/Nudge%20-%20macOS%20Update%20Management%20-%2012.4%20-%20v3.3.png)
+
+# About this .plist
 
 The following two keys may not be set (3 occurences total to enter the URL), and will need to be added/configured to point to the proper Jamf Self Service policy installation URLs for Intel and Apple Silicon for your macOS Monterey upgrade workflow. Also configure the iconLightPath / iconDarkPath if you'd like otherwise remove it if the OS isn't pre-cached prior to launching Nudge.
+
+## Jamf Policy Examples / Scripts
+
+- [macOS Monterey 12.4 - Self Service policy - Apple Silicon](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/12.4/macOS%20Monterey%2012.4%20-%20Self%20Service%20policy%20-%20Apple%20Silicon%20-%20v1/)
+- [macOS Monterey 12.4 - Self Service policy - Intel](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/12.4/macOS%20Monterey%2012.4%20-%20Self%20Service%20policy%20-%20Intel%20-%20v1/)
+
+#### OPTIONAL: Pre-Install disk space notification policy
+- [macOS Monterey 12.4 - Self Service policy - Before script - Disk Space notification - v1.1.sh](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/12.4/macOS%20Monterey%2012.4%20-%20Self%20Service%20policy%20-%20Before%20script%20-%20Disk%20Space%20notification%20-%20v1.1.sh)
+
+
+# .plist keys
 
 osVersionRequirements - Configured
 - actionButtonPath - Self Service macOS Monterey Policy URL (architecture specific policies) - Install or View URL
