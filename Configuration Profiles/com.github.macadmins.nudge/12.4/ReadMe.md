@@ -1,4 +1,4 @@
-# Nudge - macOS Update Management - 12.4 - v40.plist
+# Nudge - macOS Update Management - 12.4 - v4.0.plist
 ### For Nudge version 1.1.7+
 
 [Download Nudge - macOS Update Management - 12.4 - v4.0.plist](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/12.4/Nudge%20-%20macOS%20Update%20Management%20-%2012.4%20-%20v4.0.plist) 
