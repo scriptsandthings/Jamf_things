@@ -4,7 +4,7 @@
 
 - [Blogs and Links](https://gregknackstedt.com/Jamf_things/Documentation/*Blogs%20and%20Links/)
 - [Other Github Projects](https://gregknackstedt.com/Jamf_things/Documentation/*Other%20Github%20Projects)
-- [Subreddit Links](https://gregknackstedt.com/Jamf_things/Documentation/*Subreddit%20Links/)
+- [Subreddit/Discord Links](https://gregknackstedt.com/Jamf_things/Documentation/*Subreddit%20Links/)
 - [Jamf Pro](https://gregknackstedt.com/Jamf_things/Documentation/Jamf%20Pro/)
 - [Apple Hardware](https://gregknackstedt.com/Jamf_things/Documentation/Apple%20Hardware/)
 - [FileVault](https://gregknackstedt.com/Jamf_things/Documentation/FileVault/)
