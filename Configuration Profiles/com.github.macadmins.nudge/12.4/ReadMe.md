@@ -1,4 +1,4 @@
-# Nudge - macOS Update Management - 12.4 - v3.4.plist
+# Nudge - macOS Update Management - 12.4 - v40.plist
 ### For Nudge version 1.1.7+
 
 [Download Nudge - macOS Update Management - 12.4 - v4.0.plist](https://www.gregknackstedt.com/Jamf_things/Configuration%20Profiles/com.github.macadmins.nudge/12.4/Nudge%20-%20macOS%20Update%20Management%20-%2012.4%20-%20v4.0.plist) 
@@ -115,9 +115,9 @@ The following keys will need to be configured (or removed) depending on your env
 - aboutUpdateURL - https://support.apple.com/en-us/HT212585
 - actionButtonPath - Not Configured
 - majorUpgradeAppPath - Not Configured
-- requiredInstallationDate - Configured - 2022-06-15T00:00:01Z
+- requiredInstallationDate - Configured - 2022-06-23T00:00:01Z
 - requiredMinimumOSVersion - Configured - 12.4
-- targetedOSVersions - Configured - 12.0.1, 12.1, 12.2, 12.2.1, 12.3, 12.3.1, 12.4
+- targetedOSVersions - Configured - 11.0.1 ,11.1 ,11.2 ,11.2.1 ,11.2.2 ,11.2.3 ,11.3 ,11.3.1 ,11.4 ,11.5 ,11.5.1 ,11.5.2 ,11.6 ,11.6.1 ,11.6.2 ,11.6.3 ,11.6.4 ,11.6.5 ,11.6.6 ,11.6.7 ,12.0.1 ,12.1 ,12.2 ,12.2.1 ,12.3 ,12.3.1
 - targetedOSVersionsRule - Configured - "default"
 
 ### userExperience - Configured
@@ -159,7 +159,7 @@ The following keys will need to be configured (or removed) depending on your env
 - mainContentHeader - Configured - "Your Mac will need to reboot in order to complete update installation."
 - mainContentNote - "An Important Note Regarding Required Updates"
 - mainContentSubHeader - Configured - "Updates may take up to 30-45 minutes to install"
-- mainContentText - Configured - "A fully up-to-date macOS is required to ensure that IT Support can your accurately protect and support your Mac, so it can continue to provide you with the best user experience possible everyday.\n\nThis update must be installed on your Mac prior to Thursday September 15th, 2022. If you do not update your Mac prior to the installation deadline, you may lose access to applications necessary for your day-to-day tasks until it is installed.\n\nTo begin the install now, simply click the blue 'Install Update Now' button above and follow the provided steps. To schedule a reminder to install later, click 'I Understand' or 'Schedule Reminder' below."
+- mainContentText - Configured - "A fully up-to-date macOS is required to ensure that IT Support can your accurately protect and support your Mac, so it can continue to provide you with the best user experience possible everyday.\n\nThis update must be installed on your Mac prior to Thursday June 23rd, 2022. If you do not update your Mac prior to the installation deadline, you may lose access to applications necessary for your day-to-day tasks until it is installed.\n\nTo begin the install now, simply click the blue 'Install Update Now' button above and follow the provided steps. To schedule a reminder to install later, click 'I Understand' or 'Schedule Reminder' below."
 - mainHeader - Configured - "macOS Monterey 12.4 update required"
 - primaryQuitButtonText - Configured - "Later"
 - secondaryQuitButtonText - Configured - "I Understand"
