@@ -1,4 +1,4 @@
-# Nudge - macOS Update Management - 12.5 - v1.1.plist
+# Nudge - macOS Update Management - 12.5 - v1.2.plist
 ### For Nudge version 1.1.7+
 ## About this profile
 
