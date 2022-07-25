@@ -1,7 +1,8 @@
 # Nudge - macOS Update Management - 13 - v0.1.plist
 ### For Nudge version 1.1.7+
 
-# NOTE: This is a placeholder for new .plists and individual Jamf Self Service policies for Intel and Apple Silicon clients, to complete the update from macOS Monterey to macOS Ventura using a pre-cached "Install macOS Ventura.app". This has not been tested and is currently missing a number of required key values.
+# NOTE: 
+### This is a placeholder for new .plists and individual Jamf Self Service policies for Intel and Apple Silicon clients, to complete the update from macOS Monterey to macOS Ventura using a pre-cached "Install macOS Ventura.app". This has not been tested and is currently missing a number of required key values.
 
 ## About this profile
 
