@@ -15,7 +15,7 @@
 - [Mac Admins Microsoft Mac Downloads](https://www.macadmins.software/) - Microsoft Mac Downloads - Version tracking and helpful utilities for supporting Office on macOS
 - [Mac Lovin' (Blog)](https://maclovin.org/) - A few tidbits to help you get started deploying Apple devices at scale
 - [Macnotes (Blog)](https://macnotes.wordpress.com/) - Helpful stuff for Jamf Pro + Azure
-- [Macops.ca (Blog)](https://macops.ca/) - Mac Operations is a technical blog dedicated to topics in systems administration, mostly in the context of macOS. Frequent topics include installers and packaging, automation tooling, software and OS deployment, Xcode and Apple’s command line tools, Python, Munki. - By [Tim Sutton](https://macops.ca/about/)
+- [Macops.ca (Blog)](https://macops.ca/) - Mac Operations is a technical blog dedicated to topics in systems administration, mostly in the context of macOS. Frequent topics include installers and packaging, automation tooling, software and OS deployment, Xcode and Apple’s command line tools, Python, Munki. - By [Tim Sutton](https://github.com/timsutton)
 - [Mostly Mac (Blog)](https://mostlymac.blog/) - A Blog for (Mostly) Mac Things
 - [Mr. Macintosh (Blog-ish)](https://mrmacintosh.com/) - Apple Macintosh & macOS News – Troubleshooting – Problem Reporting – How to Articles (Mr. Macintosh has great notes on each macOS point release)
 - [One More Admin (Blog)](https://blog.eriknicolasgomez.com/) - Erik Gomez's Blog
