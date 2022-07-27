@@ -16,6 +16,7 @@
 - [Mac Lovin' (Blog)](https://maclovin.org/) - A few tidbits to help you get started deploying Apple devices at scale
 - [Macnotes (Blog)](https://macnotes.wordpress.com/) - Helpful stuff for Jamf Pro + Azure
 - [Macops.ca (Blog)](https://macops.ca/)
+- [Mostly Mac (Blog)](https://mostlymac.blog/) - A Blog for (Mostly) Mac Things
 - [Mr. Macintosh (Blog-ish)](https://mrmacintosh.com/) - Apple Macintosh & macOS News – Troubleshooting – Problem Reporting – How to Articles (Mr. Macintosh has great notes on each macOS point release)
 - [One More Admin (Blog)](https://blog.eriknicolasgomez.com/) - Erik Gomez's Blog
 - [Reddit.com/r/MacSysAdmin (Forum)](https://old.reddit.com/r/macsysadmin/) - A subreddit for all things related to the administration of Apple devices.
