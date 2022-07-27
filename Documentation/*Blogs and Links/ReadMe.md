@@ -3,7 +3,7 @@
 # macOS administration and support focused blogs and links
 #### In Alphabetical Order
 
-- [Babo D's Corner (Blog)](https://babodee.wordpress.com/) - "I work with Macs and have benefited from other admins who have blogged about their findings and solutions to common problems. So here’s my little contribution to this small community."
+- [Babo D's Corner (Blog)](https://babodee.wordpress.com/) - "I work with Macs and have benefited from other admins who have blogged about their findings and solutions to common problems. So [here’s my little contribution](https://babodee.wordpress.com/about/) to this small community."
 - [Der Flounder (Blog)](https://derflounder.wordpress.com/) - Rich Trouton's Blog
 - [DssW (Dragon Systems Software Limited)](https://www.dssw.co.uk/reference/) - "We often need to provide links and references to useful documentation. This section is home to documents, guides, and materials we have found helpful."
 - [HCS Technology Group - White Papers](https://hcsonline.com/support/white-papers/) - Technical Articles and White Papers on a wide range of macOS topics
