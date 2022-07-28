@@ -6,6 +6,7 @@
 - [Babo D's Corner (Blog)](https://babodee.wordpress.com/) - "I work with Macs and have benefited from other admins who have blogged about their findings and solutions to common problems. So here’s my [little contribution](https://babodee.wordpress.com/about/) to this small community."
 - [Der Flounder (Blog)](https://derflounder.wordpress.com/) - [Rich Trouton's](https://github.com/rtrouton/) Blog
 - [DssW (Dragon Systems Software Limited)](https://www.dssw.co.uk/reference/) - "We often need to provide links and references to useful documentation. This section is home to documents, guides, and materials we have found helpful."
+- [ElliotJordan.com (Blog)](https://www.elliotjordan.com/) - macOS Admin/Engineering info - By: Elliot Jordan's b
 - [HCS Technology Group - White Papers](https://hcsonline.com/support/white-papers/) - Technical Articles and White Papers on a wide range of macOS topics
 - [Is Apple Silicon ready?](https://isapplesiliconready.com/) - The complete guide for MacOS Apps Optimized for Apple Silicon Macs and the M1 Processor
 - [Jamf Nation (Forum)](https://community.jamf.com/) - Jamf's official community forum and communications channel
@@ -43,4 +44,5 @@
 - [Listing of Known App Bundle IDs](https://worthdoingbadly.com/assets/blog/appkitcompat/appkit_processed.html) - Listing of application bundle identifiers - By [worthdoingbadly.com](https://worthdoingbadly.com)
 - [macOS Big Sur on VMWare Fusion 12](https://travellingtechguy.blog/macos-big-sur-on-vmware-fusion-12/) - The Traveling Tech Guy's blog entry on creating macOS Big Sur VMs for use with Apple DEP testing in VMware Fusion 12 (guide works for Monterey as well)
 - [Shellcheck.net](https://shellcheck.net) - Finds bugs in your shell scripts. 
+- [munkipkg - An Installation Guide](https://www.elliotjordan.com/posts/munkipkg-01-intro/) - A short guide to installing munkipkg by [Elliot Jordan](https://www.elliotjordan.com/)
 - [Tenable Security Benchmarks Audit Item Search](https://www.tenable.com/audits/items/search) - Security benchmarks for macOS - Covers multiple benchmarks. NIST, CIS, etc as well as multiple OSs beyond macOS including Windows and Linux
