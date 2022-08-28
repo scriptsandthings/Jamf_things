@@ -2,7 +2,7 @@
 
 1. Snapshot/Backup all servers
 2. Verify snapshots
-3. Create backup of Jamf SQL Database
+3. Create backup of Jamf SQL Database from parent server
 4. Copy SQL DB backup to a seperate network/backup share
 5. Stop tomcat on child/external server
 6. Stop tomcat on primary server
