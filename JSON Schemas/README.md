@@ -1,5 +1,6 @@
 Relocated this directory to it's own dedicated repository, [Scripts and Things Jamf JSON Schemas](https://gregknackstedt.com/scriptsandthings_Jamf_JSON_Schemas).
 
+##### Note: The Apple JSON Schemas are focused around simplifying deploymment of CIS 2022 Security Benchmarks - Level 1 and Level 2.
 
 
 ### Navigation
