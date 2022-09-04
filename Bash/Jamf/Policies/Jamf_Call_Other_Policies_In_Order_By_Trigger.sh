@@ -3,8 +3,8 @@
 #
 #
 # Jamf - Call Other Policies By Trigger.sh
-# v1.0
-# 2.13.2022
+# v2.0
+# 9.3.2022
 # Greg Knackstedt
 # shitttyscripts@gmail.com
 # https://github.com/gknackstedt/
@@ -29,8 +29,8 @@ jamfEvent6="$6"
 jamfEvent7="$7"
 jamfEvent8="$8"
 jamfEvent9="$9"
-jamfEvent10="$10"
-jamfEvent11="$11"
+jamfEvent10="${10}"
+jamfEvent11="${11}"
 #
 ########################################################
 # 
@@ -66,53 +66,53 @@ if [ "$jamfCommand" = "policy" ]
 		echo "Running jamf $jamfCommand $jamfTrigger $jamfEvent6"
 		echo ""
 		echo "##########################"
-		$jamfBinary $jamfCommand $jamfTrigger $jamfEvent6
-        sleep 10
-		if [ ! -z "$jamfEvent7" ]
+		$jamfBinary "$jamfCommand" "$jamfTrigger" "$jamfEvent6"
+    	        sleep 10
+		if [ -n "$jamfEvent7" ]
 			then
 				echo "##########################"
 				echo ""
 				echo "Running jamf $jamfCommand $jamfTrigger $jamfEvent7"
 				echo ""
 				echo "##########################"
-				$jamfBinary $jamfCommand $jamfTrigger $jamfEvent7
-                sleep 10
-				if [ ! -z "$jamfEvent8" ]
+				$jamfBinary "$jamfCommand" "$jamfTrigger" "$jamfEvent7"
+         		        sleep 10
+				if [ -n "$jamfEvent8" ]
 					then
 						echo "##########################"
 						echo ""
 						echo "Running jamf $jamfCommand $jamfTrigger $jamfEvent8"
 						echo ""
 						echo "##########################"
-						$jamfBinary $jamfCommand $jamfTrigger $jamfEvent8
-                        sleep 10
-						if [ ! -z "$jamfEvent" ]
+						$jamfBinary "$jamfCommand" "$jamfTrigger" "$jamfEvent8"
+              			                sleep 10
+						if [ -n "$jamfEvent" ]
 							then
 								echo "##########################"
 								echo ""
 								echo "Running jamf $jamfCommand $jamfTrigger $jamfEvent9"
 								echo ""
 								echo "##########################"
-								$jamfBinary $jamfCommand $jamfTrigger $jamfEvent9
-                                sleep 10
-								if [ ! -z "$jamfEvent10" ]
+								$jamfBinary "$jamfCommand" "$jamfTrigger" "$jamfEvent9"
+                         				        sleep 10
+								if [ -n "$jamfEvent10" ]
 									then
 										echo "##########################"
 										echo ""
 										echo "Running jamf $jamfCommand $jamfTrigger $jamfEvent10"
 										echo ""
 										echo "##########################"
-										$jamfBinary $jamfCommand $jamfTrigger $jamfEvent10
-                                        sleep 10
-										if [ ! -z "$jamfEvent11" ]
+										$jamfBinary "$jamfCommand" "$jamfTrigger" "$jamfEvent10"
+                                   					        sleep 10
+										if [ -n "$jamfEvent11" ]
 											then
 												echo "##########################"
 												echo ""
 												echo "Running jamf $jamfCommand $jamfTrigger $jamfEvent11"
 												echo ""
 												echo "##########################"
-												$jamfBinary $jamfCommand $jamfTrigger $jamfEvent11
-                                                sleep 10
+												$jamfBinary "$jamfCommand" "$jamfTrigger" "$jamfEvent11"
+                                           						        sleep 10
 												NotifyScriptComplete
 											else
 												NotifyScriptComplete
@@ -137,8 +137,8 @@ if [ "$jamfCommand" = "policy" ]
 			echo "Running jamf $jamfCommand $jamfTrigger"
 			echo ""
 			echo "##########################"
-			$jamfBinary $jamfCommand $jamfTrigger $jamfEvent6
-            sleep 10
+			$jamfBinary "$jamfCommand" "$jamfTrigger" "$jamfEvent6"
+         	        sleep 10
 			echo ""
 			echo "##########################"
 			echo ""
