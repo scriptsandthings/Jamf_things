@@ -3,8 +3,8 @@
 #
 # Jamf_Connect_LaunchAgent_Uninstall - v2.5.sh
 # Checks for Jamf Connect related LaunchAgents, if found unloads and deletes them.
-# 9.3.2022
-# v2.5
+# 9.5.2022
+# v2.6
 # Greg Knackstedt
 # 
 # - Based on the Jamf provided Jamf Connect Uninstaller.pkg written by Matthew Ward and Sameh Sayed.
@@ -53,7 +53,7 @@ fi
 
 if [ -f "$VerifyLA" ]; then
 	/bin/echo ''''
-    /bin/echo "Jamf Connect Verify Launch Agent is present. Unloading &amp; removing.."
+    /bin/echo "Jamf Connect Verify Launch Agent is present. Unloading & removing.."
     /bin/launchctl bootout gui/"$uid" "$VerifyLA"
    sudo /bin/rm -rf "$VerifyLA"
         else 
@@ -62,7 +62,7 @@ fi
 
 if [ -f "$Connect2LA" ]; then
 	/bin/echo ''''
-    /bin/echo "Jamf Connect 2 Launch Agent is present. Unloading &amp; removing.."
+    /bin/echo "Jamf Connect 2 Launch Agent is present. Unloading & removing.."
     /bin/launchctl bootout gui/"$uid" "$Connect2LA"
    sudo /bin/rm -rf "$Connect2LA"
         else 
@@ -71,7 +71,7 @@ fi
 
 if [ -f "$ConnectULA" ]; then
 	/bin/echo ''''
-    /bin/echo "Jamf Connect Unlock Launch Agent is present. Unloading &amp; removing.."
+    /bin/echo "Jamf Connect Unlock Launch Agent is present. Unloading & removing.."
     /bin/launchctl bootout gui/"$uid" "$ConnectULA"
     sudo /bin/rm -rf "$ConnectULA"
         else 
