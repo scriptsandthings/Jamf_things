@@ -44,7 +44,7 @@ uid=$(/usr/bin/id -u "$consoleuser")
 
 if [ -f "$SyncLA" ]; then
 	/bin/echo ''''
-    /bin/echo "Jamf Connect Sync Launch Agent is present. Unloading &amp; removing.."
+    /bin/echo "Jamf Connect Sync Launch Agent is present. Unloading & removing.."
     /bin/launchctl bootout gui/"$uid" "$SyncLA"
    sudo /bin/rm -rf "$SyncLA"
         else 
