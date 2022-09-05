@@ -7,7 +7,7 @@
 # 9.3.2022
 # Greg Knackstedt
 # shitttyscripts@gmail.com
-# https://github.com/gknackstedt/
+# https://github.com/scriptsandthings
 #
 ########################################################
 #
