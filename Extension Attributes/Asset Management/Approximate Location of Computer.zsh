@@ -1,9 +1,9 @@
 #!/bin/zsh
 # Gets the system's approximate physical location by using its current external facing IP
-# Displays the City, State info returned from ip-api.com.
+# Displays the City, State, and Country info returned from ip-api.com.
 #
-# v1.0
-# 3.7.2022
+# v2.0
+# 3.28.2023
 #
 # Greg Knackstedt
 # https://github.com/scriptsandthings/
@@ -17,6 +17,9 @@ myIP=$(curl -L -s --max-time 10 http://checkip.dyndns.org | egrep -o -m 1 '([[:d
 City=$(curl -L -s --max-time 10 "http://ip-api.com/line/$myIP?fields=city")
 # Use the IP address to identify the current State or Region
 State=$(curl -L -s --max-time 10 "http://ip-api.com/line/$myIP?fields=regionName")
+# Use the IP address to identify the current Country
+Country=$(curl -L -s --max-time 10 "http://ip-api.com/line/$myIP?fields=country")
 #
 # Display the results in a format that can be used as an extension attribute
-echo "<result>$City, $State</result>"
+echo "<result>$City, $State - $Country</result>"
+exit 0
