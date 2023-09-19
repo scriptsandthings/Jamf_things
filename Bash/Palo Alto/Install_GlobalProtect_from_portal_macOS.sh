@@ -36,7 +36,7 @@
 ###############################################################################
 ################################# Script Body #################################
 ###############################################################################
-
+CurrentConsoleUser=$(/usr/sbin/scutil <<< "show State:/Users/ConsoleUser" | /usr/bin/awk -F': ' '/[[:space:]]+Name[[:space:]]:/ { if ( $2 != "loginwindow" ) { print $2 }}')
 # Check if $4 is set and use it as vpnPortal
 if [[ -n "$4" ]]; then
     vpnPortal="$4"
@@ -47,7 +47,7 @@ else
         vpnPortal=$( /usr/libexec/PlistBuddy -c "Print :PanPortalList:0" $plistPath 2>/dev/null )
     else
         # Fall back to the current user's home directory
-        plistPath="$HOME/Library/Preferences/com.paloaltonetworks.GlobalProtect.plist"
+        plistPath="/Users/$CurrentConsoleUser/Library/Preferences/com.paloaltonetworks.GlobalProtect.client.plist"
         if [[ -f $plistPath ]]; then
             vpnPortal=$( /usr/libexec/PlistBuddy -c "Print :PanPortalList:0" $plistPath 2>/dev/null )
         fi
