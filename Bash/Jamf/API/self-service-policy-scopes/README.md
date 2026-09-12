@@ -8,7 +8,7 @@ The scope columns are the point. Jamf Pro's own policy list will tell you a
 policy exists; it will not tell you, across 400 policies in one view, which
 groups see which Self Service item and which groups are excluded.
 
-All ten scripts source `scripts/lib/jamf-api-common.sh` and will refuse to run
+All fifteen scripts source `scripts/lib/jamf-api-common.sh` and will refuse to run
 without it, so keep `lib/` beside them when copying a script somewhere else. The
 library holds what is identical everywhere — the OAuth token lifecycle,
 credential resolution, the CSV reader and the XML surgery helpers. Argument
@@ -505,6 +505,142 @@ element before sending and refuse a payload that does not carry exactly one.
 
 As everywhere else here, success is the read-back, not the `201`.
 
+## Changing triggers
+
+A policy's triggers are **seven separate fields** under `<general>`, not one
+setting: six booleans and one string.
+
+| Field | Flag name | What fires it |
+|---|---|---|
+| `trigger_checkin` | `checkin` | Recurring Check-in, roughly every 15 minutes |
+| `trigger_startup` | `startup` | Boot |
+| `trigger_login` | `login` | User login |
+| `trigger_logout` | `logout` | Logout — legacy, Jamf Pro's UI no longer exposes it |
+| `trigger_network_state_changed` | `network-state-change` | Network change |
+| `trigger_enrollment_complete` | `enrollment-complete` | End of enrolment |
+| `trigger_other` | `--custom-event` | `jamf policy -event <name>` |
+
+Four scripts, because "add", "remove" and "modify" are three different jobs and
+one of them splits in two:
+
+```bash
+# One trigger on, one trigger off. Everything else untouched.
+./scripts/Add_Policy_Trigger.sh    --csv policies.csv --trigger checkin
+./scripts/Remove_Policy_Trigger.sh --csv policies.csv --trigger checkin
+
+# Set the custom event, or clear it
+./scripts/Add_Policy_Trigger.sh    --csv policies.csv --custom-event installChrome
+./scripts/Remove_Policy_Trigger.sh --csv policies.csv --custom-event installChrome
+
+# Rename a custom event
+./scripts/Rename_Policy_Trigger.sh --csv policies.csv --from installChrome --to deployChrome
+
+# Declarative: these on, everything else off
+./scripts/Set_Policy_Triggers.sh   --csv policies.csv --set checkin,startup
+./scripts/Set_Policy_Triggers.sh   --csv policies.csv --set none
+```
+
+### Adding a trigger to an enabled policy is refused by default
+
+Turning on an automatic trigger for a policy that is **enabled** puts it into
+service on every Mac in its scope at the next trigger, with nobody opening Self
+Service. `Add_Policy_Trigger.sh` and `Set_Policy_Triggers.sh` refuse unless you
+pass `--allow-auto-trigger`:
+
+```
+REFUSED  412 (Install Chrome): policy is enabled; adding Recurring Check-in
+         would run it on every targeted Mac. --allow-auto-trigger overrides.
+```
+
+A **disabled** policy is never refused — it cannot run whatever its triggers
+say. Ordering that gives you a safe path for a risky change: disable, set
+triggers, review, enable.
+
+`Remove_Policy_Trigger.sh` rejects `--allow-auto-trigger` rather than accepting
+it as a no-op. Removing cannot start anything.
+
+### Only the named custom event is touched
+
+`Remove_Policy_Trigger.sh --custom-event installChrome` skips any policy whose
+custom event is something else, rather than clearing it. So does
+`Rename_Policy_Trigger.sh --from`. Clearing `trigger_other` blindly would wipe
+an unrelated event off any policy in the CSV that happened to have one, and
+nothing downstream would show it had gone.
+
+### `--set` does not include the custom event
+
+`Set_Policy_Triggers.sh` turns off every boolean you do not name. It does **not**
+touch `trigger_other` unless told to, because a name you forgot to mention is
+not the same as a switch you left off:
+
+```bash
+--custom-event <event>   set it
+--no-custom-event        clear it
+neither                  leave it, and say so in the output
+```
+
+Every line prints the full before and after, since the whole point is that it
+changes things you did not name:
+
+```
+WOULD SET 412 (Install Chrome): enabled=false
+              Self Service, Login, Custom: installChrome
+           -> Self Service, Recurring Check-in, Startup, Custom: installChrome
+         note: 412 (Install Chrome) keeps custom event 'installChrome'.
+               Pass --no-custom-event to clear it.
+```
+
+### Renaming a custom event breaks its callers, silently
+
+`jamf policy -event <old>` matching no policy is a **normal, successful**
+outcome for the jamf binary — not an error. So a LaunchDaemon, a Setup Manager
+step, another policy's script or a runbook that calls the old name simply stops
+working, with nothing in any log to say why. Find the callers before renaming.
+These scripts change Jamf Pro only; they cannot find them for you.
+
+### `<general><trigger>` is not written
+
+The legacy summary field — `EVENT` or `USER_INITIATED` — is left alone. Jamf Pro
+maintains it alongside the booleans, and the booleans are what the admin UI
+edits. Each script reports the field if it moves during a write, so the first
+real run settles whether Jamf recomputes it. See CLAUDE.md, standing state.
+
+## Showing and hiding in Self Service
+
+`Set_Policy_Self_Service.sh` writes `self_service/use_for_self_service` — the
+flag that decides whether a policy appears in Self Service at all.
+
+```bash
+./scripts/Set_Policy_Self_Service.sh --csv policies.csv --hide
+./scripts/Set_Policy_Self_Service.sh --csv policies.csv --show \
+    --apply --confirm SELF-SERVICE-SHOW-3-4a61320c
+```
+
+One script, both directions: `--show` and `--hide` are the same write with a
+different value. The scope scripts are pairs because add and remove are
+genuinely different XML operations; this is not.
+
+**Hiding is not disabling.** A hidden policy keeps its triggers and still runs
+on them. Use `Disable_Policy.sh` to stop it running.
+
+**Hiding takes a policy out of scope for every other script here.** They all
+skip non-Self-Service policies unless given `--include-non-self-service`. That
+is intended, and easy to forget a week later.
+
+The round trip is lossless. Only the one flag is written; display name, icon,
+description, Self Service categories and `feature_on_main_page` are carried
+through untouched, so `--show` after `--hide` restores the entry exactly as it
+was. Verified against a fixture: hide then show is byte-identical to the
+original `<self_service>` element.
+
+This is also the one script that **rejects** `--include-non-self-service`. It
+sets that very flag, so skipping on it would make `--show` a no-op on precisely
+the policies it exists to act on.
+
+If a policy has no `<self_service>` element at all, the script fails rather than
+building one. A synthesised element would be PUT as the complete truth for that
+element, and would arrive with no display name and no icon.
+
 ## Known limits
 
 - **Names, not IDs.** The scope columns carry display names. Two groups with the
@@ -536,6 +672,11 @@ scripts/Remove_Policy_Scope_Target.sh            Write: remove a target from the
 scripts/Set_Policy_Category.sh                   Write: set the category of the policies in a CSV
 scripts/Enable_Policy.sh                         Write: enable the policies in a CSV
 scripts/Disable_Policy.sh                        Write: disable the policies in a CSV
+scripts/Add_Policy_Trigger.sh                    Write: turn one trigger on for the policies in a CSV
+scripts/Remove_Policy_Trigger.sh                 Write: turn one trigger off for the policies in a CSV
+scripts/Rename_Policy_Trigger.sh                 Write: rename the custom event on the policies in a CSV
+scripts/Set_Policy_Triggers.sh                   Write: set the complete trigger set, declaratively
+scripts/Set_Policy_Self_Service.sh               Write: show or hide the policies in a CSV in Self Service
 scripts/lib/jamf-api-common.sh                   Shared: auth, credentials, CSV reader, scope surgery
 README.md                                        This file
 CHANGELOG.md                                     What changed, when, why
