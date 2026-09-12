@@ -8,6 +8,333 @@ not bumped for review fixes.
 
 ---
 
+## 2026-09-12 — one runner for all four layers; mock taught the rest of Jamf's resolution
+
+### Added
+
+- **`tests/run-all.sh`** — all four layers, in order, one exit code. Layer 4 is
+  reported as SKIPPED *loudly* when the `JAMF_PRO_*` variables are absent,
+  never quietly omitted: every defect fixed earlier today passed layers 1–3
+  before the live suite caught it, so a green offline run is a model agreeing
+  with itself.
+- **`tests/install-hooks.sh`** — installs a `pre-push` hook that runs layers
+  1–3 and blocks the push on a failure, then warns when `scripts/` is newer
+  than the last successful live run. It warns rather than blocks because a
+  live run needs a reachable server and a credential, and refusing a push
+  because a host is down would be worse than the gap. `every-flag.sh` now
+  stamps `tests/live/.last-success` on a clean run; it is gitignored, being a
+  fact about one machine rather than about the repo.
+- **Mock parity, four gaps closed.** The mock now returns a category body for
+  `Set_Policy_Category.sh`'s preflight, can be made to answer 429 on a PUT
+  (not only a GET), models the `limit_to_users` union, and models the
+  409-with-partial-apply shape. Two new `tests/e2e.sh` sections cover
+  server-side resolution and the PUT-side 429.
+- **Fixture gaps.** `policy-101.xml` now populates `jss_users` in both targets
+  and exclusions — the container that distinguishes a Jamf Pro user from a
+  directory user, and the one most likely to be confused. `policy-202.xml`
+  carries a comment saying its shape is deliberately unrealistic, so nobody
+  "fixes" it to match the server.
+
+### Fixed
+
+- **The documented lint command was wrong.** `shellcheck -x` alone cannot
+  follow `# shellcheck source=lib/jamf-api-common.sh`, which resolves relative
+  to the script, so it reported `SC1091` plus a wall of `SC2154` for every
+  library variable — noise that trained the eye to ignore layer 1.
+  `--source-path=scripts` is required, and with it there are zero findings.
+  Corrected in `CLAUDE.md`, `TESTING.md` and `run-all.sh`.
+- Stale check counts in `README.md`, `CLAUDE.md` and `TESTING.md`: the harness
+  is 137 and the end-to-end suite 135, not 136 and 129.
+
+---
+
+## 2026-09-12 — every flag validated against live Jamf Pro; five defects fixed
+
+`tests/live/every-flag.sh` exercises all 29 flags across the 15 scripts plus
+every refusal path against the homelab instance — 161 checks — with an
+independent curl oracle. It runs **on macOS** under `env -i` and a stock PATH,
+so one pass proves both Jamf's behaviour and bash 3.2 / BSD compatibility. The
+earlier run on the Debian worker proved only the first: `plutil` and `md5` had
+to be shimmed there, and GNU `sed`/`awk` mask exactly what the stock PATH
+exists to expose.
+
+A self-hosted lldap directory service was added to the homelab instance first.
+Without one, `limitations/user_groups` cannot hold anything, and three of the
+five defects below are invisible.
+
+### Fixed
+
+- **A 409 partially applies, and every writer reported it as a clean failure.**
+  A policy carried a directory group later deleted from the directory. A PUT
+  resending the whole `<scope>` — which hard rule 1 requires — to make an
+  *unrelated* change answered 409, applied the change anyway, and silently
+  dropped the unresolvable entry. Every writer returned on any non-2xx before
+  the read-back, so the operator saw FAILED for a write that landed and nothing
+  about the entry Jamf destroyed. A fleet-wide run against policies carrying
+  stale directory groups would have reported a wall of failures while quietly
+  stripping scope. 409 now falls through to the read-back after a WARNING
+  naming the backup; every other non-2xx still returns early. The block was
+  byte-identical in all fourteen writers and was patched identically.
+
+- **`Remove_Policy_Scope_Limitation.sh --user-group` never removed anything.**
+  It answered 201 and reported success while the group stayed on the policy.
+  `limit_to_users/user_groups` is the source and `limitations/user_groups` a
+  mirror Jamf regenerates from it; the stored set is their union, so an add
+  works from either side but a removal only sticks when the entry is gone from
+  both. The writer edited only the mirror. `RemoveLimitToUsersGroup` now strips
+  the source entry too, gated on removal by name because the source stores no
+  ids.
+
+- **The logout trigger is retired and could never be written.** A PUT carrying
+  `<trigger_logout>true</trigger_logout>` is answered 201 and discarded while a
+  `trigger_startup` in the same request lands; a GET never returns the element.
+  The help text claimed it was "accepted because the API still carries it".
+  `ResolveTriggerElement` no longer maps it, `TRIGGER_FLAG_NAMES` drops it, and
+  `ExplainRetiredTrigger` prints the reason so the rejection does not read as a
+  typo. `Set_Policy_Triggers.sh` owns five booleans now, not six.
+  `DescribeTriggers` still recognises the element so archived backups still read.
+
+- **`Set_Policy_Self_Service.sh --show --hide` silently took the last flag.**
+  `Set_Policy_Category.sh` refuses `--category-id` with `--no-category`; this
+  now counts selectors the same way.
+
+- **`Set_Policy_Category.sh` left an empty backup directory and log behind** on
+  a mistyped category. `PreflightCategory` ran after `mkdir` — the opposite
+  order from the exclusion pair's `PreflightUserGroup`, and the same leftover
+  the early authentication four lines above exists to prevent.
+
+### Added
+
+- `tests/live/every-flag.sh`. Teardown discovers what to delete by **listing the
+  instance** rather than from a variable: `mkpolicy` runs inside `$( )`, so
+  anything it assigns dies with the subshell — the same trap the library
+  documents for `FetchPolicyXML`. Listing is also self-healing, clearing
+  fixtures a crashed earlier run left behind.
+
+- The mock now models Jamf's server-side resolution. It previously stored
+  whatever a PUT contained, which made the writers' read-back branch — the
+  entire reason hard rule 2 exists — unreachable in every test, and is why the
+  retired logout trigger passed 129/129 both before and after removal. It now
+  reproduces: a valid directory group stored and mirrored; an invalid one
+  dropped with the rest of the request still applied and a 409 returned;
+  `limitations/users` stored unvalidated; `exclusions/users` silently
+  discarded; `jss_user_groups` name filled in server-side; `trigger_logout`
+  stripped. `DIRECTORY_GROUPS` keeps `CorpXMarketing` resolvable on purpose —
+  fixture 101 uses it as the decoy proving that removing `Corp.Marketing` does
+  not also take it out, and the unresolvable case gets its own name so the two
+  tests stay independent.
+
+### Changed
+
+- One e2e assertion was wrong and is corrected: a Jamf Pro user group ID cannot
+  become a *directory* limitation. It only ever passed because the mock stored
+  whatever it was handed.
+
+- `CLAUDE.md`, `README.md`, `TESTING.md` and `LIVE-VALIDATION.md` rewritten
+  where they now contradict the wire. The largest correction: "a scope entry
+  Jamf cannot resolve is silently discarded with a 201" is **directory-state
+  dependent and not uniform across containers** — groups are validated, users
+  are not, and with a directory configured an unresolvable group is refused
+  with a 409 rather than discarded.
+
+### Still open
+
+- Whether an **Entra** group arriving through a Cloud Identity Provider resolves
+  by name. The homelab resolves through LDAP; same container, same code path,
+  different directory.
+- PI-005747, not observed on this instance.
+- A real 429, never provoked.
+
+---
+
+## 2026-09-12 — scope container map wire-checked against live Jamf Pro 11.32.0
+
+First contact with a real Jamf Pro server. Read-only apart from two throwaway
+`ZZ-LIVETEST-probe*` policies, both deleted.
+
+### Added
+
+- `CLAUDE.md`: the full ten-container scope map, with each container tied to
+  the UI menu label that produces it, read off `GET /JSSResource/policies/id/13`
+  rather than inferred. Jamf returns every container even when empty, so the
+  server states its own schema.
+- `CLAUDE.md`: the three "Add" menus recorded verbatim — Deployment Targets
+  offers four kinds, Limitations four, Exclusions ten.
+
+### Discovered
+
+- **`jss_user_groups` and `user_groups` are different containers**, as are
+  `jss_users` and `users`. The UI's "User Groups" is `jss_user_groups`, a Jamf
+  Pro object addressed by `<id>`; "Directory Service User Groups" is
+  `user_groups`, resolved against LDAP or a Cloud Identity Provider at scope
+  time. The previous four-row table in `CLAUDE.md` collapsed both pairs into
+  one row each and omitted the `jss_*` containers entirely.
+- **A scope entry Jamf cannot resolve is silently discarded.** A PUT carrying
+  four exclusion entries answered success and stored three of them. An invented
+  username in `exclusions/users`, an invented name in `exclusions/jss_users`,
+  and a Jamf Pro user group id placed in `exclusions/user_groups` were all
+  dropped with no error. Same failure shape as the `self_service_categories`
+  finding, and the reason hard rule 2 exists: success is read-back, never the
+  HTTP status.
+- **`limitations/user_groups` is a no-op on a tenant with no directory
+  service.** There is no directory in which to resolve the group, so the write
+  is discarded. `Add_Policy_Scope_Limitation.sh --user-group` therefore cannot
+  be positively validated on the homelab instance; its read-back will correctly
+  report FAILED after a 201.
+- **The exclusion pair cannot exclude a user group at all.** It accepts only
+  `--group-id` (a computer group) and `--username`. No reason for the omission
+  is recorded anywhere in this repo, and `CLAUDE.md` lists user groups as valid
+  exclusions. This blocks the directory's driving use case, so the pair is
+  gaining `--user-group` / `--user-group-id`, writing `jss_user_groups`.
+
+### Defects found — the `jss_*` containers were never modelled
+
+All three share one root cause: `jss_users` and `jss_user_groups` are
+deployment targets and exclusion containers, and nothing in this directory knew
+they existed. None is a regression; they have been latent since the first
+commit.
+
+1. **`CountScopeTargets` under-counts.** It sums `computers`,
+   `computer_groups`, `buildings` and `departments` only. A policy scoped to a
+   Jamf Pro user group has targets it does not see. Demonstrated against
+   `tests/fixtures/policy-101.xml`, which now carries five targets:
+
+   ```
+   computers 1 · computer_groups 3 · jss_user_groups 1  -> real total 5
+   CountScopeTargets reports: 4
+   ```
+
+   Impact is a **false refusal**, at `Remove_Policy_Scope_Target.sh:323`:
+   removing the last computer group from a policy that also targets a Jamf Pro
+   user group reports "would leave the policy with no targets at all" and skips.
+   The policy would still have reached everyone in that user group. It fails
+   closed, so nothing is written wrongly — but the message is untrue and the
+   operation is blocked.
+
+2. **The report omits `jss_users` and `jss_user_groups` from "Scope Targets".**
+   `Generate_Self_Service_Policy_Report.sh` lines 308-311 collect computers,
+   computer groups, buildings and departments. A policy targeted at people
+   rather than Macs reports a thinner scope than it has.
+
+3. **The report omits them from "Scope Exclusions" too** (lines 336-341). This
+   one bites the directory's driving use case directly: after excluding a Jamf
+   Pro user group from every Self Service policy, re-running the report shows
+   no sign of the change. The column that should verify the work is blank.
+
+### Added
+
+- `Add_` / `Remove_Policy_Scope_Exclusion.sh` take `--user-group <name>` and
+  `--user-group-id <n>`, writing `scope/exclusions/jss_user_groups`. This is
+  the directory's driving use case: report every Self Service policy, then
+  exclude one Jamf Pro user group from all of them. Non-Self-Service policies
+  are skipped as before unless `--include-non-self-service` is given.
+- A **preflight** on both, modelled on `Set_Policy_Category.sh`: the group is
+  looked up by id or name before the backup directory is created, and a group
+  the server does not know stops the run with exit 1. Without it Jamf would
+  answer 201 and store nothing. `--user-group` is resolved to its id there,
+  because `jss_user_groups` is addressed by `<id>`; the name never reaches an
+  XPath, XML or an awk regex, which is why its character set can allow the
+  leading `*` and the spaces real Jamf Pro group names carry.
+- The confirmation token on both now carries the user-group dimension, so
+  excluding a group and excluding a computer group against the same CSV cannot
+  share a token. Spaces are folded to `_` as the limitation and trigger scripts
+  already do: `APPLY-2-none-none-TESTING_-_Microsoft_OneDrive`.
+
+### Fixed
+
+- `CountScopeTargets` counts all six target containers. Was four; see the
+  defect note above.
+- `Generate_Self_Service_Policy_Report.sh` reports `jss_users` and
+  `jss_user_groups` in both the "Scope Targets" and "Scope Exclusions" columns.
+- Report column labels follow the Jamf Pro UI, which is what the person reading
+  the CSV is looking at: `jss_users`/`jss_user_groups` are "Users"/"User
+  Groups"; the directory-service `users`/`user_groups` are "Directory
+  Users"/"Directory User Groups". Previously the directory containers were
+  labelled "Users"/"User Groups", which is what the UI calls the other pair.
+
+### Changed
+
+- `tests/lib-harness.sh`: 127 checks to 136. Two existing `CountScopeTargets`
+  assertions moved 4 to 5 and 3 to 4, because the fixture gained a target and
+  the function stopped ignoring it. New group D7b/D7c covers insert and remove
+  on `exclusions/jss_user_groups` with the same group id present as a
+  deployment target.
+- `tests/e2e.sh`: 117 checks to 129. New section 3b covers the unknown-group
+  refusal, the two-flag usage error, add by id, add by name, and removal from
+  `exclusions/jss_user_groups` leaving `scope/jss_user_groups` intact.
+- `tests/mock/mock_jamf.py`: serves `GET /JSSResource/usergroups/id/{id}` and
+  `/usergroups/name/{name}`, 200 with the group or 404, so the coming
+  `--user-group` preflight is reachable from `tests/e2e.sh`. The name form
+  returns a body carrying `<id>`, because that is what the caller reads out of
+  it.
+- `tests/fixtures/policy-101.xml`: carries all ten exclusion containers, as
+  live Jamf Pro returns them, plus `jss_users` and `jss_user_groups` as
+  deployment targets. The same user group id now appears as a target, which is
+  what makes the section-binding case testable. Both suites stay green at
+  127/127 and 117/117 — the fixture change is what exposes defect 1 rather
+  than causing it.
+
+### Validated live — thirteen of the fifteen scripts
+
+Run against Jamf Pro 11.32.0 on disposable `ZZ-LIVETEST-*` policies only; the
+instance is back to its original 17 policies.
+
+| Area | Result |
+|---|---|
+| Report | 17 policies read, 11 Self Service, 13-column RFC 4180 CSV |
+| Exclusions, incl. the new `--user-group` | 18/18 |
+| Targets, category, enable/disable, Self Service, bad secret | 27/30 — the three were bad assertions in the test, see below |
+| Triggers | 14/14 |
+
+**`general/trigger` is recomputed by Jamf Pro.** A disabled policy with no
+triggers read `USER_INITIATED`; after `--trigger startup` it read `EVENT`; after
+removing that trigger it read `USER_INITIATED` again. Nothing here needs to
+write it, and the trigger scripts are right to read and report it only. This
+was the largest open question in `TESTING.md` and the answer is the one that
+requires no code change.
+
+Confirmed live, each on a real policy:
+
+- A targets write leaves every pre-existing target in place and does not touch
+  `<exclusions>` — the container-replace hazard behind hard rule 1.
+- Removing the only target is `REFUSED` without `--allow-empty-scope`.
+- `Set_Policy_Category.sh` moves `general/category` and leaves
+  `self_service/self_service_categories` alone; the policy name survives.
+- Enable and disable leave exactly one `<enabled>` element.
+- `Set_Policy_Self_Service.sh --hide` leaves the Self Service categories list
+  intact; `--show` restores visibility.
+- `Add_Policy_Trigger.sh` refuses an automatic trigger on an **enabled** policy
+  unless `--allow-auto-trigger` is given, and skips a policy carrying a
+  different custom event.
+- A wrong client secret exits 1, names the credentials rather than the URL, and
+  leaves no backup directory behind.
+
+Three assertions failed in the first writers run and all three were defects in
+the test, not the scripts: one XPath used `and`, which returns a boolean rather
+than a count, and two followed from a dry run that correctly changed nothing
+because the enabled-policy trigger guard had refused it — leaving no
+confirmation token for the apply step to use.
+
+### Verified for the coming preflight
+
+`Add_Policy_Scope_Exclusion.sh` will refuse a group that does not exist rather
+than letting Jamf discard the write silently. The endpoints that check it,
+wire-tested 2026-09-12:
+
+| Request | Answer |
+|---|---|
+| `GET /JSSResource/usergroups/id/2` | 200 |
+| `GET /JSSResource/usergroups/id/99999` | 404 |
+| `GET /JSSResource/usergroups/name/TESTING%20-%20Microsoft%20OneDrive` | 200, `<id>` 2 |
+| `GET /JSSResource/usergroups/name/NoSuchGroupHere` | 404 |
+
+Spaces must be percent-encoded in the `name/` form, the same constraint
+`Set_Policy_Category.sh` already documents for `categories/name/`. The name
+lookup returns the group's `<id>`, which is what `jss_user_groups` is addressed
+by — Jamf fills in the `<name>` child itself on read-back.
+
+---
+
 ## 2026-09-12 — TESTING.md; harness portable
 
 ### Added
