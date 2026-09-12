@@ -103,8 +103,8 @@ Groups: All Managed Macs; R&D Pilot | Computers: ACME-MBP-001 | Buildings: 123 M
 ```
 
 - **Targets** — `All Computers` when scoped to everything, otherwise computer
-  groups, individual computers, buildings, departments. `No targets` when a
-  policy is scoped to nothing at all (it will never run; worth investigating).
+  groups, individual computers, buildings, departments. `No targets` means the
+  policy has an empty scope and will not run.
 - **Limitations** — users, user groups, LDAP groups (Jamf Pro's "limit to users
   in groups", stored outside the limitations element as bare
   `<user_group>Name</user_group>` strings), network segments, iBeacons. `None`
@@ -185,10 +185,9 @@ group names become underscores:
 
 ### CSV format
 
-Policy ID in the first column, comma or tab separated. A header row, blank
-lines and `#` comments are skipped — anything whose first column is not all
-digits is ignored, so the report CSV from the other script can be fed in
-directly.
+Policy ID goes in the first column of a comma- or tab-separated file. The reader
+skips headers, blank lines, `#` comments and rows whose first field is not
+numeric. It accepts the report CSV without conversion.
 
 ```csv
 Jamf Pro ID Number,Policy Name
@@ -246,7 +245,7 @@ Self Service filter, full-scope PUT and read-back check.
 # Dry run
 ./scripts/Remove_Policy_Scope_Exclusion.sh --csv policies.csv --group-id 77
 
-# Apply. Note the token says REMOVE, so an add token cannot be reused here.
+# Apply. Removal tokens begin with REMOVE and cannot be reused for additions.
 ./scripts/Remove_Policy_Scope_Exclusion.sh --csv policies.csv --group-id 77 \
     --apply --confirm REMOVE-42-77-none
 ```
@@ -257,12 +256,10 @@ Removal differs in four ways:
   under `Not excluded:` and left alone.
 - Read-back requires the exclusion to be gone; the add script requires
   it to be present.
-- Entries are matched by exact ID or username. Removal buffers each
-  `<computer_group>` or `<user>` block and discards it only if the whole block
-  matches, because once `xmllint` has formatted the XML the id and the element
-  that owns it are on different lines — a line-at-a-time filter could delete one
-  entry's `<id>` and leave a malformed block behind. It also means group `7` is
-  never confused with group `77`.
+- Entries are matched by exact ID or username. Removal buffers complete
+  `<computer_group>` and `<user>` blocks because `xmllint` places an entry's ID
+  and wrapper on different lines. This preserves valid XML and distinguishes
+  group `7` from group `77`.
 - Removing the last entry leaves an empty container (`<computer_groups/>`),
   which is what Jamf Pro itself writes for an empty exclusion list.
 
@@ -303,13 +300,12 @@ limitation scripts reject `--group-id` and point to the exclusion scripts.
 | `--user-group-id <n>` | `limitations/user_groups/user_group` | `id` |
 
 `--user-group` and `--user-group-id` address the same entry by different keys
-and cannot be combined; the script refuses rather than adding the group twice.
+and cannot be combined.
 
-This environment uses Entra through a Cloud Identity Provider rather than LDAP.
-It has not been confirmed whether a user group in policy scope contains an ID,
-a name, or both. Use `--user-group` by name unless your tenant shows otherwise.
-If Jamf does not retain the value, read-back fails and the script prints the
-restore command.
+For Entra groups supplied through a Cloud Identity Provider, the stored scope
+entry may contain an ID, a name or both. This has not been verified. The scripts
+default to `--user-group` by name and report a read-back failure with a restore
+command if Jamf does not retain it.
 
 To check your tenant, inspect a policy that already has a user-group limitation:
 
@@ -405,7 +401,7 @@ These fields are independent. A policy filed under `Apps & Utilities` can
 display under `Productivity` in Self Service. The report includes both fields.
 These scripts do not update Self Service display categories.
 
-### This is a replace, not an append
+### Category replacement
 
 A policy has one category, so setting it replaces the old one. The dry run
 shows both values:
@@ -414,7 +410,7 @@ shows both values:
 WOULD SET 412 (Install Chrome): Apps & Utilities -> Productivity
 ```
 
-### The category is checked once, first
+### Category preflight
 
 Before reading any policy, the script confirms that the category exists at
 `/JSSResource/categories/id/<n>` or `/name/<name>`. This requires Read
@@ -627,9 +623,8 @@ element would omit settings such as the display name and icon.
   same name are indistinguishable in the report.
 - Smart groups are not expanded. A target of `Groups: All Managed Macs`
   tells you the group is scoped, not which Macs are currently in it.
-- Requests are serial. Jamf's guidance is a maximum of five
-  concurrent connections; this uses one and is correspondingly slow on a large
-  instance. That is the safe trade.
+- Requests are serial. The scripts use one connection, below Jamf's documented
+  maximum of five concurrent connections, so large instances take longer.
 - Policies are read and written through the Classic API at
   `/JSSResource/policies`. Verified 2026-09-12 against Jamf's OpenAPI specs:
   the modern Jamf Pro API has no policy endpoints at all, and Classic
@@ -672,9 +667,17 @@ tests/e2e.sh
 # three JAMF_PRO_* variables; tests/live/guard.sh refuses any host but the
 # homelab, and everything it creates is named ZZ-LIVETEST-* and deleted.
 tests/live/every-flag.sh
+
+# All four layers in order, one exit code. Layer 4 runs only when the three
+# JAMF_PRO_* variables are set, and is reported as SKIPPED when they are not.
+tests/run-all.sh              # LIVE=skip omits layer 4; LIVE=require demands it
 ```
 
 The live suite uses the same stock PATH and macOS `/bin/bash` 3.2.
+
+`tests/install-hooks.sh` installs a `pre-push` hook that runs the first three
+layers and blocks a push if they fail. It warns, without blocking, when
+anything under `scripts/` is newer than the last successful live run.
 
 `tests/mock/mock_jamf.py` provides the Jamf Pro API and Classic API endpoints
 used by the scripts, including OAuth, policy GET/PUT operations and categories.
