@@ -1,8 +1,19 @@
 #!/bin/bash
 
-# Adds a scope exclusion -- a computer group by ID, a user by username, or both --
-# to every Jamf Pro policy listed in a CSV file. Partner to
-# Remove_Policy_Scope_Exclusion.sh; same arguments, same safety model.
+# Adds a scope exclusion -- a computer group by ID, a Jamf Pro user group by name
+# or ID, a user by username, or any combination -- to every Jamf Pro policy
+# listed in a CSV file. Partner to Remove_Policy_Scope_Exclusion.sh; same
+# arguments, same safety model.
+#
+# Together with Generate_Self_Service_Policy_Report.sh this is the directory's
+# main job: report every Self Service policy, then exclude one Jamf Pro user
+# group from all of them and nothing else. Policies that are not Self Service
+# are skipped unless --include-non-self-service is given.
+#
+# --user-group writes scope/exclusions/jss_user_groups, the Jamf Pro user group.
+# The limitation scripts spell the flag the same way and mean the directory
+# service group in limitations/user_groups. Different Jamf objects; see
+# CLAUDE.md, "The scope model, which is not symmetric".
 #
 # Authentication is OAuth client credentials against the Jamf Pro API. The policy
 # read and write themselves are Classic API, because the Jamf Pro API has no
@@ -11,6 +22,8 @@
 # Prerequisites, in Jamf Pro:
 #   Settings > System > API Roles and Clients
 #     1. Create an API Role with "Read Policies" AND "Update Policies".
+#        --user-group also needs "Read Static User Groups" and
+#        "Read Smart User Groups" for its preflight.
 #     2. Create an API Client, assign that role, enable it, generate a secret.
 #
 # This script MODIFIES PRODUCTION POLICIES. It is dry-run by default. A real run
@@ -49,7 +62,8 @@ usage() {
 Add a scope exclusion to the Jamf Pro policies listed in a CSV.
 
 Usage:
-  Add_Policy_Scope_Exclusion.sh --csv <file> [--group-id <n>] [--username <name>] [options]
+  Add_Policy_Scope_Exclusion.sh --csv <file> [--group-id <n>] [--username <name>]
+                                [--user-group <name>] [--user-group-id <n>] [options]
 
 Required:
   --csv <file>             CSV of policy IDs. The policy ID is the first column.
@@ -60,8 +74,22 @@ At least one of:
   --group-id <n>           Computer group to exclude, by Jamf Pro ID. Works for
                            both smart and static groups -- they share an ID space
                            and the same scope element.
-  --username <name>        User to exclude, by username. Allowed characters:
-                           letters, digits, and . _ - @
+  --username <name>        Directory or local user to exclude, by username.
+                           Allowed: letters, digits, spaces and . _ - @
+                           Jamf Pro discards a username it cannot resolve, so
+                           this must name a user the server already knows.
+  --user-group <name>      Jamf Pro user group to exclude, by name. Resolved to
+                           its ID before anything is written; a name the server
+                           does not know is refused rather than silently dropped.
+  --user-group-id <n>      The same, by Jamf Pro user group ID.
+
+  NOTE: --user-group here means a **Jamf Pro** user group -- the objects listed
+  under Users > User Groups, which the policy scope stores in jss_user_groups.
+  The limitation scripts spell a flag the same way and mean something else: a
+  **directory service** group, resolved against LDAP or a Cloud Identity
+  Provider when the scope is evaluated, stored in limitations/user_groups. Same
+  flag name, different Jamf object. See CLAUDE.md, "The scope model, which is
+  not symmetric".
 
 Options:
   --apply                  Actually write. Without it, nothing is modified.
@@ -103,6 +131,8 @@ log_line() {
 csv_file=""
 group_id=""
 username=""
+user_group_name=""
+user_group_id=""
 apply_changes="no"
 confirm_token_supplied=""
 backup_dir=""
@@ -115,6 +145,8 @@ while [[ $# -gt 0 ]]; do
 		--csv)        csv_file="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
 		--group-id)   group_id="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
 		--username)   username="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
+		--user-group)    user_group_name="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
+		--user-group-id) user_group_id="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
 		--apply)      apply_changes="yes"; shift ;;
 		--confirm)    confirm_token_supplied="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
 		--backup-dir) backup_dir="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
@@ -134,8 +166,47 @@ if [[ ! -f "$csv_file" ]]; then
 	echo "ERROR! CSV not found: $csv_file"; exit 3
 fi
 
-if [[ -z "$group_id" ]] && [[ -z "$username" ]]; then
-	echo "ERROR! Give at least one of --group-id or --username."; echo; usage; exit 3
+if [[ -z "$group_id" ]] && [[ -z "$username" ]] && [[ -z "$user_group_name" ]] && [[ -z "$user_group_id" ]]; then
+	echo "ERROR! Give at least one of --group-id, --username, --user-group or --user-group-id."
+	echo; usage; exit 3
+fi
+
+# They address one entry by two different keys. Writing both would either
+# duplicate the exclusion or, worse, write two entries that look like one.
+if [[ -n "$user_group_name" ]] && [[ -n "$user_group_id" ]]; then
+	echo "ERROR! Use --user-group or --user-group-id, not both."
+	echo "       They name the same entry by different keys; --user-group is"
+	echo "       resolved to an ID before anything is written."
+	exit 3
+fi
+
+if [[ -n "$user_group_id" ]]; then
+	case "$user_group_id" in
+		''|*[!0-9]*) echo "ERROR! --user-group-id must be a number: $user_group_id"; exit 3 ;;
+	esac
+fi
+
+# The group name is never interpolated into XPath, XML or an awk regex -- the
+# preflight below turns it into an ID and only the ID travels further, because
+# jss_user_groups is addressed by <id>. Its one use is as a URL path segment,
+# so the check here is about the URL, not about quoting. Jamf Pro group names
+# legitimately begin with * and contain spaces, ampersands and parentheses;
+# what a path segment cannot carry is / ? # or %.
+if [[ -n "$user_group_name" ]]; then
+	case "$user_group_name" in
+		*/*|*'?'*|*'#'*|*%*)
+			echo "ERROR! --user-group cannot contain / ? # or %"
+			echo "       Those cannot travel in the URL the name lookup uses."
+			echo "       Use --user-group-id <n> for a group named like that."
+			echo "       Got: $user_group_name"
+			exit 3
+			;;
+	esac
+	if ! echo "$user_group_name" | grep -Eq '^[A-Za-z0-9 ._@*&()+-]+$'; then
+		echo "ERROR! --user-group may contain only letters, digits, spaces and . _ - @ * & ( ) +"
+		echo "       Got: $user_group_name"
+		exit 3
+	fi
 fi
 
 # A group ID that is not a number would be sent to Jamf Pro as-is and silently
@@ -146,14 +217,19 @@ if [[ -n "$group_id" ]]; then
 	esac
 fi
 
+# A space is allowed: a Jamf Pro user's <name> is whatever was typed into the
+# Users inventory, and real ones carry spaces ("Abigail Garcia" on the test
+# instance). A space is safe in all three destinations below -- it is not a
+# quote and not a regex metacharacter -- and --user-group already allows it.
+# Rejecting it meant a user with a space in their name could not be scoped.
 # The username is interpolated into an XPath predicate, into XML and, by the
 # Remove_ half of this pair, into an awk regex. Restricting the character set
 # is what keeps all three safe -- no quoting scheme survives a username
 # containing a quote character, and Jamf usernames do not need one. The
 # library also escapes regex metacharacters before the awk match.
 if [[ -n "$username" ]]; then
-	if ! echo "$username" | grep -Eq '^[A-Za-z0-9._@-]+$'; then
-		echo "ERROR! --username may contain only letters, digits and . _ - @"
+	if ! echo "$username" | grep -Eq '^[A-Za-z0-9 ._@-]+$'; then
+		echo "ERROR! --username may contain only letters, digits, spaces and . _ - @"
 		echo "       Got: $username"
 		exit 3
 	fi
@@ -180,6 +256,79 @@ fi
 # Blocks on a TTY when nothing is set, so unattended runs need the
 # preference file or the environment. See the library.
 ResolveJamfProCredentials
+
+# ---------------------------------------------------------------------------
+# User group preflight
+# ---------------------------------------------------------------------------
+
+# Jamf Pro accepts a scope entry naming a group it cannot resolve, answers the
+# PUT with 201, and stores nothing -- wire-checked against 11.32.0 on
+# 2026-09-12 (CLAUDE.md, "A scope entry Jamf cannot resolve is silently
+# discarded"). Read-back would catch it afterwards on every policy in the CSV;
+# checking once, up front, is cheaper and says something useful instead.
+#
+# It also resolves --user-group to an ID, because jss_user_groups is addressed
+# by <id>. After this runs, user_group_id is set whichever flag was given, and
+# the name is not used again.
+#
+# A missing Read Static User Groups / Read Smart User Groups privilege stops
+# the run here rather than on the first policy.
+PreflightUserGroup() {
+
+	local endpoint
+	local response
+	local http_code
+	local body
+	local resolved
+
+	if [[ -z "$user_group_name" ]] && [[ -z "$user_group_id" ]]; then
+		return 0
+	fi
+
+	if [[ -n "$user_group_id" ]]; then
+		endpoint="${jamfpro_url}/JSSResource/usergroups/id/${user_group_id}"
+	else
+		# The name goes in a URL path. Space is the only character the allowed
+		# set contains that must be encoded; / ? # % were rejected earlier.
+		endpoint="${jamfpro_url}/JSSResource/usergroups/name/${user_group_name// /%20}"
+	fi
+
+	CheckAndRenewAPIToken
+
+	# Body and status in one call: the name lookup's body carries the ID this
+	# function exists to find, so --output /dev/null is not enough here.
+	response=$(/usr/bin/curl -s "${curl_timeouts[@]}" \
+	    --write-out $'\n%{http_code}' \
+	    --header "Authorization: Bearer ${api_token}" \
+	    -H "Accept: application/xml" \
+	    "$endpoint")
+
+	http_code=$(echo "$response" | tail -1)
+	body=$(echo "$response" | sed '$d')
+
+	if [[ "$http_code" != "200" ]]; then
+		echo "ERROR! Jamf Pro user group ${user_group_name:-ID ${user_group_id}} not found (HTTP ${http_code})."
+		echo "       Nothing has been modified."
+		echo "       Jamf Pro would accept an exclusion naming a group it cannot"
+		echo "       resolve, answer 201 and store nothing, so this is checked first."
+		echo "       Check Users > User Groups in Jamf Pro, or the API role's"
+		echo "       Read Static User Groups and Read Smart User Groups privileges."
+		exit 1
+	fi
+
+	resolved=$(echo "$body" | xmllint --xpath 'string(/user_group/id)' - 2>/dev/null)
+
+	case "$resolved" in
+		''|*[!0-9]*)
+			echo "ERROR! The user group lookup answered 200 but carried no usable ID."
+			echo "       Nothing has been modified. Endpoint: ${endpoint}"
+			exit 1
+			;;
+	esac
+
+	user_group_id="$resolved"
+
+}
 
 # ---------------------------------------------------------------------------
 # Per-policy work
@@ -228,10 +377,21 @@ ProcessPolicy() {
 		entry="computer_group"
 		match_element="id"
 		new_node="<computer_group><id>${value}</id></computer_group>"
+	elif [[ "$kind" = "usergroup" ]]; then
+		# A Jamf Pro user group, addressed by ID. Verified against live Jamf Pro
+		# 11.32.0 on 2026-09-12: writing <user_group><id>n</id> is stored and the
+		# server fills in the <name> child itself, so read-back must match on id.
+		# The same group can be a deployment target in scope/jss_user_groups at
+		# the same time; CountScopeEntry is bounded to the section, so the two
+		# never see each other.
+		container="jss_user_groups"
+		entry="user_group"
+		match_element="id"
+		new_node="<user_group><id>${value}</id></user_group>"
 	else
-		# UNVERIFIED against live Jamf Pro: whether a user in <exclusions> is
-		# <user><name> or <user><id> (CLAUDE.md, standing state). Everything
-		# here matches on <name>; the first real run settles it.
+		# Verified against live Jamf Pro 11.32.0 on 2026-09-12: a user in
+		# <exclusions> is <user><name>, and a name the server cannot resolve is
+		# discarded with a 201 and no error. Read-back is what catches that.
 		container="users"
 		entry="user"
 		match_element="name"
@@ -338,7 +498,24 @@ ProcessPolicy() {
 	# The Classic API answers a successful PUT with 201 Created; 200 is
 	# accepted as well in case a proxy or a later version normalises it. The
 	# status is not success -- the read-back below is.
-	if [[ "$http_code" != "201" ]] && [[ "$http_code" != "200" ]]; then
+	# A 409 is NOT a no-op, and must not short-circuit the read-back.
+	#
+	# Wire-checked against Jamf Pro 11.32.0 on 2026-09-12. A policy carried a
+	# directory user group that was later deleted from the directory, so the
+	# server could no longer resolve it. A PUT resending the whole <scope> --
+	# which hard rule 1 requires -- to make an UNRELATED change answered 409,
+	# applied the requested change anyway, and silently DROPPED the
+	# unresolvable entry. Returning here reported FAILED for a write that had
+	# landed, and said nothing at all about the entry Jamf destroyed.
+	#
+	# So 409 falls through to the read-back, which is the only thing that can
+	# say what actually happened -- hard rule 2, applied to the case that
+	# needs it most. Every other non-2xx really did leave the policy alone and
+	# still returns here.
+	if [[ "$http_code" = "409" ]]; then
+		log_line "WARNING  ${policy_id} (${policy_name}): PUT returned HTTP 409. Jamf rejected part of the request but may have applied the rest, and silently drops any scope entry it cannot resolve -- most often a directory user or group that no longer exists in the directory."
+		log_line "         Compare the policy against ${backup_dir}/policy-${policy_id}-before.xml before continuing; entries you did not name may be gone."
+	elif [[ "$http_code" != "201" ]] && [[ "$http_code" != "200" ]]; then
 		log_line "FAILED   ${policy_id} (${policy_name}): PUT returned HTTP ${http_code}$(DescribeHTTPStatus "$http_code")"
 		policies_failed=$((policies_failed + 1))
 		return
@@ -400,7 +577,11 @@ policies_total=$(echo "$policy_ids" | grep -c ^)
 # so the tokens quoted in README.md remain valid. REMOVE-<count>- cannot
 # collide with REMOVE-TARGET- or REMOVE-LIMIT- because the second segment is
 # a number here and a word there.
-confirm_token="APPLY-${policies_total}-${group_id:-none}-${username:-none}"
+confirm_token="APPLY-${policies_total}-${group_id:-none}-${username:-none}-${user_group_name:-${user_group_id:-none}}"
+
+# Group names carry spaces; the token has to survive being retyped as one
+# shell word. Same treatment the limitation and trigger scripts apply.
+confirm_token=$(echo "$confirm_token" | tr ' ' '_' | tr -cd 'A-Za-z0-9_-')
 
 if [[ "$apply_changes" = "yes" ]] && [[ "$confirm_token_supplied" != "$confirm_token" ]]; then
 	echo "ERROR! --apply needs a matching --confirm token."
@@ -426,6 +607,11 @@ trap 'exit 130' 1 2 3 15
 # does not leave an empty backup directory and log behind for every attempt.
 GetJamfProAPIToken
 
+# The preflight needs a token, so it runs here. It reports with echo and exits
+# rather than logging, because no log file exists yet -- and it must run before
+# the backup directory is created, so a wrong group name leaves nothing behind.
+PreflightUserGroup
+
 # Fatal before any policy is touched; the token is revoked by the EXIT trap.
 mkdir -p "$backup_dir" || { echo "ERROR! Cannot create backup directory: $backup_dir"; exit 1; }
 
@@ -443,6 +629,10 @@ log_line "Jamf Pro:   ${jamfpro_url}"
 log_line "CSV:        ${csv_file} (${policies_total} policy IDs)"
 [[ -n "$group_id" ]] && log_line "Group ID:   ${group_id}"
 [[ -n "$username" ]] && log_line "Username:   ${username}"
+# user_group_id is the resolved ID by now whichever flag was given; the name is
+# logged too when that is how the operator asked for it.
+[[ -n "$user_group_name" ]] && log_line "User Group: ${user_group_name} (ID ${user_group_id})"
+[[ -z "$user_group_name" ]] && [[ -n "$user_group_id" ]] && log_line "User Group: ID ${user_group_id}"
 log_line "Backups:    ${backup_dir}"
 if [[ "$apply_changes" = "yes" ]]; then
 	log_line "Mode:       APPLY -- policies will be modified"
@@ -461,6 +651,11 @@ for policy_id in ${policy_ids}; do
 
 	if [[ -n "$username" ]]; then
 		ProcessPolicy "$policy_id" "user" "$username"
+	fi
+
+	# Resolved to an ID by PreflightUserGroup whichever flag was given.
+	if [[ -n "$user_group_id" ]]; then
+		ProcessPolicy "$policy_id" "usergroup" "$user_group_id"
 	fi
 
 	if [[ "$inter_policy_delay" -gt 0 ]]; then
@@ -487,7 +682,7 @@ if [[ "$apply_changes" != "yes" ]] && [[ "$policies_updated" -gt 0 ]]; then
 	# The full command rather than just the flags: this was the first writer,
 	# and README.md quotes the dry run printing the exact apply command.
 	log_line "To apply:"
-	log_line "  $0 --csv ${csv_file}$([[ -n "$group_id" ]] && echo " --group-id ${group_id}")$([[ -n "$username" ]] && echo " --username ${username}") --apply --confirm ${confirm_token}"
+	log_line "  $0 --csv ${csv_file}$([[ -n "$group_id" ]] && echo " --group-id ${group_id}")$([[ -n "$username" ]] && echo " --username '${username}'")$([[ -n "$user_group_name" ]] && echo " --user-group '${user_group_name}'")$([[ -z "$user_group_name" ]] && [[ -n "$user_group_id" ]] && echo " --user-group-id ${user_group_id}") --apply --confirm ${confirm_token}"
 fi
 
 if [[ "$policies_failed" -gt 0 ]]; then

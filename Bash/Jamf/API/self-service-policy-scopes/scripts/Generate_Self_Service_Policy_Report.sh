@@ -309,6 +309,13 @@ CheckSelfServicePolicies(){
 			ScopeTargets=$(AppendScopeItem "$ScopeTargets" "Computers"   "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/computers/computer/name')")
 			ScopeTargets=$(AppendScopeItem "$ScopeTargets" "Buildings"   "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/buildings/building/name')")
 			ScopeTargets=$(AppendScopeItem "$ScopeTargets" "Departments" "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/departments/department/name')")
+			# jss_users / jss_user_groups are the Jamf Pro User objects the UI's
+			# "Add Deployment Targets" menu calls Users and User Groups. They are
+			# targets, and were missing from this column until 2026-09-12, so a
+			# policy scoped to people rather than to Macs reported a thinner
+			# scope than it had -- or "No targets" when it had some.
+			ScopeTargets=$(AppendScopeItem "$ScopeTargets" "Users"       "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/jss_users/user/name')")
+			ScopeTargets=$(AppendScopeItem "$ScopeTargets" "User Groups" "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/jss_user_groups/user_group/name')")
 			if [[ -z "$ScopeTargets" ]]; then
 			   ScopeTargets="No targets"
 			fi
@@ -320,9 +327,14 @@ CheckSelfServicePolicies(){
 			# earlier ".../user_group/name" path matched nothing, so this column
 			# was always empty.
 
+			# Labels follow the Jamf Pro UI, which is what the person reading this
+			# CSV is looking at. Under <limitations> the only user containers are
+			# the directory-service ones -- the UI's "Add Limitations" menu offers
+			# Directory Service/Local Users and Directory Service User Groups, and
+			# no Jamf Pro User objects at all.
 			ScopeLimitations=""
-			ScopeLimitations=$(AppendScopeItem "$ScopeLimitations" "Users"            "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/limitations/users/user/name')")
-			ScopeLimitations=$(AppendScopeItem "$ScopeLimitations" "User Groups"      "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/limitations/user_groups/user_group/name')")
+			ScopeLimitations=$(AppendScopeItem "$ScopeLimitations" "Directory Users"       "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/limitations/users/user/name')")
+			ScopeLimitations=$(AppendScopeItem "$ScopeLimitations" "Directory User Groups" "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/limitations/user_groups/user_group/name')")
 			ScopeLimitations=$(AppendScopeItem "$ScopeLimitations" "LDAP Groups"      "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/limit_to_users/user_groups/user_group' user_group)")
 			ScopeLimitations=$(AppendScopeItem "$ScopeLimitations" "Network Segments" "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/limitations/network_segments/network_segment/name')")
 			ScopeLimitations=$(AppendScopeItem "$ScopeLimitations" "iBeacons"         "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/limitations/ibeacons/ibeacon/name')")
@@ -337,10 +349,17 @@ CheckSelfServicePolicies(){
 			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "Computers"        "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/computers/computer/name')")
 			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "Buildings"        "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/buildings/building/name')")
 			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "Departments"      "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/departments/department/name')")
-			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "Users"            "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/users/user/name')")
-			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "User Groups"      "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/user_groups/user_group/name')")
-			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "Network Segments" "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/network_segments/network_segment/name')")
-			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "iBeacons"         "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/ibeacons/ibeacon/name')")
+			# Exclusions take all ten containers, including both the Jamf Pro User
+			# objects (jss_users / jss_user_groups) and the directory-service ones
+			# (users / user_groups). The jss_ pair was missing until 2026-09-12,
+			# which meant excluding a Jamf Pro user group left no trace in the
+			# report -- the column that verifies the work was blank.
+			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "Users"                 "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/jss_users/user/name')")
+			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "User Groups"           "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/jss_user_groups/user_group/name')")
+			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "Directory Users"       "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/users/user/name')")
+			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "Directory User Groups" "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/user_groups/user_group/name')")
+			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "Network Segments"      "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/network_segments/network_segment/name')")
+			ScopeExclusions=$(AppendScopeItem "$ScopeExclusions" "iBeacons"              "$(ExtractNameList "$DownloadedXMLData" '/policy/scope/exclusions/ibeacons/ibeacon/name')")
 			if [[ -z "$ScopeExclusions" ]]; then
 			   ScopeExclusions="None"
 			fi

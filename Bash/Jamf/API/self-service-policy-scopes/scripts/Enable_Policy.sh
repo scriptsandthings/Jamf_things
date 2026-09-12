@@ -328,7 +328,24 @@ ProcessPolicy() {
 	# The Classic API answers a successful PUT with 201 Created; 200 is
 	# accepted as well in case a proxy or a later version normalises it. The
 	# status is not success -- the read-back below is.
-	if [[ "$http_code" != "201" ]] && [[ "$http_code" != "200" ]]; then
+	# A 409 is NOT a no-op, and must not short-circuit the read-back.
+	#
+	# Wire-checked against Jamf Pro 11.32.0 on 2026-09-12. A policy carried a
+	# directory user group that was later deleted from the directory, so the
+	# server could no longer resolve it. A PUT resending the whole <scope> --
+	# which hard rule 1 requires -- to make an UNRELATED change answered 409,
+	# applied the requested change anyway, and silently DROPPED the
+	# unresolvable entry. Returning here reported FAILED for a write that had
+	# landed, and said nothing at all about the entry Jamf destroyed.
+	#
+	# So 409 falls through to the read-back, which is the only thing that can
+	# say what actually happened -- hard rule 2, applied to the case that
+	# needs it most. Every other non-2xx really did leave the policy alone and
+	# still returns here.
+	if [[ "$http_code" = "409" ]]; then
+		log_line "WARNING  ${policy_id} (${policy_name}): PUT returned HTTP 409. Jamf rejected part of the request but may have applied the rest, and silently drops any scope entry it cannot resolve -- most often a directory user or group that no longer exists in the directory."
+		log_line "         Compare the policy against ${backup_dir}/policy-${policy_id}-before.xml before continuing; entries you did not name may be gone."
+	elif [[ "$http_code" != "201" ]] && [[ "$http_code" != "200" ]]; then
 		log_line "FAILED   ${policy_id} (${policy_name}): PUT returned HTTP ${http_code}$(DescribeHTTPStatus "$http_code")"
 		policies_failed=$((policies_failed + 1))
 		return
