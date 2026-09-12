@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policy>
+  <general>
+    <id>202</id>
+    <name>Second</name>
+    <enabled>false</enabled>
+    <trigger>USER_INITIATED</trigger>
+    <trigger_checkin>false</trigger_checkin>
+    <trigger_enrollment_complete>false</trigger_enrollment_complete>
+    <trigger_login>false</trigger_login>
+    <trigger_logout>false</trigger_logout>
+    <trigger_network_state_changed>false</trigger_network_state_changed>
+    <trigger_startup>false</trigger_startup>
+    <trigger_other/>
+    <category/>
+  </general>
+  <scope>
+    <all_computers>true</all_computers>
+    <computers/>
+    <computer_groups/>
+    <buildings/>
+    <departments/>
+    <limitations>
+      <users/>
+      <user_groups/>
+      <network_segments/>
+      <ibeacons/>
+    </limitations>
+    <exclusions/>
+  </scope>
+  <self_service>
+    <use_for_self_service>false</use_for_self_service>
+  </self_service>
+</policy>
