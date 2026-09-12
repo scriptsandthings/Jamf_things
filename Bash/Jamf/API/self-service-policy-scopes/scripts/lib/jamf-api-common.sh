@@ -557,6 +557,55 @@ CountLimitToUsersGroup() {
 
 }
 
+# Removes one user group from <limit_to_users><user_groups>, printing the whole
+# <scope> back. Tolerant: a scope that does not carry the group is passed
+# through unchanged and the exit status is still 0.
+#
+# This exists because limit_to_users is the SOURCE and limitations/user_groups
+# is a MIRROR Jamf regenerates from it. Wire-checked against Jamf Pro 11.32.0
+# on 2026-09-12, on an instance with an LDAP directory configured:
+#
+#   PUT limitations/user_groups without the group, limit_to_users unchanged
+#       -> 201, and BOTH containers come back still holding the group.
+#   PUT with the group removed from BOTH
+#       -> 201, and the removal sticks.
+#
+# So a removal that edits only limitations/user_groups is silently undone.
+# Additions do not have this problem: Jamf propagates an add from the mirror
+# into limit_to_users. The asymmetry is only visible on an instance that has a
+# directory service, which is why it survived the first live run.
+#
+# The entry here is a BARE STRING -- <user_group>Name</user_group> -- with no
+# <name> child, which is why RemoveScopeEntry cannot do this job.
+#
+#   $1 the formatted <scope> element
+#   $2 the group name to remove
+
+RemoveLimitToUsersGroup() {
+
+	local scope_xml="$1"
+	local match_value="$2"
+
+	echo "$scope_xml" | awk -v match_value="$match_value" '
+		BEGIN {
+			# Same escaping as RemoveScopeEntry: a dot in "Corp.Marketing"
+			# must not match "CorpXMarketing".
+			gsub(/[.*+?^${}()|\[\]\\]/, "\\\\&", match_value)
+		}
+
+		/<limit_to_users>/   { in_section = 1 }
+		/<\/limit_to_users>/ { in_section = 0 }
+
+		in_section && $0 ~ ("^[[:space:]]*<user_groups>[[:space:]]*$")  { in_container = 1; print; next }
+		in_section && $0 ~ ("^[[:space:]]*</user_groups>[[:space:]]*$") { in_container = 0; print; next }
+
+		in_container && $0 ~ ("^[[:space:]]*<user_group>" match_value "</user_group>[[:space:]]*$") { next }
+
+		{ print }
+	'
+
+}
+
 # Inserts one entry into a scope section and prints the whole <scope> back.
 #
 # The insertion is surgical on purpose. Jamf Pro's Classic API replaces the
@@ -781,11 +830,24 @@ RemoveScopeEntry() {
 
 }
 
-# Counts a policy's scope targets: computers, computer groups, buildings and
-# departments. A policy whose targets all go away never runs again, which is
-# the one irreversible-feeling mistake the target scripts can make, so
-# Remove_Policy_Scope_Target.sh checks this before it writes and refuses
-# without --allow-empty-scope.
+# Counts a policy's scope targets. A policy whose targets all go away never
+# runs again, which is the one irreversible-feeling mistake the target scripts
+# can make, so Remove_Policy_Scope_Target.sh checks this before it writes and
+# refuses without --allow-empty-scope.
+#
+# All SIX target containers are counted. The Jamf Pro UI's "Add Deployment
+# Targets" menu offers Users, User Groups, Buildings and Departments, and the
+# picker above it adds Computers and Computer Groups; the XML has all six as
+# direct children of <scope>. This function counted only four until
+# 2026-09-12, which made a policy targeted at people rather than at Macs look
+# emptier than it was -- removing its last computer group was refused with
+# "no targets at all" while a jss_user_group target was still there. It fails
+# closed, so nothing was ever written wrongly, but the refusal was untrue.
+#
+# jss_users / jss_user_groups are Jamf Pro User objects. The directory-service
+# containers (users, user_groups) are NOT targets -- they are limitations and
+# exclusions only -- so they are correctly absent here. See CLAUDE.md, "The
+# scope model, which is not symmetric".
 #
 #   $1 policy or scope XML wrapped in <policy>
 
@@ -795,7 +857,7 @@ CountScopeTargets() {
 	local total
 
 	total=$(echo "$xml" | xmllint --xpath \
-	    "count(/policy/scope/computers/computer) + count(/policy/scope/computer_groups/computer_group) + count(/policy/scope/buildings/building) + count(/policy/scope/departments/department)" - 2>/dev/null)
+	    "count(/policy/scope/computers/computer) + count(/policy/scope/computer_groups/computer_group) + count(/policy/scope/buildings/building) + count(/policy/scope/departments/department) + count(/policy/scope/jss_users/user) + count(/policy/scope/jss_user_groups/user_group)" - 2>/dev/null)
 
 	# xmllint prints a sum as a float, e.g. 3 or 3.0 depending on version.
 	total=${total%%.*}
@@ -1026,14 +1088,14 @@ PolicyHasAutomaticTrigger() {
 # Triggers
 # ---------------------------------------------------------------------------
 
-# The six boolean triggers, as accepted on the command line. Kept as a plain
+# The five boolean triggers, as accepted on the command line. Kept as a plain
 # string because bash 3.2 has no associative arrays.
 #
 # "recurring-check-in" is also accepted by ResolveTriggerElement as an alias
 # of "checkin" (it is what the Jamf UI calls the trigger) but is deliberately
 # not advertised here or in any usage text, so there is one documented name.
 # shellcheck disable=SC2034  # consumed by the scripts that source this file
-TRIGGER_FLAG_NAMES="checkin startup login logout network-state-change enrollment-complete"
+TRIGGER_FLAG_NAMES="checkin startup login network-state-change enrollment-complete"
 
 # Maps a command-line trigger name to its Classic API element. Prints the empty
 # string for anything unrecognised, so callers validate by testing for empty.
@@ -1043,13 +1105,37 @@ TRIGGER_FLAG_NAMES="checkin startup login logout network-state-change enrollment
 #
 #   $1 trigger name
 
+# Prints a short explanation when a rejected trigger name is one Jamf Pro has
+# retired, so "Unknown trigger: logout" does not read as a typo. Silent for
+# every other name.
+#
+#   $1 trigger name as the caller spelled it
+
+ExplainRetiredTrigger() {
+
+	case "$1" in
+		logout)
+			echo "       Jamf Pro has retired the logout trigger. Wire-checked against"
+			echo "       11.32.0: a trigger_logout write is answered 201 and discarded,"
+			echo "       and a policy read never carries the element."
+			;;
+	esac
+
+}
+
 ResolveTriggerElement() {
 
 	case "$1" in
 		checkin|recurring-check-in)  echo "trigger_checkin" ;;
 		startup)                     echo "trigger_startup" ;;
 		login)                       echo "trigger_login" ;;
-		logout)                      echo "trigger_logout" ;;
+		# logout is deliberately absent. Wire-checked against Jamf Pro
+		# 11.32.0 on 2026-09-12: a PUT carrying <trigger_logout>true</trigger_logout>
+		# is answered 201 and DISCARDED, while a trigger_startup in the same
+		# request lands. A GET never returns the element at all. Accepting the
+		# name would mean offering a write that can never succeed; the writers
+		# would correctly report FAILED after a 201, but the flag is a trap.
+		# ExplainRetiredTrigger() prints the reason when someone asks for it.
 		network-state-change)        echo "trigger_network_state_changed" ;;
 		enrollment-complete)         echo "trigger_enrollment_complete" ;;
 		*)                           echo "" ;;
