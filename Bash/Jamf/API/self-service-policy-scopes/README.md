@@ -105,7 +105,7 @@ The three scope columns are built from the policy's `<scope>` element. Each is a
 names:
 
 ```
-Groups: All Managed Macs; R&D Pilot | Computers: ORG-MBP-001 | Buildings: 123 S Elm St
+Groups: All Managed Macs; R&D Pilot | Computers: ACME-MBP-001 | Buildings: 123 Main St
 ```
 
 - **Targets** — `All Computers` when scoped to everything, otherwise computer
