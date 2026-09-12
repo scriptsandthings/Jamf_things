@@ -1,7 +1,7 @@
 # Self Service policy scopes
 
 `scripts/Generate_Self_Service_Policy_Report.sh` walks every policy in Jamf Pro,
-keeps the ones flagged as Self Service policies, and writes a TSV report of what
+keeps the ones flagged as Self Service policies, and writes a CSV report of what
 they are and **who they are scoped to**.
 
 The scope columns are the point. Jamf Pro's own policy list will tell you a
@@ -34,9 +34,9 @@ the scripts are bash 3.2 clean and run under `/bin/bash`.
 Three sources, checked in this order. First non-empty value wins.
 
 ```bash
-# 1. Hardcoded at the top of the script (jamfpro_url, jamfpro_client_id,
-#    jamfpro_client_secret). Convenient, and the reason this repo's .gitignore
-#    matters -- do not commit a filled-in copy.
+# 1. Already set in the calling shell as jamfpro_url, jamfpro_client_id and
+#    jamfpro_client_secret (a wrapper script may export them). No script in
+#    this directory carries a filled-in header; do not add one and commit it.
 
 # 2. A preference file
 defaults write $HOME/Library/Preferences/com.github.jamfpro-info jamfpro_url https://your.jamfcloud.com
@@ -56,22 +56,31 @@ does not echo and does not land in shell history.
 
 ```bash
 ./scripts/Generate_Self_Service_Policy_Report.sh
+./scripts/Generate_Self_Service_Policy_Report.sh --output ~/Desktop/self-service.csv
 ```
 
-It prints a spinner, the policy count it is working through, and finally the
-path to the report:
+It prints a spinner (only when stdout is a terminal), the policy count it is
+working through, and finally the path to the report:
 
 ```
 Report being generated. File location will appear below once ready.
 Checking 412 policies for Self Service policies ...
 
-Report on Self Service policies available here: /var/folders/.../T/tmp.AbC123.tsv
+Self Service policies found: 137 of 412
+Report on Self Service policies available here: /var/folders/.../T/self-service-report.AbC123/self-service-policies-20260912-121500.csv
 ```
+
+A policy that cannot be read (a 404, a token hiccup, a proxy error page) is
+named on stderr and counted at the end, and the script exits 1 -- it never
+presents a report with silently missing rows as complete. Without `--output`
+the report lands in a fresh temp directory; `--help` lists the columns.
 
 Runtime is roughly one API call per policy, serially. Several hundred policies
 takes a few minutes.
 
-Open the TSV in Numbers or Excel, or `column -t -s $'\t'` it in a terminal.
+Open the CSV in Numbers or Excel. Every field is double-quoted (RFC 4180),
+so names with commas, semicolons or quotes survive the round trip, and the
+report can be fed straight back to any writer as its `--csv`.
 
 ## Report columns
 
@@ -103,8 +112,9 @@ Groups: All Managed Macs; R&D Pilot | Computers: ACME-MBP-001 | Buildings: 123 M
   groups, individual computers, buildings, departments. `No targets` when a
   policy is scoped to nothing at all (it will never run; worth investigating).
 - **Limitations** — users, user groups, LDAP groups (Jamf Pro's "limit to users
-  in groups", stored outside the limitations element), network segments,
-  iBeacons. `None` when unlimited.
+  in groups", stored outside the limitations element as bare
+  `<user_group>Name</user_group>` strings), network segments, iBeacons. `None`
+  when unlimited.
 - **Exclusions** — computer groups, computers, buildings, departments, users,
   user groups, network segments, iBeacons. `None` when nothing is excluded.
 
@@ -156,7 +166,7 @@ command cannot be pasted from an old run against a new list.
 
 Policy ID in the first column, comma or tab separated. A header row, blank
 lines and `#` comments are skipped — anything whose first column is not all
-digits is ignored, so the report TSV from the other script can be fed in
+digits is ignored, so the report CSV from the other script can be fed in
 directly.
 
 ```csv
@@ -185,7 +195,8 @@ Jamf Pro ID Number,Policy Name
 Each modified policy leaves a full `policy-<id>-before.xml`. To put one back:
 
 ```bash
-curl -X PUT -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/xml" \
+curl --connect-timeout 15 --max-time 30 -X PUT \
+  -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/xml" \
   --data-binary @exclusion-backups-.../policy-412-before.xml \
   "$JAMF_PRO_URL/JSSResource/policies/id/412"
 ```
@@ -528,7 +539,7 @@ one of them splits in two:
 ./scripts/Add_Policy_Trigger.sh    --csv policies.csv --trigger checkin
 ./scripts/Remove_Policy_Trigger.sh --csv policies.csv --trigger checkin
 
-# Set the custom event, or clear it
+# Set the custom event on policies that have none, or clear the named one
 ./scripts/Add_Policy_Trigger.sh    --csv policies.csv --custom-event installChrome
 ./scripts/Remove_Policy_Trigger.sh --csv policies.csv --custom-event installChrome
 
@@ -563,9 +574,13 @@ it as a no-op. Removing cannot start anything.
 
 `Remove_Policy_Trigger.sh --custom-event installChrome` skips any policy whose
 custom event is something else, rather than clearing it. So does
-`Rename_Policy_Trigger.sh --from`. Clearing `trigger_other` blindly would wipe
-an unrelated event off any policy in the CSV that happened to have one, and
-nothing downstream would show it had gone.
+`Rename_Policy_Trigger.sh --from`, and so does
+`Add_Policy_Trigger.sh --custom-event`: a policy that already carries a
+*different* event is skipped with a pointer to `Rename_Policy_Trigger.sh`,
+because a policy has exactly one custom event and overwriting it would repoint
+callers you never named. Clearing or repointing `trigger_other` blindly would
+break an unrelated event on any policy in the CSV that happened to have one,
+and nothing downstream would show it had gone.
 
 ### `--set` does not include the custom event
 
@@ -574,9 +589,9 @@ touch `trigger_other` unless told to, because a name you forgot to mention is
 not the same as a switch you left off:
 
 ```bash
---custom-event <event>   set it
---no-custom-event        clear it
-neither                  leave it, and say so in the output
+--custom-event <event>         set it, on policies with none or already that name
+--clear-custom-event <event>   clear it, only where it is exactly that name
+neither                        leave it, and say so in the output
 ```
 
 Every line prints the full before and after, since the whole point is that it
@@ -587,7 +602,7 @@ WOULD SET 412 (Install Chrome): enabled=false
               Self Service, Login, Custom: installChrome
            -> Self Service, Recurring Check-in, Startup, Custom: installChrome
          note: 412 (Install Chrome) keeps custom event 'installChrome'.
-               Pass --no-custom-event to clear it.
+               Pass --clear-custom-event 'installChrome' to clear it.
 ```
 
 ### Renaming a custom event breaks its callers, silently
@@ -656,8 +671,40 @@ element, and would arrive with no display name and no icon.
   `/policies` is not on the deprecation register. The computer-inventory
   deprecation that closed in March 2026 covered `/JSSResource/computers*`
   only. Authentication is the modern Jamf Pro API. See CHANGELOG.md.
-- **Report location is a temp file.** `mktemp` output, so it survives the run
-  but not indefinitely. Copy it somewhere real if it matters.
+- **Report location is a temp directory** unless `--output` is given, so it
+  survives the run but not indefinitely. Copy it somewhere real if it matters.
+- **User-group limitations can read back empty.** Jamf product issue
+  PI-005747: the Classic API sometimes returns an empty `<user_groups/>` under
+  `<limitations>` for a policy whose UI shows one. When that happens
+  `Add_Policy_Scope_Limitation.sh --user-group` reports FAILED after a 201 and
+  says so; check the policy in Jamf Pro before running the restore command.
+
+## Testing
+
+Nothing here has to touch a tenant to be tested. Two suites, both run under a
+stock macOS PATH so a Homebrew GNU tool cannot hide a BSD incompatibility:
+
+```bash
+# Library functions against XML fixtures (127 checks)
+env -i HOME=/nonexistent PATH=/usr/bin:/bin:/usr/sbin:/sbin /bin/bash tests/lib-harness.sh
+
+# Every script, dry run and apply, against a mock Jamf Pro (117 checks)
+tests/e2e.sh
+```
+
+`tests/mock/mock_jamf.py` is a small local HTTP server that speaks just enough
+of the Jamf Pro API (OAuth token, `/v1/auth`, invalidate) and the Classic API
+(`/JSSResource/policies` list, `GET`/`PUT` by ID, categories) for the writers'
+full path: dry run, confirmation token, apply, read-back. It applies the
+documented Classic `PUT` semantics -- each top-level element supplied replaces
+the stored one in full -- and recomputes `general/trigger` from the booleans
+the way Jamf Pro is believed to. Policy 404 answers 404 and policy 500 answers
+an HTML error page, so the fail-closed paths are exercised too. It needs
+`python3` on the machine running the tests; the scripts themselves never do.
+
+Both suites exit 1 on any failure and print one line per check. `TESTING.md`
+lists every check by group, describes the mock and the fixtures, and records
+dated results.
 
 ## Files
 
@@ -677,7 +724,12 @@ scripts/Remove_Policy_Trigger.sh                 Write: turn one trigger off for
 scripts/Rename_Policy_Trigger.sh                 Write: rename the custom event on the policies in a CSV
 scripts/Set_Policy_Triggers.sh                   Write: set the complete trigger set, declaratively
 scripts/Set_Policy_Self_Service.sh               Write: show or hide the policies in a CSV in Self Service
-scripts/lib/jamf-api-common.sh                   Shared: auth, credentials, CSV reader, scope surgery
+scripts/lib/jamf-api-common.sh                   Shared: auth, credentials, policy fetch, CSV reader, XML surgery, getters
+tests/lib-harness.sh                             Library functions against fixtures, stock PATH
+tests/e2e.sh                                     Every script end to end against the mock, stock PATH
+tests/mock/mock_jamf.py                          Local mock of the Jamf Pro and Classic API surface the scripts use
+tests/fixtures/                                  Policy XML and CSV fixtures for both suites
+TESTING.md                                       How everything is validated: layers, checks, mock, fixtures, results
 README.md                                        This file
 CHANGELOG.md                                     What changed, when, why
 ```
