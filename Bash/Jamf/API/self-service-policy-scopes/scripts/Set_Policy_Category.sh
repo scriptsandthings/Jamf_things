@@ -1,0 +1,582 @@
+#!/bin/bash
+
+# Sets the category of every Jamf Pro policy listed in a CSV file.
+#
+# This is the policy's OWN category -- <general><category>, what the policy is
+# filed under in the Jamf Pro admin UI. It is NOT the Self Service display
+# category. Those are unrelated fields: a policy filed under "Apps & Utilities"
+# can display under "Productivity" in Self Service. Self Service categories are
+# a list with per-category display_in and feature_in flags and would need their
+# own add/remove pair; this script does not touch them.
+#
+# Unlike the scope scripts this is a replace, not an append. A policy has
+# exactly one category, and setting it discards the old one.
+#
+# Authentication is OAuth client credentials against the Jamf Pro API. The policy
+# read and write themselves are Classic API, because the Jamf Pro API has no
+# policy endpoints.
+#
+# Prerequisites, in Jamf Pro:
+#   Settings > System > API Roles and Clients
+#     1. Create an API Role with "Read Policies", "Update Policies" and
+#        "Read Categories".
+#     2. Create an API Client, assign that role, enable it, generate a secret.
+#
+# This script MODIFIES PRODUCTION POLICIES. It is dry-run by default. A real run
+# needs both --apply and --confirm with the token the dry run prints.
+
+# -u only. No -e on purpose: the library functions signal failure with a
+# non-zero status and every caller checks it and logs FAILED for that policy.
+# -e would abort the whole run on the first policy that cannot be edited.
+set -u
+
+SCRIPT_VERSION="1.0.0"
+
+# Set default exit code
+exitCode=0
+
+# Shared Jamf Pro API helpers: curl defaults, the OAuth token lifecycle,
+# credential resolution, the CSV reader and the XML surgery functions.
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+JAMF_API_COMMON="${SCRIPT_DIR}/lib/jamf-api-common.sh"
+
+if [[ ! -f "$JAMF_API_COMMON" ]]; then
+	echo "ERROR! Missing ${JAMF_API_COMMON}"
+	echo "       This script is not standalone; keep lib/ next to it."
+	exit 1
+fi
+
+# shellcheck source=lib/jamf-api-common.sh
+. "$JAMF_API_COMMON"
+
+# ---------------------------------------------------------------------------
+# Usage
+# ---------------------------------------------------------------------------
+
+usage() {
+	cat <<'EOF'
+Set the category of the Jamf Pro policies listed in a CSV.
+
+Usage:
+  Set_Policy_Category.sh --csv <file> (--category-id <n> | --category-name <name> | --no-category) [options]
+
+Required:
+  --csv <file>             CSV of policy IDs. The policy ID is the first column.
+                           A header row, blank lines and lines beginning with #
+                           are skipped. Comma or tab separated.
+
+Exactly one of:
+  --category-id <n>        Category to assign, by Jamf Pro ID.
+  --category-name <name>   Category to assign, by name. Allowed characters:
+                           letters, digits, spaces, and & . _ - @ ( ). A name
+                           with a / in it must be given by --category-id.
+  --no-category            Clear the category ("No category assigned").
+
+The category is checked once, before any policy is touched, so a typo does not
+reassign part of the fleet to a category that does not exist.
+
+This sets the policy's own category, not its Self Service display categories.
+Those are a separate list with display_in and feature_in flags; this script
+leaves them alone.
+
+Options:
+  --apply                  Actually write. Without it, nothing is modified.
+  --confirm <token>        Required with --apply. The dry run prints the token.
+  --backup-dir <dir>       Where to write per-policy backups.
+                           Default: ./category-backups-YYYYmmdd-HHMMSS
+  --log <file>             Log file. Default: <backup-dir>/run.log
+  --delay <seconds>        Pause between policies. Default: 0
+  --include-non-self-service
+                           Also modify policies that are not Self Service
+                           policies. Off by default: this script exists for the
+                           Self Service workflow, and a CSV with a stray ID in
+                           it should not silently refile a background policy.
+  --help                   This text.
+
+Exit codes:
+  0  every policy in the CSV already had the category or was updated
+  1  at least one policy failed, or the run could not start: library
+     missing, no API token, or the backup directory not writable
+  2  nothing to do (no usable rows in the CSV)
+  3  usage error
+  130  interrupted by a signal; the token is revoked and nothing further is written
+EOF
+}
+
+log_line() {
+	# $1 = message. Goes to stdout and, once it exists, the log file.
+	local message="$1"
+	echo "$message"
+	if [[ -n "${log_file:-}" ]] && [[ -f "${log_file}" ]]; then
+		echo "$(date '+%Y-%m-%d %I:%M:%S %p') ${message}" >> "$log_file"
+	fi
+}
+
+# ---------------------------------------------------------------------------
+# Argument parsing
+# ---------------------------------------------------------------------------
+
+csv_file=""
+category_id=""
+category_name=""
+clear_category="no"
+apply_changes="no"
+confirm_token_supplied=""
+backup_dir=""
+log_file=""
+inter_policy_delay=0
+include_non_self_service="no"
+
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+		--csv)           csv_file="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
+		--category-id)   category_id="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
+		--category-name) category_name="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
+		--no-category)   clear_category="yes"; shift ;;
+		--apply)         apply_changes="yes"; shift ;;
+		--confirm)       confirm_token_supplied="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
+		--backup-dir)    backup_dir="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
+		--log)           log_file="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
+		--delay)         inter_policy_delay="${2:-}"; shift 2 || { echo "ERROR! $1 needs a value."; exit 3; } ;;
+		--include-non-self-service) include_non_self_service="yes"; shift ;;
+		--help|-h)       usage; exit 0 ;;
+		*)               echo "ERROR! Unknown argument: $1"; echo; usage; exit 3 ;;
+	esac
+done
+
+if [[ -z "$csv_file" ]]; then
+	echo "ERROR! --csv is required."; echo; usage; exit 3
+fi
+
+if [[ ! -f "$csv_file" ]]; then
+	echo "ERROR! CSV not found: $csv_file"; exit 3
+fi
+
+# Exactly one selector. Two would be ambiguous about which wins, and zero would
+# make the script a no-op that still looks like it ran.
+selector_count=0
+[[ -n "$category_id" ]]        && selector_count=$((selector_count + 1))
+[[ -n "$category_name" ]]      && selector_count=$((selector_count + 1))
+[[ "$clear_category" = "yes" ]] && selector_count=$((selector_count + 1))
+
+if [[ "$selector_count" -ne 1 ]]; then
+	echo "ERROR! Give exactly one of --category-id, --category-name or --no-category."
+	echo; usage; exit 3
+fi
+
+# Same ''|*[!0-9]* integer test as --delay below. The ID goes into a URL path
+# and into the XML payload unquoted, so anything but digits is rejected here.
+if [[ -n "$category_id" ]]; then
+	case "$category_id" in
+		''|*[!0-9]*) echo "ERROR! --category-id must be a number: $category_id"; exit 3 ;;
+	esac
+fi
+
+# The name goes into XML. An ampersand is common in Jamf category names
+# ("Apps & Utilities") and is escaped below rather than rejected; quotes and
+# angle brackets are rejected because no escaping scheme makes them safe here.
+if [[ -n "$category_name" ]]; then
+	if ! echo "$category_name" | grep -Eq '^[A-Za-z0-9 &._@()-]+$'; then
+		echo "ERROR! --category-name may contain only letters, digits, spaces and & . _ - @ ( )"
+		echo "       Got: $category_name"
+		# A slash is legal in a Jamf category name but not in the
+		# /JSSResource/categories/name/{name} URL the preflight uses: Tomcat
+		# rejects an encoded slash in a path, and a raw one changes the route.
+		# The ID form has no such problem.
+		case "$category_name" in
+			*/*) echo "       A name containing / cannot be looked up by name; pass --category-id instead." ;;
+		esac
+		exit 3
+	fi
+fi
+
+# ''|*[!0-9]* rejects the empty string and anything containing a non-digit:
+# the portable bash 3.2 integer test.
+case "$inter_policy_delay" in
+	''|*[!0-9]*) echo "ERROR! --delay must be a whole number of seconds."; exit 3 ;;
+esac
+
+if [[ -z "$backup_dir" ]]; then
+	backup_dir="./category-backups-$(date '+%Y%m%d-%H%M%S')"
+fi
+
+# ---------------------------------------------------------------------------
+# Credentials
+# ---------------------------------------------------------------------------
+
+# Fills jamfpro_url, jamfpro_client_id and jamfpro_client_secret from, in
+# order: a value already exported by the caller, the com.github.jamfpro-info
+# preference file, the JAMF_PRO_URL / JAMF_PRO_CLIENT_ID /
+# JAMF_PRO_CLIENT_SECRET environment variables, or an interactive prompt.
+# Blocks on a TTY when nothing is set, so unattended runs need the
+# preference file or the environment. See the library.
+ResolveJamfProCredentials
+
+# ---------------------------------------------------------------------------
+# The category being assigned
+# ---------------------------------------------------------------------------
+
+# XML-escape the name for the payload. & last would be wrong here -- it has to
+# be first, or the ampersands introduced by the other substitutions get escaped
+# a second time.
+category_name_xml=$(echo "$category_name" | sed -e 's|&|\&amp;|g' -e 's|<|\&lt;|g' -e 's|>|\&gt;|g')
+
+if [[ "$clear_category" = "yes" ]]; then
+	# Jamf Pro represents "no category" as ID -1.
+	new_category_node="<category><id>-1</id></category>"
+	category_label="No category assigned"
+	match_kind="id"
+	match_value="-1"
+elif [[ -n "$category_id" ]]; then
+	new_category_node="<category><id>${category_id}</id></category>"
+	category_label="ID ${category_id}"
+	match_kind="id"
+	match_value="$category_id"
+else
+	new_category_node="<category><name>${category_name_xml}</name></category>"
+	category_label="${category_name}"
+	match_kind="name"
+	match_value="$category_name"
+fi
+
+# Confirm the category exists before touching any policy. One API call spent
+# here is worth more than a partial run that refiled half the fleet under a
+# category that was a typo.
+#
+# No arguments; reads clear_category, category_id, category_name and
+# category_label. Exits 1 on any status other than 200, so a missing Read
+# Categories privilege also stops the run here rather than on the first
+# policy.
+PreflightCategory() {
+
+	local http_code
+	local endpoint
+
+	# --no-category skips the check: ID -1 always exists.
+	if [[ "$clear_category" = "yes" ]]; then
+		return 0
+	fi
+
+	if [[ -n "$category_id" ]]; then
+		endpoint="${jamfpro_url}/JSSResource/categories/id/${category_id}"
+	else
+		# The name goes in a URL path. Space is the only character the allowed
+		# set contains that must be encoded.
+		endpoint="${jamfpro_url}/JSSResource/categories/name/${category_name// /%20}"
+	fi
+
+	CheckAndRenewAPIToken
+
+	http_code=$(/usr/bin/curl -s "${curl_timeouts[@]}" \
+	    --write-out "%{http_code}" --output /dev/null \
+	    --header "Authorization: Bearer ${api_token}" \
+	    -H "Accept: application/xml" \
+	    "$endpoint")
+
+	if [[ "$http_code" != "200" ]]; then
+		echo "ERROR! Category ${category_label} not found in Jamf Pro (HTTP ${http_code})."
+		echo "       Nothing has been modified. Check the category in"
+		echo "       Settings > Global > Categories, or the API role's Read Categories privilege."
+		exit 1
+	fi
+
+}
+
+# ---------------------------------------------------------------------------
+# Per-policy work
+# ---------------------------------------------------------------------------
+
+policies_total=0
+policies_updated=0
+policies_already=0
+policies_skipped=0
+policies_failed=0
+
+# Processes one policy end to end: GET, guard checks, edit, backup, dry-run
+# or PUT, read-back. Arguments: $1 policy ID, plus the kind and value in the
+# scripts that take more than one selector. Prints nothing itself; every
+# outcome goes through log_line. Increments exactly one of policies_updated,
+# policies_already, policies_skipped or policies_failed, writes
+# policy-<id>-before.xml and policy-<id>-payload.xml into backup_dir, and
+# never exits -- a failure on one policy must not stop the run.
+ProcessPolicy() {
+
+	local policy_id="$1"
+	local policy_xml
+	local http_code
+	local self_service_flag
+	local policy_name
+	local current
+	local current_id
+	local current_name
+	local formatted_xml
+	local general_xml
+	local new_general
+	local payload
+	local verify_xml
+	local verify
+	local verify_id
+	local verify_name
+
+	# GET the whole policy. FetchPolicyXML (library) accepts only an HTTP 200
+	# whose body parses as XML, so a 404, a 401 after a token hiccup, or a
+	# proxy's HTML error page cannot reach the counting below -- xmllint
+	# scores a count over garbage as 0, and 0 is what the Remove_ scripts read
+	# as "already gone". On failure it prints the reason instead of a body.
+	# The token is renewed here, not inside the helper: $( ) is a subshell.
+	CheckAndRenewAPIToken
+	if ! policy_xml=$(FetchPolicyXML "$policy_id"); then
+		log_line "FAILED   ${policy_id}: ${policy_xml}"
+		policies_failed=$((policies_failed + 1))
+		return
+	fi
+
+	# Entity-decoded for the log: a policy named "Foo & Bar" reads as such.
+	policy_name=$(GetPolicyName "$policy_xml")
+	self_service_flag=$(echo "$policy_xml" | xmllint --xpath '/policy/self_service/use_for_self_service/text()' - 2>/dev/null)
+
+	if [[ "$include_non_self_service" = "no" ]] && [[ "$self_service_flag" != "true" ]]; then
+		log_line "SKIPPED  ${policy_id} (${policy_name}): not a Self Service policy. --include-non-self-service overrides."
+		policies_skipped=$((policies_skipped + 1))
+		return
+	fi
+
+	# Split GetPolicyCategory's "id|name" pair.
+	current=$(GetPolicyCategory "$policy_xml")
+	current_id=${current%%|*}
+	current_name=${current#*|}
+
+	# Compare on whichever key the operator gave. When the category was
+	# named, its ID is unknown until read-back (the preflight discards the
+	# body), so the name is the only thing there is to match.
+	if [[ "$match_kind" = "id" ]] && [[ "$current_id" = "$match_value" ]]; then
+		log_line "ALREADY  ${policy_id} (${policy_name}): already ${category_label}, nothing to do."
+		policies_already=$((policies_already + 1))
+		return
+	fi
+
+	if [[ "$match_kind" = "name" ]] && [[ "$current_name" = "$match_value" ]]; then
+		log_line "ALREADY  ${policy_id} (${policy_name}): already ${category_label}, nothing to do."
+		policies_already=$((policies_already + 1))
+		return
+	fi
+
+	# Normalise before line-oriented editing. The API's own formatting is not
+	# guaranteed, and the awk replacement is line-based.
+	formatted_xml=$(echo "$policy_xml" | xmllint --format - 2>/dev/null)
+	if [[ -z "$formatted_xml" ]]; then
+		log_line "FAILED   ${policy_id} (${policy_name}): response did not parse as XML."
+		policies_failed=$((policies_failed + 1))
+		return
+	fi
+
+	# Send the complete <general> element, byte-identical except for the
+	# category. Jamf Pro's Classic API replaces the content of any element a
+	# request supplies, so a PUT carrying a bare <general><category> could drop
+	# the policy's name, trigger and every other general setting.
+	general_xml=$(echo "$formatted_xml" | awk '/^[[:space:]]*<general>[[:space:]]*$/,/^[[:space:]]*<\/general>[[:space:]]*$/')
+	if [[ -z "$general_xml" ]]; then
+		log_line "FAILED   ${policy_id} (${policy_name}): no <general> element in the policy."
+		policies_failed=$((policies_failed + 1))
+		return
+	fi
+
+	# The if tests the substitution's status, which is the library function's
+	# exit code, so a node that could not be placed is caught here, not later.
+	if ! new_general=$(ReplaceElementInSection "$general_xml" general category "$new_category_node") ||
+	   [[ -z "$new_general" ]]; then
+		log_line "FAILED   ${policy_id} (${policy_name}): could not place the category in <general>."
+		policies_failed=$((policies_failed + 1))
+		return
+	fi
+
+	payload="<?xml version=\"1.0\" encoding=\"UTF-8\"?><policy>${new_general}</policy>"
+
+	# The payload must survive a parse before it is sent anywhere.
+	if ! echo "$payload" | xmllint --noout - 2>/dev/null; then
+		log_line "FAILED   ${policy_id} (${policy_name}): generated payload is not well-formed XML."
+		policies_failed=$((policies_failed + 1))
+		return
+	fi
+
+	# The "before" file is written once per policy per run. The scope scripts
+	# call this function more than once for the same policy when several values
+	# are on the command line, and the second pass must not overwrite the
+	# pre-run state with the state after the first PUT -- that would make the
+	# first change unrecoverable from the backup. The payload file is the last
+	# payload sent, which is the one a failed read-back refers to.
+	if [[ ! -e "${backup_dir}/policy-${policy_id}-before.xml" ]]; then
+		echo "$formatted_xml" > "${backup_dir}/policy-${policy_id}-before.xml"
+	fi
+	echo "$payload"       > "${backup_dir}/policy-${policy_id}-payload.xml"
+
+	if [[ "$apply_changes" != "yes" ]]; then
+		log_line "WOULD SET ${policy_id} (${policy_name}): ${current_name:-none} -> ${category_label}"
+		policies_updated=$((policies_updated + 1))
+		return
+	fi
+
+	CheckAndRenewAPIToken
+
+	# PutPolicyXML (library) sends the payload and prints the HTTP status. It
+	# retries a 429 (honouring Retry-After) or a curl transport failure up to
+	# three times; the payload is a complete element, so a repeat is harmless.
+	# It runs in $( ), which is why the token was renewed above, not inside.
+	http_code=$(PutPolicyXML "$policy_id" "$payload")
+
+	# The Classic API answers a successful PUT with 201 Created; 200 is
+	# accepted as well in case a proxy or a later version normalises it. The
+	# status is not success -- the read-back below is.
+	if [[ "$http_code" != "201" ]] && [[ "$http_code" != "200" ]]; then
+		log_line "FAILED   ${policy_id} (${policy_name}): PUT returned HTTP ${http_code}$(DescribeHTTPStatus "$http_code")"
+		policies_failed=$((policies_failed + 1))
+		return
+	fi
+
+	# Read back. An accepted PUT is not proof the value landed.
+	CheckAndRenewAPIToken
+	if ! verify_xml=$(FetchPolicyXML "$policy_id"); then
+		# The PUT may well have landed; what failed is proving it. Fail closed
+		# rather than count from an empty or non-XML body: xmllint scores that
+		# as 0, and 0 is exactly what a removal or a clear reads as success.
+		# On failure verify_xml holds the helper's one-line reason.
+		log_line "FAILED   ${policy_id} (${policy_name}): PUT returned ${http_code} but the read-back failed: ${verify_xml}"
+		log_line "         Check the policy in Jamf Pro before restoring. Backup: ${backup_dir}/policy-${policy_id}-before.xml"
+		policies_failed=$((policies_failed + 1))
+		return
+	fi
+
+	# Split GetPolicyCategory's "id|name" pair.
+	verify=$(GetPolicyCategory "$verify_xml")
+	verify_id=${verify%%|*}
+	verify_name=${verify#*|}
+
+	# Same key as the ALREADY check: ID when set by ID, name when set by
+	# name.
+	if { [[ "$match_kind" = "id" ]] && [[ "$verify_id" = "$match_value" ]]; } ||
+	   { [[ "$match_kind" = "name" ]] && [[ "$verify_name" = "$match_value" ]]; }; then
+		log_line "UPDATED  ${policy_id} (${policy_name}): ${current_name:-none} -> ${verify_name:-none}"
+		policies_updated=$((policies_updated + 1))
+	else
+		log_line "FAILED   ${policy_id} (${policy_name}): PUT returned ${http_code} but the category reads back as ${verify_name:-none} (id ${verify_id:-none})."
+		# The restore command needs a Bearer token: Basic auth stopped working
+		# for anything but minting a token in Jamf Pro 11.17, so a bare curl
+		# would answer 401. Timeouts are included for the same reason every
+		# curl in this directory carries them.
+		log_line "         Restore with: curl --connect-timeout 15 --max-time 30 -X PUT -H \"Authorization: Bearer \$TOKEN\" -H \"Content-Type: application/xml\" --data-binary @${backup_dir}/policy-${policy_id}-before.xml \"${jamfpro_url}/JSSResource/policies/id/${policy_id}\""
+		log_line "         where TOKEN is an access token from POST ${jamfpro_url}/api/v1/oauth/token (grant_type=client_credentials)."
+		policies_failed=$((policies_failed + 1))
+	fi
+
+}
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+policy_ids=$(ReadPolicyIDsFromCSV "$csv_file")
+
+if [[ -z "$policy_ids" ]]; then
+	echo "ERROR! No policy IDs found in ${csv_file}."
+	echo "       Expected the policy ID in the first column."
+	exit 2
+fi
+
+# Count lines. The list is newline separated with no trailing blank, and
+# grep -c ^ counts every line where wc -l would need trimming.
+policies_total=$(echo "$policy_ids" | grep -c ^)
+
+# The confirmation token is derived from the run, so it cannot be guessed ahead
+# of a dry run, reused against a different CSV or a different category, or
+# pasted in from one of the scope scripts.
+confirm_token="SET-CATEGORY-${policies_total}-${category_label}"
+# Collapse the label to one paste-safe shell word: spaces become _, everything
+# outside [A-Za-z0-9_-] is dropped.
+confirm_token=$(echo "$confirm_token" | tr ' ' '_' | tr -cd 'A-Za-z0-9_-')
+
+if [[ "$apply_changes" = "yes" ]] && [[ "$confirm_token_supplied" != "$confirm_token" ]]; then
+	echo "ERROR! --apply needs a matching --confirm token."
+	echo "       Expected: --confirm ${confirm_token}"
+	if [[ -n "$confirm_token_supplied" ]]; then
+		echo "       Got:      --confirm ${confirm_token_supplied}"
+	fi
+	exit 3
+fi
+
+# Traps first, then the token, then anything on disk.
+#
+# The EXIT trap (0) revokes whatever token was issued, however the script ends.
+# The signal traps must exit explicitly: a handler that only revoked the token
+# would let the per-policy loop resume after Ctrl-C, mint a fresh token on the
+# next CheckAndRenewAPIToken, and keep writing to the remaining policies. exit
+# fires the EXIT trap, so the token is still revoked. 130 is the conventional
+# status for a run ended by a signal.
+trap 'InvalidateAPIToken' 0
+trap 'exit 130' 1 2 3 15
+
+# Authenticate before creating the backup directory, so a wrong URL or secret
+# does not leave an empty backup directory and log behind for every attempt.
+GetJamfProAPIToken
+
+# Fatal before any policy is touched; the token is revoked by the EXIT trap.
+mkdir -p "$backup_dir" || { echo "ERROR! Cannot create backup directory: $backup_dir"; exit 1; }
+
+# Every log_line also lands in run.log inside the backup directory unless
+# --log pointed somewhere else. The file is truncated here so log_line, which
+# only appends once the file exists, starts writing from the next call.
+if [[ -z "$log_file" ]]; then
+	log_file="${backup_dir}/run.log"
+fi
+: > "$log_file"
+# The preflight needs a token, so it runs here. It reports with echo and exits
+# before the run header, so a bad category leaves an empty run.log behind in
+# the backup directory.
+PreflightCategory
+
+log_line "Set_Policy_Category.sh ${SCRIPT_VERSION}"
+log_line "Jamf Pro:   ${jamfpro_url}"
+log_line "CSV:        ${csv_file} (${policies_total} policy IDs)"
+log_line "Category:   ${category_label}"
+log_line "Backups:    ${backup_dir}"
+if [[ "$apply_changes" = "yes" ]]; then
+	log_line "Mode:       APPLY -- policies will be modified"
+else
+	log_line "Mode:       DRY RUN -- nothing will be modified"
+fi
+log_line ""
+
+# policy_ids is newline separated; the unquoted expansion is the intended
+# word split (bash 3.2 has no readarray).
+for policy_id in ${policy_ids}; do
+
+	ProcessPolicy "$policy_id"
+
+	if [[ "$inter_policy_delay" -gt 0 ]]; then
+		sleep "$inter_policy_delay"
+	fi
+
+done
+
+log_line ""
+if [[ "$apply_changes" = "yes" ]]; then
+	log_line "Updated:          ${policies_updated}"
+else
+	log_line "Would update:     ${policies_updated}"
+fi
+log_line "Already set:      ${policies_already}"
+log_line "Skipped:          ${policies_skipped}"
+log_line "Failed:           ${policies_failed}"
+log_line "Backups and log:  ${backup_dir}"
+
+if [[ "$apply_changes" != "yes" ]] && [[ "$policies_updated" -gt 0 ]]; then
+	log_line ""
+	log_line "To apply, re-run with --apply --confirm ${confirm_token}"
+fi
+
+if [[ "$policies_failed" -gt 0 ]]; then
+	exitCode=1
+fi
+
+InvalidateAPIToken
+
+exit $exitCode
